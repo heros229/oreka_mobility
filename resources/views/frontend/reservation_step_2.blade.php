@@ -40,12 +40,12 @@
         <div class="container">
             <div class="row align-items-center text-center">
                 <div class="col-md-12 col-12">
-                    <h2 class="breadcrumb-title">Checkout</h2>
+                    <h2 class="breadcrumb-title">Panier</h2>
                     <nav aria-label="breadcrumb" class="page-breadcrumb">
                         <ol class="breadcrumb">
-                            <li class=""><a href="{{ route('accueil') }}">Home</a></li>
+                            <li class=""><a href="{{ route('accueil') }}">Accueil</a></li>
                             <span style="color: white">&nbsp; /&nbsp; </span>
-                            <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+                            <li class="breadcrumb-item active" aria-current="page">Panier</li>
                         </ol>
                     </nav>
                 </div>
@@ -69,21 +69,21 @@
                         <div class="booking-wizard-lists">
                             <ul>
                                 <li class="active activated">
-                    <span>
-                        <img src="{{ asset('assets/img/icons/booking-head-icon-01.svg')}}" alt="Étape 1">
-                    </span>
+                                    <span>
+                                        <img src="{{ asset('assets/img/icons/booking-head-icon-01.svg')}}" alt="Étape 1">
+                                    </span>
                                     <h6>Information & Date</h6>
                                 </li>
                                 <li class="active">
-                    <span>
-                        <img src="{{ asset('assets/img/icons/booking-head-icon-02.svg')}}" alt="Étape 2">
-                    </span>
+                                    <span>
+                                        <img src="{{ asset('assets/img/icons/booking-head-icon-02.svg')}}" alt="Étape 2">
+                                    </span>
                                     <h6>Choix de la formule</h6>
                                 </li>
                                 <li>
-                    <span>
-                        <img src="{{ asset('assets/img/icons/booking-head-icon-05.svg')}}" alt="Étape 3">
-                    </span>
+                                    <span>
+                                        <img src="{{ asset('assets/img/icons/booking-head-icon-05.svg')}}" alt="Étape 3">
+                                    </span>
                                     <h6>Confirmation</h6>
                                 </li>
                             </ul>
@@ -319,10 +319,7 @@
                                     </div>
                                 </div>
 
-                                <div class="booking-info-btns d-flex justify-content-end">
-                                    <a href="{{ route('reservation_step_1') }}" class="btn btn-secondary">Retour</a>
-                                    <button class="btn btn-primary continue-book-btn" type="button">Continue</button>
-                                </div>
+
 
                         </div>
                     </div>
@@ -380,6 +377,12 @@
                                     <span id="total-price">0 FCFA</span>
                                 </div>
                             </div>
+
+                            <div class="booking-info-btns d-flex justify-content-end">
+                                <a href="{{ route('reservation_step_1') }}" class="btn btn-secondary">Retour</a>
+                                <button class="btn btn-primary continue-book-btn" type="button">Continue</button>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -552,7 +555,25 @@
                 e.preventDefault();
                 e.stopPropagation();
 
+                if (selectedServices.length === 0) {
+                    alert('Veuillez sélectionner au moins un service avant de continuer.');
+                    return;
+                }
+
                 const step1Data = JSON.parse(localStorage.getItem('reservationStep1') || '{}');
+                const totalAmount = selectedServices.reduce((sum, service) => sum + service.price, 0);
+
+                // ✅ Sauvegarder les services sélectionnés dans localStorage
+                const step2Data = {
+                    services: selectedServices.map(s => ({
+                        name: s.name,
+                        price: s.price
+                    })),
+                    totalAmount: totalAmount,
+                    savedAt: new Date().toISOString()
+                };
+                localStorage.setItem('reservationStep2', JSON.stringify(step2Data));
+
                 const allData = {
                     firstName: step1Data.firstName,
                     lastName: step1Data.lastName,
@@ -561,10 +582,10 @@
                     additionalInfo: step1Data.additionalInfo,
                     startDate: step1Data.startDate,
                     selectedServices: selectedServices,
-                    totalAmount: selectedServices.reduce((sum, service) => sum + service.price, 0)
+                    totalAmount: totalAmount
                 };
 
-                // Afficher un loader (optionnel)
+                // Afficher un loader
                 this.innerHTML = '<i class="bx bx-loader-alt bx-spin me-2"></i>Traitement...';
                 this.disabled = true;
 

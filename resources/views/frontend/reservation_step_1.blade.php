@@ -69,21 +69,21 @@
                         <div class="booking-wizard-lists">
                             <ul>
                                 <li class="active">
-                    <span>
-                        <img src="{{ asset('assets/img/icons/booking-head-icon-01.svg')}}" alt="Étape 1">
-                    </span>
+                                    <span>
+                                        <img src="{{ asset('assets/img/icons/booking-head-icon-01.svg')}}" alt="Étape 1">
+                                    </span>
                                     <h6>Information & Date</h6>
                                 </li>
                                 <li>
-                    <span>
-                        <img src="{{ asset('assets/img/icons/booking-head-icon-02.svg')}}" alt="Étape 2">
-                    </span>
+                                    <span>
+                                        <img src="{{ asset('assets/img/icons/booking-head-icon-02.svg')}}" alt="Étape 2">
+                                    </span>
                                     <h6>Choix de la formule</h6>
                                 </li>
                                 <li>
-                    <span>
-                        <img src="{{ asset('assets/img/icons/booking-head-icon-05.svg')}}" alt="Étape 3">
-                    </span>
+                                    <span>
+                                        <img src="{{ asset('assets/img/icons/booking-head-icon-05.svg')}}" alt="Étape 3">
+                                    </span>
                                     <h6>Confirmation</h6>
                                 </li>
                             </ul>

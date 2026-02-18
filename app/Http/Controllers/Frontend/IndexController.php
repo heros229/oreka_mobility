@@ -3,28 +3,35 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ReservationConfirmationMail;
 use App\Models\Newsletter;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class IndexController extends Controller
 {
     //
 
-    public function index() {
+    public function index()
+    {
 
         return view('frontend.index');
 
     } // end method
 
-    public function Reservation_step_1() {
+    public function Reservation_step_1()
+    {
 
         return view('frontend.reservation_step_1');
 
     } // end method
 
-    public function Reservation_step_2() {
+    public function Reservation_step_2()
+    {
 
         return view('frontend.reservation_step_2');
 
@@ -39,6 +46,22 @@ class IndexController extends Controller
         \FedaPay\FedaPay::setEnvironment(env('FEDAPAY_ENVIRONMENT', 'sandbox'));
 
         try {
+            // Sauvegarder les donnees en session pour le callback
+            session([
+                'reservation_step1' => [
+                    'firstName' => $data['firstName'] ?? '',
+                    'lastName' => $data['lastName'] ?? '',
+                    'email' => $data['email'] ?? '',
+                    'phone' => $data['phone'] ?? '',
+                    'additionalInfo' => $data['additionalInfo'] ?? '',
+                    'startDate' => $data['startDate'] ?? '',
+                ],
+                'reservation_step2' => [
+                    'services' => $data['selectedServices'] ?? [],
+                    'totalAmount' => $data['totalAmount'] ?? 0,
+                ],
+            ]);
+
             // Formater le téléphone pour le Bénin (commence par +22901)
             $phone = $data['phone'];
 
@@ -86,8 +109,9 @@ class IndexController extends Controller
                 'transaction_id' => $transaction->id
             ]);
 
-        } catch (\Exception $e) {
-            \Log::error('FedaPay Error: ' . $e->getMessage());
+        }
+        catch (\Exception $e) {
+            Log::error('FedaPay Error: ' . $e->getMessage());
 
             return response()->json([
                 'success' => false,
@@ -101,38 +125,87 @@ class IndexController extends Controller
         \FedaPay\FedaPay::setApiKey(env('FEDAPAY_API_KEY'));
         \FedaPay\FedaPay::setEnvironment(env('FEDAPAY_ENVIRONMENT', 'sandbox'));
 
-        $transactionId = $request->id; // FedaPay renvoie l'ID
+        $transactionId = $request->id;
 
         try {
-            // Récupérer la transaction
             $transaction = \FedaPay\Transaction::retrieve($transactionId);
 
             if ($transaction->status === 'approved') {
-                // Paiement réussi
+
+                // Recuperer les donnees de session sauvegardees a l'etape 3
+                $step1 = session('reservation_step1', []);
+                $step2 = session('reservation_step2', []);
+
+                // Construire les donnees client
+                $firstName = $step1['firstName'] ?? '';
+                $lastName = $step1['lastName'] ?? '';
+                $clientName = trim("$firstName $lastName") ?: ($transaction->customer->firstname . ' ' . $transaction->customer->lastname);
+                $clientEmail = $step1['email'] ?? ($transaction->customer->email ?? '');
+                $clientPhone = $step1['phone'] ?? '';
+                $startDate = $step1['startDate'] ?? '';
+
+                // Construire les items
+                $services = $step2['services'] ?? [];
+                $items = array_map(function ($s) {
+                    return [
+                    'description' => $s['name'] ?? 'Service',
+                    'amount' => intval($s['price'] ?? 0),
+                    ];
+                }, $services);
+                $total = intval($step2['totalAmount'] ?? array_sum(array_column($items, 'amount')));
+
+                // Generer le PDF en memoire
+                $pdfContent = \Barryvdh\DomPDF\Facade\Pdf::loadView('frontend.pdfs.invoice', [
+                    'transactionID' => $transactionId,
+                    'client_name' => $clientName,
+                    'client_email' => $clientEmail,
+                    'client_phone' => $clientPhone,
+                    'start_date' => $startDate,
+                    'items' => $items,
+                    'total' => $total,
+                ])->setPaper('a5', 'landscape')->output();
+
+                // Envoyer l'email avec le PDF en piece jointe
+                if (!empty($clientEmail)) {
+                    try {
+                        Mail::to($clientEmail)->send(new ReservationConfirmationMail(
+                            $clientName,
+                            $clientEmail,
+                            $clientPhone,
+                            $startDate,
+                            (string)$transactionId,
+                            $items,
+                            $total,
+                            $pdfContent
+                            ));
+                    }
+                    catch (\Exception $mailException) {
+                        \Log::error('Mail Error: ' . $mailException->getMessage());
+                    // On ne bloque pas la page si l'email echoue
+                    }
+                }
+
                 return view('frontend.reservation_success', compact('transaction'));
-            } else {
-                // Paiement échoué
+            }
+            else {
                 return view('frontend.reservation_failed', compact('transaction'));
             }
 
-        } catch (\Exception $e) {
-            return redirect()->route('accueil')->with('error', 'Erreur de vérification');
+        }
+        catch (\Exception $e) {
+            return redirect()->route('accueil')->with('error', 'Erreur de verification');
         }
     } // end method
 
     public function Newsletter(Request $request)
     {
 
-
-
-
-            // Valider l'e-mail
-            $request->validate([
-                'email' => 'required|email|unique:newsletters,email',
-            ], [
-                'email.unique' => 'Cet e-mail est déjà inscrit à notre newsletter.',
-            ]);
-
+        // Valider l'e-mail
+        $request->validate([
+            'email' => 'required|email|unique:newsletters,email',
+        ], [
+            'email.unique' => 'Cet e-mail est déjà inscrit à notre newsletter.',
+        ]);
 
         // Enregistrer l'e-mail dans la base de données
         Newsletter::insert([
@@ -140,12 +213,55 @@ class IndexController extends Controller
             'created_at' => Carbon::now(),
         ]);
 
+        // Retourner un message de succès
+        return response()->json([
+            'newsletter_success' => "Merci de vous être inscrit à notre newsletter ! Vous recevrez bientôt nos dernières mises à jour et offres exclusives directement dans votre boîte mail.",
+        ]);
+
+    }
+
+    public function downloadReservation(Request $request)
+    {
+        // Récupérer les données envoyées depuis le localStorage via le formulaire
+        $step1 = json_decode($request->input('step1_data', '{}'), true) ?? [];
+        $step2 = json_decode($request->input('step2_data', '{}'), true) ?? [];
+        $transactionId = $request->input('transaction_id', 'N/A');
+
+        // Construire le nom complet du client
+        $firstName = $step1['firstName'] ?? '';
+        $lastName = $step1['lastName'] ?? '';
+        $clientName = trim("$firstName $lastName") ?: 'Client inconnu';
+
+        // Construire la liste des services (items de la facture)
+        $services = $step2['services'] ?? [];
+        $items = array_map(function ($service) {
+            return [
+            'description' => $service['name'] ?? 'Service',
+            'amount' => intval($service['price'] ?? 0),
+            ];
+        }, $services);
+
+        // Total
+        $total = $step2['totalAmount'] ?? array_sum(array_column($items, 'amount'));
 
 
-            // Retourner un message de succès
-            return response()->json([
-                'newsletter_success' => "Merci de vous être inscrit à notre newsletter ! Vous recevrez bientôt nos dernières mises à jour et offres exclusives directement dans votre boîte mail.",
-            ]);
+        // Données supplémentaires du client
+        $clientEmail = $step1['email'] ?? '';
+        $clientPhone = $step1['phone'] ?? '';
+        $startDate = $step1['startDate'] ?? '';
 
+        // Générer le PDF
+        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('frontend.pdfs.invoice', [
+            'transactionID' => $transactionId,
+            'client_name' => $clientName,
+            'client_email' => $clientEmail,
+            'client_phone' => $clientPhone,
+            'start_date' => $startDate,
+            'items' => $items,
+            'total' => $total,
+
+        ])->setPaper('a5', 'landscape');
+
+        return $pdf->download("reservation-oreka-{$transactionId}.pdf");
     }
 }

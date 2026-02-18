@@ -274,7 +274,7 @@
                 </p>
                 <div class="sec-btns">
                     <a href="{{ route('reservation_step_1') }}" class="btn btn-dark-blue">Réserver maintenant</a>
-                    <a href="#" class="btn btn-primary d-flex align-items-center">
+                    <a href="{{ route('reservation_step_1') }}" class="btn btn-primary d-flex align-items-center">
                         <i class="bx bx-cycling me-2"></i>Voir les détails
                     </a>
                 </div>
@@ -500,7 +500,7 @@
                                 <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>3h = 3500F + 30min offert</li>
                                 <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Temps bonus inclus</li>
                             </ul>
-                            <a href="login.html" class="btn viewdetails-btn">Louer</a>
+                            <a href="{{ route('reservation_step_1') }}" class="btn viewdetails-btn">Louer</a>
                         </div>
                     </div>
                 </div>
@@ -525,7 +525,7 @@
                                 <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Tous les samedis matin</li>
                                 <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Ambiance conviviale</li>
                             </ul>
-                            <a href="login.html" class="btn viewdetails-btn btn-popular">Inscription</a>
+                            <a href="{{ route('reservation_step_1') }}" class="btn viewdetails-btn btn-popular">Inscription</a>
                         </div>
                     </div>
                 </div>
@@ -551,7 +551,7 @@
                                 <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>10 places disponibles</li>
                                 <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Samedis matin</li>
                             </ul>
-                            <a href="login.html" class="btn viewdetails-btn">Réserver</a>
+                            <a href="{{ route('reservation_step_1') }}" class="btn viewdetails-btn">Réserver</a>
                         </div>
                     </div>
                 </div>

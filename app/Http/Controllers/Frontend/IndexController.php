@@ -264,4 +264,45 @@ class IndexController extends Controller
 
         return $pdf->download("reservation-oreka-{$transactionId}.pdf");
     }
+
+    public function contact() {
+
+        return view('frontend.contact');
+    }
+
+    public function placedelamazone() {
+
+        return view('frontend.parcours.amazone');
+
+    }
+
+    public function monumentdevoue() {
+
+        return view('frontend.parcours.monument_devoue');
+
+    }
+
+    public function murdupatrimoine() {
+
+        return view('frontend.parcours.mur_du_patrimoine');
+
+    }
+
+    public function placebioguerra() {
+
+        return view('frontend.parcours.place_bio_guerra');
+
+    }
+
+    public function routepeche() {
+
+        return view('frontend.parcours.route_peche');
+
+    }
+
+    public function sofitel() {
+        return view('frontend.parcours.sofitel');
+    }
+
+
 }

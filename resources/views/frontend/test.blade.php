@@ -19,18 +19,6 @@
     <!-- Select2 CSS -->
     <link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css">
 
-    <!-- Datepicker CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
-
-    <!-- Rangeslider CSS -->
-    <link rel="stylesheet" href="assets/plugins/ion-rangeslider/css/ion.rangeSlider.min.css">
-
-    <!-- Owl carousel CSS -->
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-
-    <!-- Boxicons CSS -->
-    <link rel="stylesheet" href="assets/plugins/boxicons/css/boxicons.min.css">
-
     <!-- Aos CSS -->
     <link rel="stylesheet" href="assets/plugins/aos/aos.css">
 
@@ -141,7 +129,7 @@
                                 <li><a href="listing-details.html">Listing Details</a></li>
                             </ul>
                         </li>
-                        <li class="has-submenu active">
+                        <li class="has-submenu">
                             <a href="#">Pages <i class="fas fa-chevron-down"></i></a>
                             <ul class="submenu">
                                 <li ><a href="about-us.html">About Us</a></li>
@@ -155,10 +143,10 @@
                                         <li><a href="reset-password.html">Reset Password</a></li>
                                     </ul>
                                 </li>
-                                <li class="has-submenu active">
+                                <li class="has-submenu">
                                     <a href="javascript:void(0);">Booking</a>
                                     <ul class="submenu">
-                                        <li class="active"><a href="booking-checkout.html">Booking Checkout</a></li>
+                                        <li><a href="booking-checkout.html">Booking Checkout</a></li>
                                         <li><a href="booking.html">Booking</a></li>
                                         <li><a href="invoice-details.html">Invoice Details</a></li>
                                     </ul>
@@ -181,12 +169,12 @@
                                 <li><a href="coming-soon.html">Coming Soon</a></li>
                             </ul>
                         </li>
-                        <li class="has-submenu">
+                        <li class="has-submenu active">
                             <a href="#">Blog <i class="fas fa-chevron-down"></i></a>
                             <ul class="submenu">
                                 <li><a href="blog-list.html">Blog List</a></li>
                                 <li><a href="blog-grid.html">Blog Grid</a></li>
-                                <li><a href="blog-details.html">Blog Details</a></li>
+                                <li class="active"><a href="blog-details.html">Blog Details</a></li>
                             </ul>
                         </li>
                         <li class="has-submenu">
@@ -245,295 +233,191 @@
     <!-- /Header -->
 
     <!-- Breadscrumb Section -->
-    <div class="breadcrumb-bar">
-        <div class="container">
-            <div class="row align-items-center text-center">
-                <div class="col-md-12 col-12">
-                    <h2 class="breadcrumb-title">Checkout</h2>
-                    <nav aria-label="breadcrumb" class="page-breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Checkout</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
+    <div class="blogbanner">
+        <div class="blogbanner-content">
+            <span class="blog-hint">Health</span>
+            <h1>The Top 25 Bike Stores in Toronto by Neighbourhood</h1>
+            <ul class="entry-meta meta-item justify-content-center">
+                <li>
+                    <div class="post-author">
+                        <div class="post-author-img">
+                            <img src="assets/img/profiles/avatar-01.jpg" alt="author">
+                        </div>
+                        <a href="javascript:void(0)"><span> John Doe </span></a>
+                    </div>
+                </li>
+                <li class="date-icon"><i class="fa-solid fa-calendar-days"></i> October 6, 2022</li>
+            </ul>
         </div>
     </div>
     <!-- /Breadscrumb Section -->
 
-    <!-- Booking Success -->
-    <div class="booking-new-module">
+    <!-- Blog Grid-->
+    <div class="blog-section">
         <div class="container">
-            <div class="booking-wizard-head">
-                <div class="row align-items-center">
-                    <div class="col-xl-4 col-lg-3">
-                        <div class="booking-head-title">
-                            <h4>Reserve Your Car</h4>
-                            <p>Complete the following steps</p>
+            <div class="blog-description">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula sapien nec nisi aliquam, vitae finibus purus sodales. Mauris at turpis nulla. Curabitur nec tellus est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum pharetra arcu ac arcu varius, non congue neque aliquet. Pellentesque at feugiat purus. Aenean faucibus vehicula eros.</p>
+                <p>varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla fermentum malesuada pulvinar. Vestibulum laoreet rutrum semper. Vivamus malesuada, nisl in consectetur semper, mauris nulla aliquam risus, nec ultricies sapien elit sed ante. Aenean luctus felis in sem consequat auctor. Nulla turpis enim, scelerisque sit amet consectetur vel, lacinia sed augue. Proin ultricies dui id ex fringilla porta. Morbi nisi justo, venenatis ac nibh at, bibendum mattis risus. Maecenas tincidunt, ligula sed congue tempus, magna augue cursus ipsum, in malesuada justo risus nec lorem. Nam augue augue, mollis nec condimentum euismod, lacinia ultricies leo.</p>
+            </div>
+            <blockquote class="blog-quotes">
+                <img src="assets/img/blogquote.svg" alt="quotes">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula sapien nec nisi aliquam, vitae finibus purus sodales. Mauris at turpis nulla. Curabitur nec tellus est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum pharetra arcu ac arcu varius, non congue neque aliquet. Pellentesque at feugiat purus. Aenean faucibus vehicula eros.</p>
+                <h6>Luis Pickford</h6>
+            </blockquote>
+            <div class="blog-description">
+                <p>Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla fermentum malesuada pulvinar. Vestibulum laoreet rutrum semper. Vivamus malesuada, nisl in consectetur semper, mauris nulla aliquam risus, nec ultricies sapien elit sed ante. Aenean luctus felis in sem consequat auctor. Nulla turpis enim, scelerisque sit amet consectetur vel, lacinia sed augue. Proin ultricies dui id ex fringilla porta. Morbi nisi justo, venenatis ac nibh at, bibendum mattis risus. Maecenas tincidunt, ligula sed congue tempus, magna augue cursus ipsum, in malesuada justo risus nec lorem. Nam augue augue, mollis nec condimentum euismod, lacinia ultricies leo.</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="bloginner-img">
+                        <img src="assets/img/blog/blog-detail-01.jpg" class="img-fluid" alt="Blog">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="bloginner-img">
+                        <img src="assets/img/blog/blog-detail-02.jpg"  class="img-fluid" alt="Blog">
+                    </div>
+                </div>
+            </div>
+            <div class="share-postsection">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="sharelink d-flex align-items-center">
+                            <a href="javascript:void(0);" class="share-img"><i class="feather-share-2"></i></a>
+                            <a href="javascript:void(0);" class="share-text">Share</a>
                         </div>
                     </div>
-                    <div class="col-xl-8 col-lg-9">
-                        <div class="booking-wizard-lists">
-                            <ul>
-                                <li class="active activated">
-                                    <span><img src="assets/img/icons/booking-head-icon-01.svg" alt="Booking Icon"></span>
-                                    <h6>Location & Time</h6>
-                                </li>
-                                <li class="active activated">
-                                    <span><img src="assets/img/icons/booking-head-icon-02.svg" alt="Booking Icon"></span>
-                                    <h6>Add-Ons</h6>
-                                </li>
-                                <li class="active activated">
-                                    <span><img src="assets/img/icons/booking-head-icon-03.svg" alt="Booking Icon"></span>
-                                    <h6>Detail</h6>
-                                </li>
-                                <li class="active activated">
-                                    <span><img src="assets/img/icons/booking-head-icon-04.svg" alt="Booking Icon"></span>
-                                    <h6>Checkout</h6>
-                                </li>
-                                <li class="active">
-                                    <span><img src="assets/img/icons/booking-head-icon-05.svg" alt="Booking Icon"></span>
-                                    <h6>Booking Confirmed</h6>
-                                </li>
+                    <div class="col-lg-8">
+                        <div class="tag-list">
+                            <ul class="tags">
+                                <li>Rims </li>
+                                <li>Speed </li>
+                                <li>Make </li>
+                                <li>Transmission </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="booking-card">
-                <div class="success-book">
-						<span class="success-icon">
-							<i class="fa-solid fa-check-double"></i>
-						</span>
-                    <h5>Thank you! Your Order has been Recieved</h5>
-                    <h5 class="order-no">Order Number : <span>#123456</span></h5>
+            <div class="blogdetails-pagination">
+                <ul>
+                    <li>
+                        <a href="blog-details.html" class="prev-link"><i class="fas fa-regular fa-arrow-left"></i> Previous Post</a>
+                        <a href="blog-details.html"><h3>The Best SPA Salons For Your Relaxation</h3> </a>
+                    </li>
+                    <li>
+                        <a href="blog-details.html" class="next-link">Next Post <i class="fas fa-regular fa-arrow-right"></i> </a>
+                        <a href="blog-details.html"><h3>8 Amazing Tricks About Business</h3> </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="review-sec mb-0">
+                <div class="review-header">
+                    <h4>Reviews<span>(2)</span></h4>
+                    <div class="reviewbox-list-rating">
+                        <p>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <span> (5 out of 5)</span>
+                        </p>
+                    </div>
                 </div>
-                <div class="booking-header">
-                    <div class="booking-img-wrap">
-                        <div class="book-img">
-                            <img src="assets/img/cars/car-05.jpg" alt="img">
+                <div class="review-card">
+                    <div class="review-header-group">
+                        <div class="review-widget-header">
+								<span class="review-widget-img">
+									<img src="assets/img/profiles/avatar-01.jpg"  class="img-fluid" alt="Blog">
+								</span>
+                            <div class="review-design">
+                                <h6>Johnson</h6>
+                                <p>02 Jan 2023</p>
+                            </div>
                         </div>
-                        <div class="book-info">
-                            <h6>Chevrolet Camaro</h6>
-                            <p><i class="feather-map-pin"></i> Location : Miami St, Destin, FL 32550, USA</p>
+                        <div class="reviewbox-list-rating">
+                            <p>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <span> (5 out of 5)</span>
+                            </p>
                         </div>
                     </div>
-                    <div class="book-amount">
-                        <p>Total Amount</p>
-                        <h6>$4700</h6>
-                    </div>
+                    <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.It was popularised in the 1960s </p>
                 </div>
-                <div class="row">
-
-                    <!-- Car Pricing -->
-                    <div class="col-lg-6 col-md-6 d-flex">
-                        <div class="book-card flex-fill">
-                            <div class="book-head">
-                                <h6>Car Pricing</h6>
-                            </div>
-                            <div class="book-body">
-                                <ul class="pricing-lists">
-                                    <li>
-                                        <div>
-                                            <p>Rental Charges Rate <span>(1 day )</span></p>
-                                            <p class="text-danger">(This does not include fuel)</p>
-                                        </div>
-                                        <span> + $60</span>
-                                    </li>
-                                    <li>
-                                        <p>Doorstep delivery</p>
-                                        <span> + $60</span>
-                                    </li>
-                                    <li>
-                                        <p>Trip Protection Fees</p>
-                                        <span> + $25</span>
-                                    </li>
-                                    <li>
-                                        <p>Convenience Fees</p>
-                                        <span> + $2</span>
-                                    </li>
-                                    <li>
-                                        <p>Tax</p>
-                                        <span> + $2</span>
-                                    </li>
-                                    <li>
-                                        <p>Refundable Deposit</p>
-                                        <span> +$1200</span>
-                                    </li>
-                                    <li>
-                                        <p>Full Premium Insurance</p>
-                                        <span>+$200</span>
-                                    </li>
-                                    <li class="total">
-                                        <p>Subtotal</p>
-                                        <span>+$1604</span>
-                                    </li>
-                                </ul>
+                <div class="review-card">
+                    <div class="review-header-group">
+                        <div class="review-widget-header">
+								<span class="review-widget-img">
+									<img src="assets/img/profiles/avatar-02.jpg"  class="img-fluid" alt="Blog">
+								</span>
+                            <div class="review-design">
+                                <h6>Casandra</h6>
+                                <p>02 Jan 2023</p>
                             </div>
                         </div>
-                    </div>
-                    <!-- /Car Pricing -->
-
-                    <!-- Location & Time -->
-                    <div class="col-lg-6 col-md-6 d-flex">
-                        <div class="book-card flex-fill">
-                            <div class="book-head">
-                                <h6>Location & Time</h6>
-                            </div>
-                            <div class="book-body">
-                                <ul class="location-lists">
-                                    <li>
-                                        <h6>Booking Type</h6>
-                                        <p>Delivery</p>
-                                    </li>
-                                    <li>
-                                        <h6>Rental Type</h6>
-                                        <p>Daily</p>
-                                    </li>
-                                    <li>
-                                        <h6>Pickup</h6>
-                                        <p>1230 E Springs Rd, Los Angeles, CA, USA</p>
-                                        <p>04/18/2024 - 14:00</p>
-                                    </li>
-                                    <li>
-                                        <h6>Return</h6>
-                                        <p>1230 E Springs Rd, Los Angeles, CA, USA</p>
-                                        <p>04/18/2024 - 14:00</p>
-                                    </li>
-                                </ul>
-                            </div>
+                        <div class="reviewbox-list-rating">
+                            <p>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <span> (5 out of 5)</span>
+                            </p>
                         </div>
                     </div>
-                    <!-- /Location & Time -->
-
-                    <!-- Add-ons Pricing -->
-                    <div class="col-lg-6 col-md-6 d-flex">
-                        <div class="book-card flex-fill">
-                            <div class="book-head">
-                                <h6>Extra Services Pricing</h6>
-                            </div>
-                            <div class="book-body">
-                                <ul class="pricing-lists">
-                                    <li>
-                                        <p>GPS Navigation Systems</p>
-                                        <span>  $25</span>
-                                    </li>
-                                    <li>
-                                        <p>Wi-Fi Hotspot</p>
-                                        <span> $25</span>
-                                    </li>
-                                    <li>
-                                        <p>Child Safety Seats</p>
-                                        <span>$50</span>
-                                    </li>
-                                    <li class="total">
-                                        <p>Extra Services Charges Rate</p>
-                                        <span>$100</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /Add-ons Pricing -->
-
-                    <!-- Driver Details -->
-                    <div class="col-lg-6 col-md-6 d-flex">
-                        <div class="book-card flex-fill">
-                            <div class="book-head">
-                                <h6>Driver Details</h6>
-                            </div>
-                            <div class="book-body">
-                                <ul class="location-lists">
-                                    <li>
-                                        <h6>Driver Type</h6>
-                                        <p>Acting Driver</p>
-                                    </li>
-                                </ul>
-                                <div class="driver-info">
-										<span>
-											<img src="assets/img/user.jpg" alt="img">
-										</span>
-                                    <div class="driver-name">
-                                        <h6>Ruban</h6>
-                                        <ul>
-                                            <li>No of Rides Completed : 32</li>
-                                            <li>Price : $100</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /Driver Details -->
-
-                    <!-- Billing Information -->
-                    <div class="col-lg-6 col-md-6 d-flex">
-                        <div class="book-card flex-fill">
-                            <div class="book-head">
-                                <h6>Billing Information</h6>
-                            </div>
-                            <div class="book-body">
-                                <ul class="billing-lists">
-                                    <li>Darren Jurel</li>
-                                    <li>Mak Infotech</li>
-                                    <li>1230 E Springs Rd, Los Angeles, CA, USA</li>
-                                    <li>+1 124554 45445</li>
-                                    <li><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="82e6e8c2e7fae3eff2eee7ace1edef">[email&#160;protected]</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /Billing Information -->
-
-                    <!-- Payment  Details -->
-                    <div class="col-lg-6 col-md-6 d-flex">
-                        <div class="book-card flex-fill">
-                            <div class="book-head">
-                                <h6>Payment  Details</h6>
-                            </div>
-                            <div class="book-body">
-                                <ul class="location-lists">
-                                    <li>
-                                        <h6>Payment Mode</h6>
-                                        <p>Debit Card</p>
-                                    </li>
-                                    <li>
-                                        <h6>Transaction ID</h6>
-                                        <p><span>#13245454455454</span></p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /Payment  Details -->
-
-                    <!-- Additional Information -->
-                    <div class="col-lg-12">
-                        <div class="book-card mb-0">
-                            <div class="book-head">
-                                <h6>Additional Information</h6>
-                            </div>
-                            <div class="book-body">
-                                <ul class="location-lists">
-                                    <li>
-                                        <p>Rental companies typically require customers to return the vehicle with a full tank of fuel. If the vehicle is returned with less than a full tank, customers may be charged for refueling the vehicle at a premium rate, often higher than local fuel prices.</p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /Additional Information -->
-
+                    <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.It was popularised in the 1960s </p>
                 </div>
             </div>
-            <div class="print-btn text-center">
-                <a href="javascript:void(0);" class="btn btn-secondary">Print Order</a>
+
+            <div class="review-sec mb-0">
+                <div class="review-header">
+                    <h4>Leave a Reply</h4>
+                </div>
+                <div class="card-body">
+                    <div class="review-list">
+                        <ul>
+                            <li class="review-box feedbackbox mb-0">
+                                <div class="review-details">
+                                    <form action="blog-details.html">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="input-block">
+                                                    <label>Full Name <span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="input-block">
+                                                    <label>Email Address <span class="text-danger">*</span></label>
+                                                    <input type="email" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="input-block">
+                                                    <label>Comments </label>
+                                                    <textarea rows="4" class="form-control"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="submit-section">
+                                            <button class="btn btn-primary submit-review" type="submit"> Submit Review</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-
     </div>
-    <!-- /Booking Success -->
+    <!-- /Blog Grid-->
 
     <!-- Footer -->
     <footer class="footer">
@@ -630,11 +514,11 @@
                                 <div class="footer-address">
                                     <span><i class="feather-mail"></i></span>
                                     <div class="addr-info">
-                                        <a href="/cdn-cgi/l/email-protection#a5d6d0d5d5cad7d1e5c0ddc4c8d5c9c08bc6cac8"><span class="__cf_email__" data-cfemail="95e6e0e5e5fae7e1d5f0edf4f8e5f9f0bbf6faf8">[email&#160;protected]</span></a>
+                                        <a href="/cdn-cgi/l/email-protection#166563666679646256736e777b667a733875797b"><span class="__cf_email__" data-cfemail="32414742425d404672574a535f425e571c515d5f">[email&#160;protected]</span></a>
                                     </div>
                                 </div>
                                 <div class="update-form">
-                                    <form action="booking-success.html">
+                                    <form action="#">
                                         <span><i class="feather-mail"></i></span>
                                         <input type="email" class="form-control" placeholder="Enter You Email Here">
                                         <button type="submit" class="btn btn-subscribe"><span><i class="feather-send"></i></span></button>
@@ -712,37 +596,23 @@
 <!-- scrollToTop end -->
 
 <!-- jQuery -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.7.1.min.js" type="95a9adfd4010e198e178ac06-text/javascript"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/jquery-3.7.1.min.js" type="f7c010e5d6fcc5137457338c-text/javascript"></script>
 
 <!-- Bootstrap Core JS -->
-<script src="assets/js/bootstrap.bundle.min.js" type="95a9adfd4010e198e178ac06-text/javascript"></script>
+<script src="assets/js/bootstrap.bundle.min.js" type="f7c010e5d6fcc5137457338c-text/javascript"></script>
 
 <!-- Aos -->
-<script src="assets/plugins/aos/aos.js" type="95a9adfd4010e198e178ac06-text/javascript"></script>
-
-<!-- Slick JS -->
-<script src="assets/plugins/slick/slick.js" type="95a9adfd4010e198e178ac06-text/javascript"></script>
-
-<!-- Rangeslider JS -->
-<script src="assets/plugins/ion-rangeslider/js/ion.rangeSlider.min.js" type="95a9adfd4010e198e178ac06-text/javascript"></script>
-<script src="assets/plugins/ion-rangeslider/js/custom-rangeslider.js" type="95a9adfd4010e198e178ac06-text/javascript"></script>
-
-<!-- Datepicker Core JS -->
-<script src="assets/plugins/moment/moment.min.js" type="95a9adfd4010e198e178ac06-text/javascript"></script>
-<script src="assets/js/bootstrap-datetimepicker.min.js" type="95a9adfd4010e198e178ac06-text/javascript"></script>
-
-<!-- Owl Carousel JS -->
-<script src="assets/js/owl.carousel.min.js" type="95a9adfd4010e198e178ac06-text/javascript"></script>
+<script src="assets/plugins/aos/aos.js" type="f7c010e5d6fcc5137457338c-text/javascript"></script>
 
 <!-- Top JS -->
-<script src="assets/js/backToTop.js" type="95a9adfd4010e198e178ac06-text/javascript"></script>
+<script src="assets/js/backToTop.js" type="f7c010e5d6fcc5137457338c-text/javascript"></script>
 
 <!-- Sticky Sidebar JS -->
-<script src="assets/plugins/theia-sticky-sidebar/ResizeSensor.js" type="95a9adfd4010e198e178ac06-text/javascript"></script>
-<script src="assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js" type="95a9adfd4010e198e178ac06-text/javascript"></script>
+<script src="assets/plugins/theia-sticky-sidebar/ResizeSensor.js" type="f7c010e5d6fcc5137457338c-text/javascript"></script>
+<script src="assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js" type="f7c010e5d6fcc5137457338c-text/javascript"></script>
 
 <!-- Custom JS -->
-<script src="assets/js/script.js" type="95a9adfd4010e198e178ac06-text/javascript"></script>
+<script src="assets/js/script.js" type="f7c010e5d6fcc5137457338c-text/javascript"></script>
 
-<script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="95a9adfd4010e198e178ac06-|49" defer></script></body>
+<script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="f7c010e5d6fcc5137457338c-|49" defer></script></body>
 </html>

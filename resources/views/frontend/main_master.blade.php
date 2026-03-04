@@ -22,7 +22,6 @@
 
         @yield('banner')
 
-
     </div>
     <!-- /Hero Sec Main -->
 

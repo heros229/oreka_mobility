@@ -383,7 +383,7 @@
                         <div class="destination-content">
                             <h5>Place Bio Guerra</h5>
 
-                            <a href="javascript:void(0);" class="btn btn-primary">S'inscrire<i class="bx bx-right-arrow-alt"></i></a>
+                            <a href="{{ route('guerra') }}" class="btn btn-primary">Voir plus<i class="bx bx-right-arrow-alt"></i></a>
                         </div>
                     </div>
                 </div>
@@ -395,7 +395,7 @@
                         <div class="destination-content">
                             <h5>Sofitel</h5>
 
-                            <a href="javascript:void(0);" class="btn btn-primary">S'inscrire<i class="bx bx-right-arrow-alt"></i></a>
+                            <a href="{{ route('sofitel') }}" class="btn btn-primary">Voir plus<i class="bx bx-right-arrow-alt"></i></a>
                         </div>
                     </div>
                 </div>
@@ -407,7 +407,7 @@
                         <div class="destination-content">
                             <h5>Monument aux dévoués</h5>
 
-                            <a href="javascript:void(0);" class="btn btn-primary">S'inscrire<i class="bx bx-right-arrow-alt"></i></a>
+                            <a href="{{ route('devoue') }}" class="btn btn-primary">Voir plus<i class="bx bx-right-arrow-alt"></i></a>
                         </div>
                     </div>
                 </div>
@@ -419,7 +419,7 @@
                         <div class="destination-content">
                             <h5>Place de l'amazone</h5>
 
-                            <a href="javascript:void(0);" class="btn btn-primary">S'inscrire<i class="bx bx-right-arrow-alt"></i></a>
+                            <a href="{{ route('amazone') }}" class="btn btn-primary">Voir plus<i class="bx bx-right-arrow-alt"></i></a>
                         </div>
                     </div>
                 </div>
@@ -431,7 +431,7 @@
                         <div class="destination-content">
                             <h5>Mur du patrimoine</h5>
 
-                            <a href="javascript:void(0);" class="btn btn-primary">S'inscrire<i class="bx bx-right-arrow-alt"></i></a>
+                            <a href="{{ route('patrimoine') }}" class="btn btn-primary">Voir plus<i class="bx bx-right-arrow-alt"></i></a>
                         </div>
                     </div>
                 </div>
@@ -443,7 +443,7 @@
                         <div class="destination-content">
                             <h5>Route des pèches</h5>
 
-                            <a href="javascript:void(0);" class="btn btn-primary">S'inscrire<i class="bx bx-right-arrow-alt"></i></a>
+                            <a href="{{ route('peche') }}" class="btn btn-primary">Voir plus<i class="bx bx-right-arrow-alt"></i></a>
                         </div>
                     </div>
                 </div>
@@ -572,17 +572,8 @@
                                 Recevez en exclusivité nos offres spéciales weekend,
                                 nos nouvelles sorties en groupe et nos événements sportifs.
                             </p>
-                            <div class="subscribe-form">
-                                <form  id="newsletterForm" action="{{ route('message.newsletter') }}" method="POST">
-                                    @csrf
-
-                                    <span><i class="bx bx-mail-send"></i></span>
-                                    <input type="email" name="email" required class="form-control" placeholder="Entrez votre adresse email">
-                                    <div id="emailError2" style="color: red;"></div>
-                                    <button type="submit" class="btn btn-subscribe">
-                                        <i class="bx bx-send"></i>
-                                    </button>
-                                </form>
+                            <div class="view-more-btn  mt-5">
+                                <a href="{{ route('contact') }}" class="btn btn-primary">Contactez-nous</a>
                             </div>
                         </div>
                     </div>

@@ -7,13 +7,41 @@ use App\Http\Controllers\Frontend\IndexController;
  return view('welcome'); });*/
 
 
-Route::get('/', [IndexController::class , 'index'])->name('accueil');
-Route::get('/resevertation', [IndexController::class , 'Reservation_step_1'])->name('reservation_step_1');
-Route::get('/resevertation/2', [IndexController::class , 'Reservation_step_2'])->name('reservation_step_2');
-// Dans web.php
-// Dans routes/web.php
-Route::post('/reservation/3', [IndexController::class , 'Reservation_step_3'])->name('reservation_step_3');
-Route::get('/reservation/callback', [IndexController::class , 'reservationCallback'])->name('reservation_callback');
-Route::post('/news/store', [IndexController::class , 'Newsletter'])->name('message.newsletter');
+    Route::get('/', [IndexController::class , 'index'])->name('accueil');
+    Route::get('/resevertation', [IndexController::class , 'Reservation_step_1'])->name('reservation_step_1');
+    Route::get('/resevertation/2', [IndexController::class , 'Reservation_step_2'])->name('reservation_step_2');
+    // Dans web.php
+    // Dans routes/web.php
+    Route::post('/reservation/3', [IndexController::class , 'Reservation_step_3'])->name('reservation_step_3');
+    Route::get('/reservation/callback', [IndexController::class , 'reservationCallback'])->name('reservation_callback');
+    Route::post('/news/store', [IndexController::class , 'Newsletter'])->name('message.newsletter');
 
-Route::post('/download-reservation', [IndexController::class , 'downloadReservation'])->name('download_reservation');
+    Route::post('/download-reservation', [IndexController::class , 'downloadReservation'])->name('download_reservation');
+
+    Route::prefix('contact')->group(function (){
+
+        Route::get('/', [IndexController::class, 'contact'])->name('contact');
+        /*Route::post('/store', function () {
+            return redirect()->route('contact');
+        });*/
+        Route::post('/store', [IndexController::class, 'ContactMessage'])->name('contact.message');
+
+
+
+    });
+
+    Route::get('/place-de-lamazone', [IndexController::class, 'placedelamazone'])->name('amazone');
+    Route::get('/monument-devoue', [IndexController::class, 'monumentdevoue'])->name('devoue');
+    Route::get('/mur-du-patrimoine', [IndexController::class, 'murdupatrimoine'])->name('patrimoine');
+    Route::get('/place-bio-guerra', [IndexController::class, 'placebioguerra'])->name('guerra');
+    Route::get('/route-peche', [IndexController::class, 'routepeche'])->name('peche');
+    Route::get('/sofitel', [IndexController::class, 'sofitel'])->name('sofitel');
+
+
+
+
+
+
+
+
+

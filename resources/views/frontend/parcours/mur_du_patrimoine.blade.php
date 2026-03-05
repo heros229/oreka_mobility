@@ -4,6 +4,29 @@
 
 @section('description') Découvrez le Mur du Patrimoine de Cotonou, fresque monumentale qui retrace l'âme et l'histoire du Bénin. Réservez un vélo et partez à la rencontre de ce musée à ciel ouvert. @endsection
 
+@push('links')
+
+    <style>
+
+        .hero-sec-main .header-two {
+            background: #0a152f;
+            box-shadow: none;
+        }
+        .hero-sec-main .header-two.header-fixed {
+            background: #0A152F;
+            position: fixed;
+            z-index: 999;
+        }
+
+        .owl-carousel .owl-nav .owl-prev,
+        .owl-carousel .owl-nav .owl-next {
+            display: none !important;
+        }
+
+    </style>
+
+@endpush
+
 @section('content')
 
     <!-- Breadscrumb Section -->

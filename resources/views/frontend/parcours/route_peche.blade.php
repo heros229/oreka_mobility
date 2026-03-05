@@ -4,6 +4,29 @@
 
 @section('description') Découvrez la Route des Pêches, cordon littoral sauvage entre océan et lagune. Réservez un vélo et vivez l'une des plus belles balades côtières d'Afrique de l'Ouest. @endsection
 
+@push('links')
+
+    <style>
+
+        .hero-sec-main .header-two {
+            background: #0a152f;
+            box-shadow: none;
+        }
+        .hero-sec-main .header-two.header-fixed {
+            background: #0A152F;
+            position: fixed;
+            z-index: 999;
+        }
+
+        .owl-carousel .owl-nav .owl-prev,
+        .owl-carousel .owl-nav .owl-next {
+            display: none !important;
+        }
+
+    </style>
+
+@endpush
+
 @section('content')
 
     <!-- Breadscrumb Section -->

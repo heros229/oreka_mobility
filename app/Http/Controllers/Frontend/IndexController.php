@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\SendContactEmail;
 use App\Mail\ReservationConfirmationMail;
 use App\Models\Newsletter;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -303,6 +304,61 @@ class IndexController extends Controller
     public function sofitel() {
         return view('frontend.parcours.sofitel');
     }
+
+
+    public function ContactMessage(Request $request){
+
+
+// Validation des entrées
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email',
+            'telephone' => 'required|numeric',
+            //'sujet' => 'required|string|max:255',
+            'message' => 'required|string',
+        ], [
+            'name.required' => 'Insérer le nom',
+            'email.required' => 'Insérer le mail',
+            'email.email' => 'Veuillez entrer une adresse e-mail valide',
+            'telephone.required' => "Insérer le téléphone",
+            //'sujet.required' => "Insérer le sujet",
+            'message.required' => "Insérer le message",
+        ]);
+
+        // Échapper les caractères HTML pour éviter XSS
+        $name = htmlspecialchars($request->name, ENT_QUOTES, 'UTF-8');
+        $email = htmlspecialchars($request->email, ENT_QUOTES, 'UTF-8');
+        $telephone = htmlspecialchars($request->telephone, ENT_QUOTES, 'UTF-8');
+        //$sujet = htmlspecialchars($request->sujet, ENT_QUOTES, 'UTF-8');
+        $message = htmlspecialchars($request->message, ENT_QUOTES, 'UTF-8');
+
+        // Créer les données à envoyer
+        $data = [
+            'name' => $name,
+            'email' => $email,
+            'telephone' => $telephone,
+            /*'sujet' => $sujet,*/
+            'message' => $message,
+        ];
+
+        // Envoi d'email via un job
+        $email_user = $email;
+        $email_admin = 'contact@orekamobility.com';
+
+        SendContactEmail::dispatch($email_user, $email_admin, $data);
+
+
+        // Votre logique de traitement (envoi d'email, sauvegarde en BD, etc.)
+
+        $successMessage = "Merci d'avoir contacté OREKA Mobility ! Nous avons bien reçu votre demande et notre équipe la traitera dans les plus brefs délais. À très bientôt !";
+
+        return response()->json([
+            'contact_succs' => $successMessage,
+            'success' => true
+        ]);
+
+
+    } //end method
 
 
 }

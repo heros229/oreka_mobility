@@ -24,6 +24,14 @@ class IndexController extends Controller
 
     } // end method
 
+    
+    public function details()
+    {
+
+        return view('frontend.details_pricing');
+
+    } 
+
     public function Reservation_step_1()
     {
 

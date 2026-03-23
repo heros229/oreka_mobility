@@ -1,623 +1,203 @@
 @extends('frontend.main_master')
 
-@section('title') NordKapital Beratung | Expert du Crédit Personnel en Allemagne | Solutions de Financement
-@endsection
-
-@section('description')Découvrez des solutions de financement personnalisées pour tous vos projets. Taux attractifs, réponse en 24h et accompagnement expert. Plus de 90 000 clients nous font confiance !@endsection
-
+@section('title') Choix de la formule | Oreka Mobility @endsection
 
 @push('links')
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <style>
-
-        .hero-sec-main .header-two {
-            background: #0A152F;
-            box-shadow: none;
-        }
-        .hero-sec-main .header-two.header-fixed {
-            background: #0A152F;
-            position: fixed;
-            z-index: 999;
-        }
-
-        .owl-carousel .owl-nav .owl-prev,
-        .owl-carousel .owl-nav .owl-next {
-            display: none !important;
-        }
-
-        input.form-control, textarea.form-control {
-            transition: border 0.3s ease;
-        }
-
-    </style>
-
+<link rel="stylesheet" href="{{ asset('assets/css/step2.css')}}">
 @endpush
 
 @section('content')
 
-    <!-- Breadscrumb Section -->
-    <div class="breadcrumb-bar">
-        <div class="container">
-            <div class="row align-items-center text-center">
-                <div class="col-md-12 col-12">
-                    <h2 class="breadcrumb-title">Panier</h2>
-                    <nav aria-label="breadcrumb" class="page-breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class=""><a href="{{ route('accueil') }}">Accueil</a></li>
-                            <span style="color: white">&nbsp; /&nbsp; </span>
-                            <li class="breadcrumb-item active" aria-current="page">Panier</li>
-                        </ol>
-                    </nav>
+<div class="booking-hero-strip">
+    <div class="container">
+        <div class="hero-strip-inner">
+            <div class="hero-strip-text">
+                <h1>Choisissez <span>votre formule</span></h1>
+                <p>Sélectionnez le nombre de places ou d'heures souhaitées</p>
+            </div>
+            <div class="wizard-track">
+                <div class="wizard-step done"><div class="wizard-step__dot"><i class="bx bx-check" style="font-size:18px;"></i></div><div class="wizard-step__label">Informations</div></div>
+                <div class="wizard-line done"></div>
+                <div class="wizard-step active"><div class="wizard-step__dot">2</div><div class="wizard-step__label">Formule</div></div>
+                <div class="wizard-line"></div>
+                <div class="wizard-step"><div class="wizard-step__dot">3</div><div class="wizard-step__label">Confirmation</div></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="booking-layout">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+
+                <div class="plan-banner-new">
+                    <div class="pbn-icon"><i id="pbn-icon" class="bx bx-cycling"></i></div>
+                    <div class="pbn-text">
+                        <h5 id="pbn-title">Chargement…</h5>
+                        <p id="pbn-sub"></p>
+                    </div>
+                    <a href="{{ route('accueil') }}#pricing" class="pbn-change"><i class="bx bx-transfer-alt me-1"></i>Changer</a>
+                </div>
+
+                <div class="offer-card">
+                    <div class="offer-card__header">
+                        <div class="icon-wrap"><i class="bx bx-time-five"></i></div>
+                        <div><h5>Tarif Quotidienne</h5><div class="sub">Location individuelle de vélo</div></div>
+                    </div>
+                    <div class="info-note-new"><i class="bx bx-info-circle"></i><div><strong>Retard :</strong> toute heure entamée est facturée au tarif horaire en vigueur.</div></div>
+                    <div class="offer-list" id="list-duree"></div>
+                </div>
+
+                <div class="offer-card">
+                    <div class="offer-card__header">
+                        <div class="icon-wrap"><i class="bx bx-star"></i></div>
+                        <div><h5 id="plan-section-title">Offres du plan</h5><div class="sub" id="plan-section-sub"></div></div>
+                    </div>
+                    <div class="offer-list" id="list-plan"></div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-4">
+                <div class="sidebar-new">
+
+                    <div class="client-card">
+                        <div class="client-card__header"><i class="bx bx-user-circle"></i><h6>Vos informations</h6></div>
+                        <div class="client-card__body" id="client-info"></div>
+                    </div>
+
+                    <div class="recap-card">
+                        <div class="recap-card__header">
+                            <h6>Récapitulatif</h6>
+                            <span id="recap-count" style="font-size:12px;color:var(--muted);">0 offre</span>
+                        </div>
+                        <div id="recap-body"><div class="recap-empty"><i class="bx bx-cart"></i>Aucune offre sélectionnée</div></div>
+                    </div>
+
+                    <div class="total-strip">
+                        <span class="t-label">Total à payer</span>
+                        <span class="t-amount" id="total-price">0 F</span>
+                    </div>
+
+                    <div style="display:flex;gap:10px;">
+                        <a href="{{ route('reservation_step_1') }}" class="btn-back-new"><i class="bx bx-left-arrow-alt"></i> Retour</a>
+                        <button class="btn-pay-new" id="continue-btn">Payer <i class="bx bx-lock-alt"></i></button>
+                    </div>
+                    <div style="text-align:center;margin-top:12px;font-size:12px;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:6px;">
+                        <i class="bx bx-shield-quarter" style="color:var(--g2);font-size:16px;"></i> Paiement sécurisé via FedaPay
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
-    <!-- /Breadscrumb Section -->
-
-    <div class="booking-new-module">
-        <div class="container">
-            <div class="booking-wizard-head">
-                <div class="row align-items-center">
-                    <div class="col-xl-4 col-lg-3">
-                        <div class="booking-head-title">
-                            <h4>Réservez votre activité</h4>
-                            <p>Suivez les étapes ci-dessous</p>
-                        </div>
-                    </div>
-
-                    <div class="col-xl-8 col-lg-9">
-                        <div class="booking-wizard-lists">
-                            <ul>
-                                <li class="active activated">
-                                    <span>
-                                        <img src="{{ asset('assets/img/icons/booking-head-icon-01.svg')}}" alt="Étape 1">
-                                    </span>
-                                    <h6>Information & Date</h6>
-                                </li>
-                                <li class="active">
-                                    <span>
-                                        <img src="{{ asset('assets/img/icons/booking-head-icon-02.svg')}}" alt="Étape 2">
-                                    </span>
-                                    <h6>Choix de la formule</h6>
-                                </li>
-                                <li>
-                                    <span>
-                                        <img src="{{ asset('assets/img/icons/booking-head-icon-05.svg')}}" alt="Étape 3">
-                                    </span>
-                                    <h6>Confirmation</h6>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="booking-detail-info">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <div class="booking-information-main">
-
-
-                            <div class="booking-information-card">
-                                    <div class="booking-info-head justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <span><i class="bx bx-add-to-queue"></i></span>
-                                            <h5>Extra Services</h5>
-                                        </div>
-                                        <h6>Total : <span id="total-services">0</span> Services sélectionnés</h6>
-                                    </div>
-                                    <div class="booking-info-body">
-                                        <ul class="adons-lists">
-                                            <!-- Offre Spéciale Weekend - Location Simple -->
-                                            <li>
-                                                <div class="adons-types">
-                                                    <div class="d-flex align-items-center adon-name-info">
-                                                        <span class="adon-icon"><i class="bx bx-cycling"></i></span>
-                                                        <div class="adon-name">
-                                                            <h6>Vélo-Sport Weekend - Location Simple</h6>
-                                                            <a href="javascript:void(0);" class="d-inline-flex align-items-center adon-info-btn">
-                                                                <i class="bx bx-info-circle me-2"></i>Détails
-                                                                <i class="bx bx-chevron-down ms-2 arrow-icon"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <span class="adon-price">700</span>
-                                                    <a href="#" class="btn add-addon-btn" data-service="Vélo-Sport Weekend - Location Simple" data-price="700">
-                                                        <i class="bx bx-plus-circle me-2"></i>Ajouter
-                                                    </a>
-                                                </div>
-                                                <div class="more-adon-info">
-                                                    <p>Offre spéciale sportif du weekend. Location de vélo-sport à partir de 700F par heure.</p>
-                                                </div>
-                                            </li>
-
-                                            <!-- Offre Spéciale Weekend - Location + Apprentissage -->
-                                            <li>
-                                                <div class="adons-types">
-                                                    <div class="d-flex align-items-center adon-name-info">
-                                                        <span class="adon-icon"><i class="bx bx-user-voice"></i></span>
-                                                        <div class="adon-name">
-                                                            <h6>Vélo-Sport Weekend - Location + Apprentissage</h6>
-                                                            <a href="javascript:void(0);" class="d-inline-flex align-items-center adon-info-btn">
-                                                                <i class="bx bx-info-circle me-2"></i>Détails
-                                                                <i class="bx bx-chevron-down ms-2 arrow-icon"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <span class="adon-price">1200</span>
-                                                    <a href="#" class="btn add-addon-btn" data-service="Vélo-Sport Weekend - Location + Apprentissage" data-price="1200">
-                                                        <i class="bx bx-plus-circle me-2"></i>Ajouter
-                                                    </a>
-                                                </div>
-                                                <div class="more-adon-info">
-                                                    <p>Offre spéciale weekend incluant la location du vélo-sport et un apprentissage avec un coach professionnel.</p>
-                                                </div>
-                                            </li>
-
-                                            <!-- Tarif Normal - 1 heure -->
-                                            <li>
-                                                <div class="adons-types">
-                                                    <div class="d-flex align-items-center adon-name-info">
-                                                        <span class="adon-icon"><i class="bx bx-time-five"></i></span>
-                                                        <div class="adon-name">
-                                                            <h6>Location Individuelle - 1 heure</h6>
-                                                            <a href="javascript:void(0);" class="d-inline-flex align-items-center adon-info-btn">
-                                                                <i class="bx bx-info-circle me-2"></i>Détails
-                                                                <i class="bx bx-chevron-down ms-2 arrow-icon"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <span class="adon-price">1500</span>
-                                                    <a href="#" class="btn add-addon-btn" data-service="Location Individuelle - 1 heure" data-price="1500">
-                                                        <i class="bx bx-plus-circle me-2"></i>Ajouter
-                                                    </a>
-                                                </div>
-                                                <div class="more-adon-info">
-                                                    <p>Tarif normal de location individuelle pour 1 heure à 1500F avec 15 minutes offertes en bonus.</p>
-                                                </div>
-                                            </li>
-
-                                            <!-- Tarif Normal - 2 heures -->
-                                            <li>
-                                                <div class="adons-types">
-                                                    <div class="d-flex align-items-center adon-name-info">
-                                                        <span class="adon-icon"><i class="bx bx-time-five"></i></span>
-                                                        <div class="adon-name">
-                                                            <h6>Location Individuelle - 2 heures</h6>
-                                                            <a href="javascript:void(0);" class="d-inline-flex align-items-center adon-info-btn">
-                                                                <i class="bx bx-info-circle me-2"></i>Détails
-                                                                <i class="bx bx-chevron-down ms-2 arrow-icon"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <span class="adon-price">2500</span>
-                                                    <a href="#" class="btn add-addon-btn" data-service="Location Individuelle - 2 heures" data-price="2500">
-                                                        <i class="bx bx-plus-circle me-2"></i>Ajouter
-                                                    </a>
-                                                </div>
-                                                <div class="more-adon-info">
-                                                    <p>Tarif normal de location individuelle pour 2 heures à 2500F avec 30 minutes offertes en bonus.</p>
-                                                </div>
-                                            </li>
-
-                                            <!-- Tarif Normal - 3 heures -->
-                                            <li>
-                                                <div class="adons-types">
-                                                    <div class="d-flex align-items-center adon-name-info">
-                                                        <span class="adon-icon"><i class="bx bx-time-five"></i></span>
-                                                        <div class="adon-name">
-                                                            <h6>Location Individuelle - 3 heures</h6>
-                                                            <a href="javascript:void(0);" class="d-inline-flex align-items-center adon-info-btn">
-                                                                <i class="bx bx-info-circle me-2"></i>Détails
-                                                                <i class="bx bx-chevron-down ms-2 arrow-icon"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <span class="adon-price">3500</span>
-                                                    <a href="#" class="btn add-addon-btn" data-service="Location Individuelle - 3 heures" data-price="3500">
-                                                        <i class="bx bx-plus-circle me-2"></i>Ajouter
-                                                    </a>
-                                                </div>
-                                                <div class="more-adon-info">
-                                                    <p>Tarif normal de location individuelle pour 3 heures à 3500F avec 30 minutes offertes en bonus.</p>
-                                                </div>
-                                            </li>
-
-                                            <!-- Vélo Sport - Séance en groupe -->
-                                            <li>
-                                                <div class="adons-types">
-                                                    <div class="d-flex align-items-center adon-name-info">
-                                                        <span class="adon-icon"><i class="bx bx-group"></i></span>
-                                                        <div class="adon-name">
-                                                            <h6>Vélo Sport - Séance en Groupe</h6>
-                                                            <a href="javascript:void(0);" class="d-inline-flex align-items-center adon-info-btn">
-                                                                <i class="bx bx-info-circle me-2"></i>Détails
-                                                                <i class="bx bx-chevron-down ms-2 arrow-icon"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <span class="adon-price">3000</span>
-                                                    <a href="#" class="btn add-addon-btn" data-service="Vélo Sport - Séance en Groupe" data-price="3000">
-                                                        <i class="bx bx-plus-circle me-2"></i>Ajouter
-                                                    </a>
-                                                </div>
-                                                <div class="more-adon-info">
-                                                    <p>Séance en groupe tous les samedis matin avec un coach sportif professionnel. Limité à 10 places.</p>
-                                                </div>
-                                            </li>
-
-                                            <!-- Vélo Picnic -->
-                                            <li>
-                                                <div class="adons-types">
-                                                    <div class="d-flex align-items-center adon-name-info">
-                                                        <span class="adon-icon"><i class="bx bx-leaf"></i></span>
-                                                        <div class="adon-name">
-                                                            <h6>Vélo Picnic</h6>
-                                                            <a href="javascript:void(0);" class="d-inline-flex align-items-center adon-info-btn">
-                                                                <i class="bx bx-info-circle me-2"></i>Détails
-                                                                <i class="bx bx-chevron-down ms-2 arrow-icon"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <span class="adon-price">5000</span>
-                                                    <a href="#" class="btn add-addon-btn" data-service="Vélo Picnic" data-price="5000">
-                                                        <i class="bx bx-plus-circle me-2"></i>Ajouter
-                                                    </a>
-                                                </div>
-                                                <div class="more-adon-info">
-                                                    <p>Balade détente et conviviale en groupe tous les samedis matin. Limité à 10 places.</p>
-                                                </div>
-                                            </li>
-
-                                            <!-- Vélo Tourisme -->
-                                            <li>
-                                                <div class="adons-types">
-                                                    <div class="d-flex align-items-center adon-name-info">
-                                                        <span class="adon-icon"><i class="bx bx-map-alt"></i></span>
-                                                        <div class="adon-name">
-                                                            <h6>Vélo Tourisme</h6>
-                                                            <a href="javascript:void(0);" class="d-inline-flex align-items-center adon-info-btn">
-                                                                <i class="bx bx-info-circle me-2"></i>Détails
-                                                                <i class="bx bx-chevron-down ms-2 arrow-icon"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <span class="adon-price">10000</span>
-                                                    <a href="#" class="btn add-addon-btn" data-service="Vélo Tourisme" data-price="10000">
-                                                        <i class="bx bx-plus-circle me-2"></i>Ajouter
-                                                    </a>
-                                                </div>
-                                                <div class="more-adon-info">
-                                                    <p>Séance en groupe accompagnée d'un guide touristique professionnel. Limité à 10 places.</p>
-                                                </div>
-                                            </li>
-
-                                            <!-- Vélo Trip -->
-                                            <li>
-                                                <div class="adons-types">
-                                                    <div class="d-flex align-items-center adon-name-info">
-                                                        <span class="adon-icon"><i class="bx bx-trip"></i></span>
-                                                        <div class="adon-name">
-                                                            <h6>Vélo Trip</h6>
-                                                            <a href="javascript:void(0);" class="d-inline-flex align-items-center adon-info-btn">
-                                                                <i class="bx bx-info-circle me-2"></i>Détails
-                                                                <i class="bx bx-chevron-down ms-2 arrow-icon"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <span class="adon-price">10000</span>
-                                                    <a href="#" class="btn add-addon-btn" data-service="Vélo Trip" data-price="10000">
-                                                        <i class="bx bx-plus-circle me-2"></i>Ajouter
-                                                    </a>
-                                                </div>
-                                                <div class="more-adon-info">
-                                                    <p>Séance en groupe accompagnée d'un moniteur OREKA professionnel. Limité à 10 places.</p>
-                                                </div>
-                                            </li>
-
-
-                                        </ul>
-                                    </div>
-                                </div>
-
-
-
-                        </div>
-                    </div>
-                    <div class="col-lg-4 theiaStickySidebar">
-                        <div class="booking-sidebar">
-
-                            <!-- Informations Client (remplace Location & Time) -->
-                            <div class="booking-sidebar-card">
-                                <div class="accordion-item border-0 mb-4">
-                                    <div class="accordion-header p-3">
-                                        <div class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#accordion_collapse_client" aria-expanded="true">
-                                            <div class="booking-sidebar-head p-0">
-                                                <h5>Informations Client<i class="fas fa-chevron-down"></i></h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="accordion_collapse_client" class="accordion-collapse collapse show">
-                                        <div class="booking-sidebar-body">
-                                            <ul class="location-address-info" id="client-info-list">
-                                                <li>
-                                                    <h6>Chargement...</h6>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Récapitulatif (remplace Coupon) -->
-                            <div class="booking-sidebar-card">
-                                <div class="accordion-item border-0 mb-4">
-                                    <div class="accordion-header p-3">
-                                        <div class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#accordion_collapse_recap" aria-expanded="true">
-                                            <div class="booking-sidebar-head p-0">
-                                                <h5>Récapitulatif<i class="fas fa-chevron-down"></i></h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="accordion_collapse_recap" class="accordion-collapse collapse show">
-                                        <div class="booking-sidebar-body">
-                                            <ul class="recap-services-list" id="recap-list">
-                                                <li class="text-center text-muted">
-                                                    <p>Aucun service sélectionné</p>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Total -->
-                            <div class="total-rate-card">
-                                <div class="vehicle-total-price">
-                                    <h5>Total</h5>
-                                    <span id="total-price">0 FCFA</span>
-                                </div>
-                            </div>
-
-                            <div class="booking-info-btns d-flex justify-content-end">
-                                <a href="{{ route('reservation_step_1') }}" class="btn btn-secondary">Retour</a>
-                                <button class="btn btn-primary continue-book-btn" type="button">Continue</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
 
 @endsection
 
 @push('scripts')
-    <style>
-        /* Style pour le bouton validé */
-        .add-addon-btn.validated {
-            background-color: #FFA500 !important;
-            border-color: #FFA500 !important;
-            color: white !important;
-        }
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const PLANS_DATA = {
+        'velo-sport':{icon:'bx bx-run',title:'Vélo Sport',sub:'Séance de sport · 1h · Coach professionnel',sectionTitle:'Offres Vélo Sport',sectionSub:'3 000 F / séance · Abonnement 12 000 F',offres:[
+            {id:'vs-seance',name:'Vélo Sport — Séance individuelle',price:3000,unit:'/ séance',desc:'Durée 1h · 10 places',avantages:['Vélo','Casque','Bouteille d\'eau','Coach pro'],max:10},
+            {id:'vs-abonnement',name:'Vélo Sport — Abonnement mensuel',price:12000,unit:'/ mois',desc:'Accès illimité au mois · -33%',avantages:['Vélo','Casque','Bouteille d\'eau','Coach pro'],max:5},
+        ]},
+        'randonnee':{icon:'bx bx-map',title:'Randonner à Vélo',sub:'Circuit 30–43 km · 3h · Famille ou amis',sectionTitle:'Offres Randonnée',sectionSub:'6 000 F adulte · 3 000 F enfant',offres:[
+            {id:'rand-adulte',name:'Randonnée — Adulte',price:6000,unit:'/ personne',desc:'3h · 30–43 km · 10 places',avantages:['Vélo','Casque','Eau','Superviseur','Éclairage','Antivol','Pompe'],max:10},
+            {id:'rand-enfant',name:'Randonnée — Enfant (10–15 ans)',price:3000,unit:'/ enfant',desc:'3h · Tarif réduit · 10 places',avantages:['Vélo adapté','Casque','Eau','Superviseur','Éclairage','Antivol','Pompe'],max:10},
+        ]},
+        'tourisme':{icon:'bx bx-landmark',title:'Vélo Tourisme',sub:'Visite guidée Cotonou · Ouidah · Porto-Novo',sectionTitle:'Offres Vélo Tourisme',sectionSub:'30 000 F / inscription · Repas local inclus',offres:[
+            {id:'tour-inscription',name:'Vélo Tourisme — Inscription',price:30000,unit:'/ personne',desc:'4h · Sites historiques + repas · 10 places',avantages:['Vélo','Casque','Eau','Guide pro','Éclairage','Antivol','Pompe','Repas'],max:10},
+        ]},
+        'apprentissage':{icon:'bx bx-chalkboard',title:'Apprentissage du Vélo',sub:'Vélo École Adulte & Kids · Moniteurs diplômés',sectionTitle:'Offres Vélo École',sectionSub:'15 000 F adulte · 10 000 F kids · 3 séances incluses',offres:[
+            {id:'app-adulte',name:'Vélo École Adulte',price:15000,unit:'/ pack',desc:'3 séances de 1h30 · Adultes',avantages:['Vélo adapté','Casque','Moniteur diplômé','3 séances'],max:5},
+            {id:'app-kids',name:'Vélo École Kids',price:10000,unit:'/ pack',desc:'3 séances de 45 min · Dès 2 ans et demi',avantages:['Vélo adapté','Casque','Moniteur diplômé','3 séances'],max:5},
+        ]},
+    };
+    const DUREE=[
+        {id:'d-1h',name:'Location 1 heure',price:1500,unit:'+ 15 min offertes',desc:'Temps bonus inclus',avantages:[],max:10},
+        {id:'d-2h',name:'Location 2 heures',price:2500,unit:'+ 30 min offertes',desc:'Temps bonus inclus',avantages:[],max:10},
+        {id:'d-3h',name:'Location 3 heures',price:3500,unit:'+ 30 min offertes',desc:'Temps bonus inclus',avantages:[],max:10},
+    ];
+    let qty={};
+    const urlPlan=new URLSearchParams(window.location.search).get('plan');
+    const planKey=urlPlan||localStorage.getItem('selectedPlan')||'velo-sport';
+    const plan=PLANS_DATA[planKey]||PLANS_DATA['velo-sport'];
+    const s1=JSON.parse(localStorage.getItem('reservationStep1')||'{}');
 
-        /* Style pour le récapitulatif */
-        .recap-services-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+    document.getElementById('pbn-icon').className=plan.icon;
+    document.getElementById('pbn-title').textContent=plan.title;
+    document.getElementById('pbn-sub').textContent=plan.sub;
+    document.getElementById('plan-section-title').textContent=plan.sectionTitle;
+    document.getElementById('plan-section-sub').textContent=plan.sectionSub;
 
-        .recap-services-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+    const ci=document.getElementById('client-info');
+    if(s1.firstName){ci.innerHTML=`<div class="client-row"><span class="lbl">Client</span><span class="val">${s1.firstName} ${s1.lastName}</span></div><div class="client-row"><span class="lbl">Email</span><span class="val">${s1.email}</span></div><div class="client-row"><span class="lbl">Téléphone</span><span class="val">${s1.phone}</span></div><div class="client-row"><span class="lbl">Date</span><span class="val">${s1.startDate||'—'}</span></div>${s1.additionalInfo?`<div class="client-row"><span class="lbl">Notes</span><span class="val">${s1.additionalInfo}</span></div>`:''}`;}
+    else{ci.innerHTML='<div style="padding:12px;font-size:13px;color:var(--muted)">Aucune info disponible.</div>';}
 
-        .recap-services-list li:last-child {
-            border-bottom: none;
-        }
+    function renderLine(o){
+        qty[o.id]=0;
+        const tags=(o.avantages||[]).map(a=>`<span class="offer-tag">${a}</span>`).join('');
+        return `<div class="offer-line" id="line-${o.id}"><div class="offer-line__info"><p class="offer-line__name">${o.name}</p><p class="offer-line__desc">${o.desc}</p>${tags?`<div class="offer-tags">${tags}</div>`:''}</div><div class="offer-line__price"><span class="amount">${o.price.toLocaleString('fr-FR')} F</span><span class="unit">${o.unit}</span></div><div class="qty-wrap" id="qw-${o.id}"><button class="qty-btn-new qty-minus" data-id="${o.id}" disabled>−</button><span class="qty-val" id="qv-${o.id}">0</span><button class="qty-btn-new qty-plus" data-id="${o.id}">+</button></div></div>`;
+    }
 
-        .remove-service-btn {
-            background: transparent;
-            border: 1px solid #dc3545;
-            color: #dc3545;
-            border-radius: 50%;
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 14px;
-            margin-right: 10px;
-            padding: 0;
-            line-height: 1;
-        }
+    DUREE.forEach(o=>document.getElementById('list-duree').insertAdjacentHTML('beforeend',renderLine(o)));
+    plan.offres.forEach(o=>document.getElementById('list-plan').insertAdjacentHTML('beforeend',renderLine(o)));
+    const all=[...DUREE,...plan.offres];
 
-        .remove-service-btn:hover {
-            background: #dc3545;
-            color: white;
-        }
+    document.addEventListener('click',e=>{
+        const btn=e.target.closest('.qty-plus,.qty-minus');
+        if(!btn)return;
+        const id=btn.getAttribute('data-id');
+        const o=all.find(x=>x.id===id);if(!o)return;
+        const isP=btn.classList.contains('qty-plus');
+        const cur=qty[id]||0;const max=o.max||10;
+        if(isP&&cur<max)qty[id]=cur+1;
+        if(!isP&&cur>0)qty[id]=cur-1;
+        const v=qty[id];
+        document.getElementById('qv-'+id).textContent=v;
+        document.querySelector(`.qty-minus[data-id="${id}"]`).disabled=(v===0);
+        document.querySelector(`.qty-plus[data-id="${id}"]`).disabled=(v>=max);
+        document.getElementById('qw-'+id).classList.toggle('active',v>0);
+        updateRecap();
+    });
 
-        .service-name {
-            flex: 1;
-            font-size: 14px;
-        }
-
-        .service-price {
-            font-weight: 600;
-            color: #333;
-            white-space: nowrap;
-        }
-    </style>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            let selectedServices = [];
-
-            loadClientInfo();
-            setupAddButtons();
-
-            function loadClientInfo() {
-                const step1Data = localStorage.getItem('reservationStep1');
-                const clientInfoList = document.getElementById('client-info-list');
-
-                if (step1Data) {
-                    const data = JSON.parse(step1Data);
-                    clientInfoList.innerHTML = `
-                <li><h6>Client</h6><p>${data.firstName} ${data.lastName}</p></li>
-                <li><h6>Email</h6><p>${data.email}</p></li>
-                <li><h6>Téléphone</h6><p>${data.phone}</p></li>
-                <li><h6>Date de début</h6><p>${data.startDate || 'Non renseignée'}</p></li>
-                ${data.additionalInfo ? `<li><h6>Informations complémentaires</h6><p>${data.additionalInfo}</p></li>` : ''}
-            `;
-                }
-            }
-
-            function setupAddButtons() {
-                const addButtons = document.querySelectorAll('.add-addon-btn');
-                addButtons.forEach(button => {
-                    button.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const serviceName = this.getAttribute('data-service');
-                        const servicePrice = parseInt(this.getAttribute('data-price'));
-                        const existingService = selectedServices.find(s => s.name === serviceName);
-
-                        if (existingService) {
-                            removeService(serviceName);
-                            this.classList.remove('validated');
-                            this.innerHTML = '<i class="bx bx-plus-circle me-2"></i>Ajouter';
-                        } else {
-                            addService(serviceName, servicePrice);
-                            this.classList.add('validated');
-                            this.innerHTML = '<i class="bx bx-check-circle me-2"></i>Validé';
-                        }
-                    });
-                });
-            }
-
-            function addService(name, price) {
-                selectedServices.push({ name, price });
-                updateRecap();
-                updateTotal();
-                updateServiceCount();
-            }
-
-            function removeService(name) {
-                selectedServices = selectedServices.filter(s => s.name !== name);
-                updateRecap();
-                updateTotal();
-                updateServiceCount();
-                const button = document.querySelector(`[data-service="${name}"]`);
-                if (button) {
-                    button.classList.remove('validated');
-                    button.innerHTML = '<i class="bx bx-plus-circle me-2"></i>Ajouter';
-                }
-            }
-
-            function updateRecap() {
-                const recapList = document.getElementById('recap-list');
-                if (selectedServices.length === 0) {
-                    recapList.innerHTML = '<li class="text-center text-muted"><p>Aucun service sélectionné</p></li>';
-                    return;
-                }
-                let html = '';
-                selectedServices.forEach(service => {
-                    html += `
-                <li>
-                    <button class="remove-service-btn" onclick="removeServiceFromRecap('${service.name}')">×</button>
-                    <span class="service-name">${service.name}</span>
-                    <span class="service-price">${service.price.toLocaleString('fr-FR')} FCFA</span>
-                </li>
-            `;
-                });
-                recapList.innerHTML = html;
-            }
-
-            function updateTotal() {
-                const total = selectedServices.reduce((sum, service) => sum + service.price, 0);
-                document.getElementById('total-price').textContent = total.toLocaleString('fr-FR') + ' FCFA';
-            }
-
-            function updateServiceCount() {
-                document.getElementById('total-services').textContent = selectedServices.length;
-            }
-
-            window.removeServiceFromRecap = function(serviceName) {
-                removeService(serviceName);
-            };
-
-            // BOUTON CONTINUER AVEC AJAX
-            document.querySelector('.continue-book-btn').addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-
-                if (selectedServices.length === 0) {
-                    alert('Veuillez sélectionner au moins un service avant de continuer.');
-                    return;
-                }
-
-                const step1Data = JSON.parse(localStorage.getItem('reservationStep1') || '{}');
-                const totalAmount = selectedServices.reduce((sum, service) => sum + service.price, 0);
-
-                // ✅ Sauvegarder les services sélectionnés dans localStorage
-                const step2Data = {
-                    services: selectedServices.map(s => ({
-                        name: s.name,
-                        price: s.price
-                    })),
-                    totalAmount: totalAmount,
-                    savedAt: new Date().toISOString()
-                };
-                localStorage.setItem('reservationStep2', JSON.stringify(step2Data));
-
-                const allData = {
-                    firstName: step1Data.firstName,
-                    lastName: step1Data.lastName,
-                    email: step1Data.email,
-                    phone: step1Data.phone,
-                    additionalInfo: step1Data.additionalInfo,
-                    startDate: step1Data.startDate,
-                    selectedServices: selectedServices,
-                    totalAmount: totalAmount
-                };
-
-                // Afficher un loader
-                this.innerHTML = '<i class="bx bx-loader-alt bx-spin me-2"></i>Traitement...';
-                this.disabled = true;
-
-                // Envoyer avec AJAX
-                fetch('{{ route("reservation_step_3") }}', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    },
-                    body: JSON.stringify(allData)
-                })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            // Rediriger vers l'URL de paiement FedaPay
-                            window.location.href = data.checkout_url;
-                        } else {
-                            alert('Erreur : ' + data.message);
-                            // Remettre le bouton normal
-                            this.innerHTML = 'Continue Booking';
-                            this.disabled = false;
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Erreur:', error);
-                        alert('Une erreur est survenue. Veuillez réessayer.');
-                        // Remettre le bouton normal
-                        this.innerHTML = 'Continue Booking';
-                        this.disabled = false;
-                    });
-            });
+    function updateRecap(){
+        const body=document.getElementById('recap-body');
+        let total=0,count=0,html='';
+        all.forEach(o=>{
+            const q=qty[o.id]||0;
+            if(q>0){count++;const sub=o.price*q;total+=sub;html+=`<div class="recap-item"><button class="ri-remove" onclick="resetQty('${o.id}')">×</button><span class="ri-name">${o.name}</span><span class="ri-qty">×${q}</span><span class="ri-price">${sub.toLocaleString('fr-FR')} F</span></div>`;}
         });
-    </script>
+        body.innerHTML=html||'<div class="recap-empty"><i class="bx bx-cart"></i>Aucune offre sélectionnée</div>';
+        document.getElementById('recap-count').textContent=count+' offre'+(count>1?'s':'');
+        document.getElementById('total-price').textContent=total.toLocaleString('fr-FR')+' F';
+    }
+
+    window.resetQty=function(id){
+        qty[id]=0;
+        const el=document.getElementById('qv-'+id);if(el)el.textContent='0';
+        const qw=document.getElementById('qw-'+id);if(qw)qw.classList.remove('active');
+        const m=document.querySelector(`.qty-minus[data-id="${id}"]`);if(m)m.disabled=true;
+        const p=document.querySelector(`.qty-plus[data-id="${id}"]`);if(p)p.disabled=false;
+        updateRecap();
+    };
+
+    document.getElementById('continue-btn').addEventListener('click',function(){
+        const sel=[];
+        all.forEach(o=>{const q=qty[o.id]||0;if(q>0)sel.push({name:o.name,price:o.price*q,qty:q,unitPrice:o.price});});
+        if(sel.length===0){const rb=document.getElementById('recap-body');rb.style.outline='2px solid #e53e3e';rb.style.borderRadius='8px';setTimeout(()=>{rb.style.outline='';rb.style.borderRadius='';},2000);return;}
+        const total=sel.reduce((s,x)=>s+x.price,0);
+        localStorage.setItem('reservationStep2',JSON.stringify({services:sel,totalAmount:total,plan:planKey,savedAt:new Date().toISOString()}));
+        this.innerHTML='<i class="bx bx-loader-alt bx-spin"></i> Traitement…';this.disabled=true;
+        fetch('{{ route("reservation_step_3") }}',{method:'POST',headers:{'Content-Type':'application/json','X-CSRF-TOKEN':'{{ csrf_token() }}'},body:JSON.stringify({firstName:s1.firstName,lastName:s1.lastName,email:s1.email,phone:s1.phone,additionalInfo:s1.additionalInfo,startDate:s1.startDate,selectedServices:sel,totalAmount:total})})
+        .then(r=>r.json()).then(d=>{if(d.success){window.location.href=d.checkout_url;}else{alert('Erreur : '+d.message);this.innerHTML='Payer <i class="bx bx-lock-alt"></i>';this.disabled=false;}})
+        .catch(()=>{alert('Erreur réseau.');this.innerHTML='Payer <i class="bx bx-lock-alt"></i>';this.disabled=false;});
+    });
+});
+</script>
 @endpush

@@ -456,7 +456,7 @@
 
 
     <!-- Pricing Plan -->
-    <section class="pricing-section pricing-page pricing-section-bottom">
+    <section class="pricing-section pricing-page pricing-section-bottom" id="pricing">
         <div class="container">
             <!-- Heading title-->
             <div class="section-heading" data-aos="fade-down">
@@ -467,7 +467,7 @@
 
             <div class="row">
                 <!-- Colonne 1: Offre Spéciale Weekend -->
-                <div class="col-lg-3 d-flex col-md-6 col-12" data-aos="fade-down">
+                {{-- <div class="col-lg-3 d-flex col-md-6 col-12" data-aos="fade-down">
                     <div class="price-card price-selected flex-fill">
                         <div class="price-head">
                             <h2>Offre Spéciale Sportif du Weekend</h2>
@@ -478,80 +478,112 @@
                             <img class="img-fluid" src="{{ asset('assets/img/velo.png')}}" alt="Price Plan">
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
-                <!-- Colonne 2: Tarif Normal (une seule section) -->
+                <!-- Colonne 1: Vélo Sport -->
                 <div class="col-lg-3 d-flex col-md-6 col-12" data-aos="fade-down">
                     <div class="price-card flex-fill">
                         <div class="price-head">
                             <div class="price-level">
-                                <h6>Tarif Normal de Location</h6>
-                                <p>Location individuelle</p>
+                                <h6>Vélo Sport</h6>
+                                <p>Séance de groupe</p>
                             </div>
-                            <h4>700F</h4>
-                            <span>À partir de /heure</span>
+                            <h4>3 000F</h4>
+                            <span>Par séance / 12 000F/mois</span>
                         </div>
                         <div class="price-details">
                             <ul>
-                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Location Weekend: 700F/heure</li>
-                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Location+Apprentissage: 1200F</li>
-                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>1h = 1500F + 15min offert</li>
-                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>2h = 2500F + 30min offert</li>
-                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>3h = 3500F + 30min offert</li>
-                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Temps bonus inclus</li>
+                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Prix par séance : 3 000F</li>
+                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Abonnement mensuel : 12 000F</li>
+                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Durée : 1h | 10 places disponibles</li>
+                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Un vélo + casque inclus</li>
+                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Une bouteille d'eau</li>
+                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Coach sportif professionnel</li>
                             </ul>
-                            <a href="{{ route('reservation_step_1') }}" class="btn viewdetails-btn">Louer</a>
+                            <a href="{{ route('details') }}?plan=velo-sport"
+                                onclick="localStorage.setItem('selectedPlan','velo-sport')"
+                                class="btn viewdetails-btn">Réserver</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Colonne 3: Séances en Groupe (Sport & Picnic) -->
+                <!-- Colonne 2: Randonner à Vélo -->
+                <div class="col-lg-3 d-flex col-md-6 col-12" data-aos="fade-down">
+                    <div class="price-card flex-fill">
+                        <div class="price-head">
+                            <div class="price-level">
+                                <h6>Randonner à Vélo</h6>
+                                <p>Circuit 30–43 km</p>
+                            </div>
+                            <h4>6 000F</h4>
+                            <span>Adulte / 3 000F enfant (10–15 ans)</span>
+                        </div>
+                        <div class="price-details">
+                            <ul>
+                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Prix adulte : 6 000F</li>
+                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Prix enfant (10–15 ans) : 3 000F</li>
+                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Durée : 3h | 10 places disponibles</li>
+                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Vélo + casque + bouteille d'eau</li>
+                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Superviseur + éclairage + antivol</li>
+                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Une pompe incluse</li>
+                            </ul>
+                            <a href="{{ route('details') }}?plan=randonnee"
+                                onclick="localStorage.setItem('selectedPlan','randonnee')"
+                                class="btn viewdetails-btn">Réserver</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Colonne 3: Vélo Tourisme -->
                 <div class="col-lg-3 d-flex col-md-6 col-12" data-aos="fade-down">
                     <div class="price-card flex-fill active">
                         <div class="price-head">
                             <div class="price-level price-level-popular">
-                                <h6>Séances en Groupe</h6>
-                                <p>Samedis matin</p>
+                                <h6>Vélo Tourisme</h6>
+                                <p>Expérience guidée</p>
                             </div>
-                            <h4>3000F</h4>
-                            <span>À partir de</span>
-                        </div>
-                        <div class="price-details">
-                            <ul>
-                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Vélo Sport - 3000F (coach sportif)</li>
-                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>10 places disponibles</li>
-                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Vélo Picnic - 5000F</li>
-                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>10 places disponibles</li>
-                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Tous les samedis matin</li>
-                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Ambiance conviviale</li>
-                            </ul>
-                            <a href="{{ route('reservation_step_1') }}" class="btn viewdetails-btn btn-popular">Inscription</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Colonne 4: Séances Premium (Tourisme & Trip) -->
-                <div class="col-lg-3 d-flex col-md-6 col-12" data-aos="fade-down">
-                    <div class="price-card flex-fill">
-                        <div class="price-head">
-                            <div class="price-level">
-                                <h6>Séances Premium</h6>
-                                <p>Expériences guidées</p>
-                            </div>
-                            <h4>10 000F</h4>
+                            <h4>30 000F</h4>
                             <span>Par inscription</span>
                         </div>
                         <div class="price-details">
                             <ul>
-                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Vélo Tourisme - 10 000F</li>
-                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Avec guide touristique</li>
-                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>10 places disponibles</li>
-                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Vélo Trip - 10 000F</li>
-                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Moniteur OREKA</li>
-                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>10 places disponibles</li>
-                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Samedis matin</li>
+                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Durée : 4h | 10 places disponibles</li>
+                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Sites touristiques : Cotonou, Ouidah, Porto-Novo</li>
+                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Repas dans un restaurant réputé</li>
+                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Vélo + casque + bouteille d'eau</li>
+                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Guide touristique professionnel</li>
+                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Éclairage + antivol + pompe</li>
                             </ul>
-                            <a href="{{ route('reservation_step_1') }}" class="btn viewdetails-btn">Réserver</a>
+                            <a href="{{ route('details') }}?plan=tourisme"
+                                onclick="localStorage.setItem('selectedPlan','tourisme')"
+                                class="btn viewdetails-btn btn-popular">Réserver</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Colonne 4: Apprentissage -->
+                <div class="col-lg-3 d-flex col-md-6 col-12" data-aos="fade-down">
+                    <div class="price-card flex-fill">
+                        <div class="price-head">
+                            <div class="price-level">
+                                <h6>Apprentissage</h6>
+                                <p>Vélo École Adulte & Kids</p>
+                            </div>
+                            <h4>10 000F</h4>
+                            <span>À partir de (Kids) / 15 000F (Adulte)</span>
+                        </div>
+                        <div class="price-details">
+                            <ul>
+                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Adulte : 15 000F — 3 séances de 1h30</li>
+                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Kids : 10 000F — 3 séances de 45min</li>
+                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Moniteurs diplômés</li>
+                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Méthode pédagogique progressive</li>
+                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Enfants à partir de 2 ans et demi</li>
+                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Cours individuel ou petit groupe</li>
+                            </ul>
+                            <a href="{{ route('details') }}?plan=apprentissage"
+                                onclick="localStorage.setItem('selectedPlan','apprentissage')"
+                                class="btn viewdetails-btn">S'inscrire</a>
                         </div>
                     </div>
                 </div>

@@ -187,7 +187,7 @@
                 <a class="nav-link login-link ms-1" href="register.html">Register </a>
             </li>--}}
             <li class="nav-item">
-                <a class="nav-link header-reg" href="{{ route('reservation_step_1') }}">S’inscrire à une activité</a>
+                <a class="nav-link header-reg" href="{{ route('accueil') }}#pricing">S’inscrire à une activité</a>
             </li>
         </ul>
     </nav>

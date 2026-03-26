@@ -1,6 +1,8 @@
 @extends('frontend.main_master')
 
-@section('title') Choix de la formule | Oreka Mobility @endsection
+{{-- Step 2 --}}
+@section('title') Réservation — Étape 2 | Choisissez Votre Formule | Oreka Mobility @endsection
+@section('description') Sélectionnez le nombre de places ou d'heures pour votre activité vélo. Récapitulatif en temps réel et paiement sécurisé. @endsection
 
 @push('links')
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">

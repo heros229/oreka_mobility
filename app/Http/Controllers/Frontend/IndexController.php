@@ -25,11 +25,10 @@ class IndexController extends Controller
     } // end method
 
 
-    public function details()
+    public function details(Request $request)
     {
-
-        return view('frontend.details_pricing');
-
+        $plan = $request->get('plan', 'velo-sport');
+        return view('frontend.details_pricing', compact('plan'));
     }
 
     public function Reservation_step_1()

@@ -1,8 +1,9 @@
+
 @extends('frontend.main_master')
 
-@section('title') Échec de la réservation @endsection
+@section('title') Route des Pêches – OREKA Mobility @endsection
 
-@section('description') La réservation a échoué. Veuillez réessayer. @endsection
+@section('description') Découvrez la Route des Pêches, cordon littoral sauvage entre océan et lagune. Réservez un vélo et vivez l'une des plus belles balades côtières d'Afrique de l'Ouest. @endsection
 
 @push('links')
 
@@ -30,20 +31,18 @@
 @section('content')
 
     <!-- Breadscrumb Section -->
-    <div class="blogbanner">
+    <div class="blogbanner" style="background-image: url('assets/img/profiles/route.jpg'); background-size: cover; background-position: center;">
         <div class="blogbanner-content">
-            <span class="blog-hint">Health</span>
-            <h1>The Top 25 Bike Stores in Toronto by Neighbourhood</h1>
+            <span class="blog-hint">Destination</span>
+            <h1>Route des Pêches – Entre océan et lagune, le Bénin sauvage</h1>
             <ul class="entry-meta meta-item justify-content-center">
                 <li>
                     <div class="post-author">
-                        <div class="post-author-img">
-                            <img src="assets/img/profiles/avatar-01.jpg" alt="author">
-                        </div>
-                        <a href="javascript:void(0)"><span> John Doe </span></a>
+
+                        <a href="javascript:void(0)"><span> OREKA Mobility </span></a>
                     </div>
                 </li>
-                <li class="date-icon"><i class="fa-solid fa-calendar-days"></i> October 6, 2022</li>
+                <li class="date-icon"><i class="fa-solid fa-calendar-days"></i> Mars 2026</li>
             </ul>
         </div>
     </div>
@@ -53,164 +52,35 @@
     <div class="blog-section">
         <div class="container">
             <div class="blog-description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula sapien nec nisi aliquam, vitae finibus purus sodales. Mauris at turpis nulla. Curabitur nec tellus est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum pharetra arcu ac arcu varius, non congue neque aliquet. Pellentesque at feugiat purus. Aenean faucibus vehicula eros.</p>
-                <p>varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla fermentum malesuada pulvinar. Vestibulum laoreet rutrum semper. Vivamus malesuada, nisl in consectetur semper, mauris nulla aliquam risus, nec ultricies sapien elit sed ante. Aenean luctus felis in sem consequat auctor. Nulla turpis enim, scelerisque sit amet consectetur vel, lacinia sed augue. Proin ultricies dui id ex fringilla porta. Morbi nisi justo, venenatis ac nibh at, bibendum mattis risus. Maecenas tincidunt, ligula sed congue tempus, magna augue cursus ipsum, in malesuada justo risus nec lorem. Nam augue augue, mollis nec condimentum euismod, lacinia ultricies leo.</p>
+                <p>La Route des Pêches est sans doute l'une des plus belles pistes cyclables naturelles d'Afrique de l'Ouest. Ce cordon littoral d'une soixantaine de kilomètres s'étire depuis Cotonou jusqu'à Grand-Popo, coincé entre les eaux tumultueuses de l'océan Atlantique d'un côté et la sérénité des lagunes côtières de l'autre. Ici, pas d'immeubles ni de trafic urbain — seulement des cocotiers qui se courbent sous la brise marine, des pirogues de pêcheurs qui glissent sur l'eau calme, des villages aux couleurs vives et un horizon infini où ciel et mer se confondent.</p>
+                <p>À vélo, la Route des Pêches révèle toute sa splendeur. Chaque coup de pédale vous rapproche d'un Bénin authentique et préservé, loin de l'agitation de Cotonou. On croise les filets qui sèchent au soleil, les enfants qui jouent sur la plage, les femmes qui rentrent du marché avec leur chargement en équilibre sur la tête. Les villages de pêcheurs comme Avlékété, Agatogbo ou Ouidah-Plage jalonnent le parcours et invitent à la pause, à la dégustation de poisson grillé frais sorti de l'océan, et à la conversation avec des habitants d'une générosité remarquable.</p>
             </div>
             <blockquote class="blog-quotes">
                 <img src="assets/img/blogquote.svg" alt="quotes">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula sapien nec nisi aliquam, vitae finibus purus sodales. Mauris at turpis nulla. Curabitur nec tellus est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum pharetra arcu ac arcu varius, non congue neque aliquet. Pellentesque at feugiat purus. Aenean faucibus vehicula eros.</p>
-                <h6>Luis Pickford</h6>
+                <p>Pédaler sur la Route des Pêches au lever du soleil, avec l'Atlantique qui gronde à quelques mètres et la lagune qui miroite de l'autre côté — c'est l'une des expériences les plus pures que j'aie jamais vécues à vélo. Le Bénin m'a offert ce matin-là quelque chose d'inoubliable.</p>
+                <h6>Théodore Kpakpo – Cycliste et globe-trotteur</h6>
             </blockquote>
             <div class="blog-description">
-                <p>Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla fermentum malesuada pulvinar. Vestibulum laoreet rutrum semper. Vivamus malesuada, nisl in consectetur semper, mauris nulla aliquam risus, nec ultricies sapien elit sed ante. Aenean luctus felis in sem consequat auctor. Nulla turpis enim, scelerisque sit amet consectetur vel, lacinia sed augue. Proin ultricies dui id ex fringilla porta. Morbi nisi justo, venenatis ac nibh at, bibendum mattis risus. Maecenas tincidunt, ligula sed congue tempus, magna augue cursus ipsum, in malesuada justo risus nec lorem. Nam augue augue, mollis nec condimentum euismod, lacinia ultricies leo.</p>
+                <p>Nous proposons deux formules pour explorer la Route des Pêches à vélo. La première, sur une demi-journée, couvre les 25 premiers kilomètres depuis l'entrée de la route jusqu'au village d'Avlékété, avec retour par le même chemin au coucher du soleil. La seconde, sur une journée complète, permet d'atteindre Ouidah-Plage et ses alentours chargés d'histoire — la Porte du Non-Retour se trouvant à quelques kilomètres seulement. Dans les deux cas, le départ se fait tôt le matin pour profiter de la fraîcheur et éviter la chaleur de l'après-midi. Chaque vélo est livré avec un kit complet : casque, antivol, bidon d'eau et carte du parcours.</p>
             </div>
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="bloginner-img">
-                        <img src="assets/img/blog/blog-detail-01.jpg" class="img-fluid" alt="Blog">
+                        <img src="{{ asset('assets/img/profiles/velo.jpg')}}" class="img-fluid" alt="Océan Atlantique sur la Route des Pêches au Bénin">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="bloginner-img">
-                        <img src="assets/img/blog/blog-detail-02.jpg"  class="img-fluid" alt="Blog">
+                        <img src="{{ asset('assets/img/profiles/route.jpg')}}" class="img-fluid" alt="Lagune côtière sur la Route des Pêches Bénin">
                     </div>
-                </div>
-            </div>
-            <div class="share-postsection">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="sharelink d-flex align-items-center">
-                            <a href="javascript:void(0);" class="share-img"><i class="feather-share-2"></i></a>
-                            <a href="javascript:void(0);" class="share-text">Share</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-8">
-                        <div class="tag-list">
-                            <ul class="tags">
-                                <li>Rims </li>
-                                <li>Speed </li>
-                                <li>Make </li>
-                                <li>Transmission </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="blogdetails-pagination">
-                <ul>
-                    <li>
-                        <a href="blog-details.html" class="prev-link"><i class="fas fa-regular fa-arrow-left"></i> Previous Post</a>
-                        <a href="blog-details.html"><h3>The Best SPA Salons For Your Relaxation</h3> </a>
-                    </li>
-                    <li>
-                        <a href="blog-details.html" class="next-link">Next Post <i class="fas fa-regular fa-arrow-right"></i> </a>
-                        <a href="blog-details.html"><h3>8 Amazing Tricks About Business</h3> </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="review-sec mb-0">
-                <div class="review-header">
-                    <h4>Reviews<span>(2)</span></h4>
-                    <div class="reviewbox-list-rating">
-                        <p>
-                            <i class="fas fa-star filled"></i>
-                            <i class="fas fa-star filled"></i>
-                            <i class="fas fa-star filled"></i>
-                            <i class="fas fa-star filled"></i>
-                            <i class="fas fa-star filled"></i>
-                            <span> (5 out of 5)</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="review-card">
-                    <div class="review-header-group">
-                        <div class="review-widget-header">
-								<span class="review-widget-img">
-									<img src="assets/img/profiles/avatar-01.jpg"  class="img-fluid" alt="Blog">
-								</span>
-                            <div class="review-design">
-                                <h6>Johnson</h6>
-                                <p>02 Jan 2023</p>
-                            </div>
-                        </div>
-                        <div class="reviewbox-list-rating">
-                            <p>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <span> (5 out of 5)</span>
-                            </p>
-                        </div>
-                    </div>
-                    <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.It was popularised in the 1960s </p>
-                </div>
-                <div class="review-card">
-                    <div class="review-header-group">
-                        <div class="review-widget-header">
-								<span class="review-widget-img">
-									<img src="assets/img/profiles/avatar-02.jpg"  class="img-fluid" alt="Blog">
-								</span>
-                            <div class="review-design">
-                                <h6>Casandra</h6>
-                                <p>02 Jan 2023</p>
-                            </div>
-                        </div>
-                        <div class="reviewbox-list-rating">
-                            <p>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <span> (5 out of 5)</span>
-                            </p>
-                        </div>
-                    </div>
-                    <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.It was popularised in the 1960s </p>
                 </div>
             </div>
 
-            <div class="review-sec mb-0">
-                <div class="review-header">
-                    <h4>Leave a Reply</h4>
-                </div>
-                <div class="card-body">
-                    <div class="review-list">
-                        <ul>
-                            <li class="review-box feedbackbox mb-0">
-                                <div class="review-details">
-                                    <form action="blog-details.html">
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <div class="input-block">
-                                                    <label>Full Name <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="input-block">
-                                                    <label>Email Address <span class="text-danger">*</span></label>
-                                                    <input type="email" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <div class="input-block">
-                                                    <label>Comments </label>
-                                                    <textarea rows="4" class="form-control"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="submit-section">
-                                            <button class="btn btn-primary submit-review" type="submit"> Submit Review</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+
+            <div class="card-body text-center" style="padding: 40px 0;">
+                <a href="{{ route('accueil') }}#pricing" class="btn btn-primary submit-review">
+                    <i class="fa-solid fa-calendar-check"></i> Réserver maintenant
+                </a>
             </div>
         </div>
     </div>

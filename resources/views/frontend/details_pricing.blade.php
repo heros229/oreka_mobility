@@ -1,10 +1,30 @@
 @extends('frontend.main_master')
 
-@section('title') NordKapital Beratung | Expert du Crédit Personnel en Allemagne | Solutions de Financement
-@endsection
+@php
+    $seoData = [
+        'velo-sport' => [
+            'title' => 'Vélo Sport à Cotonou | Séances Encadrées avec Coach | Oreka Mobility',
+            'desc'  => 'Rejoignez nos séances de Vélo Sport encadrées par un coach professionnel à Cotonou. 3 000 F / séance, 10 places disponibles. Réservez en ligne !',
+        ],
+        'randonnee' => [
+            'title' => 'Randonnée à Vélo à Cotonou | Circuits 30–43 km | Oreka Mobility',
+            'desc'  => 'Partez en randonnée vélo sur des circuits de 30 à 43 km autour de Cotonou. 6 000 F adulte, 3 000 F enfant. Superviseur et équipement inclus.',
+        ],
+        'tourisme' => [
+            'title' => 'Vélo Tourisme | Visite Guidée Cotonou · Ouidah · Porto-Novo | Oreka Mobility',
+            'desc'  => 'Découvrez le Bénin à vélo avec nos visites guidées. 30 000 F / inscription, repas local inclus, guide professionnel. 10 places seulement !',
+        ],
+        'apprentissage' => [
+            'title' => 'Apprentissage du Vélo à Cotonou | Adulte & Enfant | Oreka Mobility',
+            'desc'  => 'Apprenez à faire du vélo avec nos moniteurs diplômés. Vélo École Adulte 15 000 F, Kids dès 2 ans et demi 10 000 F. 3 séances incluses.',
+        ],
+    ];
 
-@section('description')Découvrez des solutions de financement personnalisées pour tous vos projets. Taux attractifs, réponse en 24h et accompagnement expert. Plus de 90 000 clients nous font confiance !@endsection
+    $currentSeo = $seoData[$plan] ?? $seoData['velo-sport'];
+@endphp
 
+@section('title') {{ $currentSeo['title'] }} @endsection
+@section('description') {{ $currentSeo['desc'] }} @endsection
 
 @push('links')
 

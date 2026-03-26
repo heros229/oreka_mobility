@@ -1,10 +1,11 @@
 @extends('frontend.main_master')
-
-@section('title') NordKapital Beratung | Expert du Crédit Personnel en Allemagne | Solutions de Financement
+@section('title')
+    Contact | Oreka Mobility — Cotonou, Bénin
 @endsection
 
-@section('description')Découvrez des solutions de financement personnalisées pour tous vos projets. Taux attractifs, réponse en 24h et accompagnement expert. Plus de 90 000 clients nous font confiance !@endsection
-
+@section('description')
+    Contactez l'équipe Oreka Mobility pour toute question sur nos activités vélo à Cotonou. Disponibles du lundi au samedi de 8h à 18h via WhatsApp, email ou formulaire en ligne.
+@endsection
 
 @push('links')
 
@@ -96,7 +97,7 @@
             <div class="form-info-area" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="0.5">
                 <div class="row">
                     <div class="col-lg-6 d-flex">
-                        <img src="{{ asset('assets/img/contact-info.jpg')}}" class="img-fluid" alt="Contact">
+                        <img src="{{ asset('assets/img/oreka_contact.png')}}" class="img-fluid" alt="Contact">
                     </div>
                     <div class="col-lg-6">
                         <div id="contactContainer">

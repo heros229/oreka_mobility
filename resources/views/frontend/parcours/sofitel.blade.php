@@ -1,8 +1,9 @@
+
 @extends('frontend.main_master')
 
-@section('title') Échec de la réservation @endsection
+@section('title') Hôtel Sofitel Marina Cotonou – OREKA Mobility @endsection
 
-@section('description') La réservation a échoué. Veuillez réessayer. @endsection
+@section('description') Découvrez le Sofitel Marina Cotonou, joyau de l'hospitalité au bord de l'Atlantique. Réservez un vélo et explorez Cotonou depuis cet hôtel iconique. @endsection
 
 @push('links')
 
@@ -30,20 +31,18 @@
 @section('content')
 
     <!-- Breadscrumb Section -->
-    <div class="blogbanner">
+    <div class="blogbanner" style="background-image: url('assets/img/profiles/sofitel.jpg'); background-size: cover; background-position: center;">
         <div class="blogbanner-content">
-            <span class="blog-hint">Health</span>
-            <h1>The Top 25 Bike Stores in Toronto by Neighbourhood</h1>
+            <span class="blog-hint">Destination</span>
+            <h1>Sofitel Marina Cotonou – L'élégance face à l'Atlantique</h1>
             <ul class="entry-meta meta-item justify-content-center">
                 <li>
                     <div class="post-author">
-                        <div class="post-author-img">
-                            <img src="assets/img/profiles/avatar-01.jpg" alt="author">
-                        </div>
-                        <a href="javascript:void(0)"><span> John Doe </span></a>
+
+                        <a href="javascript:void(0)"><span> OREKA Mobility </span></a>
                     </div>
                 </li>
-                <li class="date-icon"><i class="fa-solid fa-calendar-days"></i> October 6, 2022</li>
+                <li class="date-icon"><i class="fa-solid fa-calendar-days"></i> Mars 2026</li>
             </ul>
         </div>
     </div>
@@ -53,164 +52,34 @@
     <div class="blog-section">
         <div class="container">
             <div class="blog-description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula sapien nec nisi aliquam, vitae finibus purus sodales. Mauris at turpis nulla. Curabitur nec tellus est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum pharetra arcu ac arcu varius, non congue neque aliquet. Pellentesque at feugiat purus. Aenean faucibus vehicula eros.</p>
-                <p>varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla fermentum malesuada pulvinar. Vestibulum laoreet rutrum semper. Vivamus malesuada, nisl in consectetur semper, mauris nulla aliquam risus, nec ultricies sapien elit sed ante. Aenean luctus felis in sem consequat auctor. Nulla turpis enim, scelerisque sit amet consectetur vel, lacinia sed augue. Proin ultricies dui id ex fringilla porta. Morbi nisi justo, venenatis ac nibh at, bibendum mattis risus. Maecenas tincidunt, ligula sed congue tempus, magna augue cursus ipsum, in malesuada justo risus nec lorem. Nam augue augue, mollis nec condimentum euismod, lacinia ultricies leo.</p>
+                <p>Perché en bordure de l'océan Atlantique, le Sofitel Marina Cotonou est sans conteste l'adresse la plus prestigieuse de la capitale économique du Bénin. Avec ses 193 chambres et suites offrant des vues imprenables sur l'océan, cet établissement cinq étoiles mêle avec élégance le luxe international et l'art de vivre béninois. Inauguré en 2012, il s'est rapidement imposé comme le symbole de la modernité de Cotonou, accueillant aussi bien les grands événements diplomatiques que les voyageurs en quête d'une expérience haut de gamme sur la côte ouest-africaine.</p>
+                <p>Partir à vélo depuis le Sofitel Marina, c'est s'offrir une aventure unique entre deux mondes. En quelques coups de pédales, vous quittez l'univers feutré du palace pour plonger dans l'effervescence authentique de Cotonou : le front de mer animé, les artères commerçantes de Haie Vive, les marchés colorés et les terrasses de street food qui jalonnent le boulevard de la Marina. Le contraste est saisissant, et c'est précisément ce qui rend cette balade inoubliable.</p>
             </div>
             <blockquote class="blog-quotes">
-                <img src="assets/img/blogquote.svg" alt="quotes">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula sapien nec nisi aliquam, vitae finibus purus sodales. Mauris at turpis nulla. Curabitur nec tellus est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum pharetra arcu ac arcu varius, non congue neque aliquet. Pellentesque at feugiat purus. Aenean faucibus vehicula eros.</p>
-                <h6>Luis Pickford</h6>
+                <img src="{{ asset('assets/img/blogquote.svg')}}" alt="quotes">
+                <p>Quitter le Sofitel à l'aube, vélo en main, et longer l'océan Atlantique jusqu'au marché du Port — c'est l'un des plus beaux réveils que l'Afrique de l'Ouest puisse offrir. La brise marine, les pêcheurs qui rentrent, la ville qui s'éveille doucement… une magie que seul le vélo permet de ressentir pleinement.</p>
+                <h6>Olivier Marchand – Voyageur & cycliste</h6>
             </blockquote>
             <div class="blog-description">
-                <p>Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla fermentum malesuada pulvinar. Vestibulum laoreet rutrum semper. Vivamus malesuada, nisl in consectetur semper, mauris nulla aliquam risus, nec ultricies sapien elit sed ante. Aenean luctus felis in sem consequat auctor. Nulla turpis enim, scelerisque sit amet consectetur vel, lacinia sed augue. Proin ultricies dui id ex fringilla porta. Morbi nisi justo, venenatis ac nibh at, bibendum mattis risus. Maecenas tincidunt, ligula sed congue tempus, magna augue cursus ipsum, in malesuada justo risus nec lorem. Nam augue augue, mollis nec condimentum euismod, lacinia ultricies leo.</p>
+                <p>Le Sofitel Marina se situe sur le boulevard de la Marina, dans le quartier résidentiel et diplomatique de Cotonou, à environ 15 minutes du centre-ville. Le circuit à vélo depuis l'hôtel longe le front de mer sur près de 10 kilomètres, permettant de rejoindre la Place de l'Étoile Rouge, le Palais des Congrès, puis de remonter vers le quartier des Ambassades avant de rentrer le long de la lagune. Une balade accessible à tous les niveaux, à réaliser de préférence tôt le matin pour profiter de la fraîcheur de l'océan et éviter la circulation dense de la journée.</p>
             </div>
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="bloginner-img">
-                        <img src="assets/img/blog/blog-detail-01.jpg" class="img-fluid" alt="Blog">
+                        <img src="{{ asset('assets/img/profiles/so-R.jpg')}}" class="img-fluid" alt="Piscine du Sofitel Marina Cotonou face à l'Atlantique">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="bloginner-img">
-                        <img src="assets/img/blog/blog-detail-02.jpg"  class="img-fluid" alt="Blog">
+                        <img src="{{ asset('assets/img/profiles/Sofi-R.jpg')}}" class="img-fluid" alt="Vue sur l'océan Atlantique depuis le Sofitel Marina Cotonou">
                     </div>
-                </div>
-            </div>
-            <div class="share-postsection">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="sharelink d-flex align-items-center">
-                            <a href="javascript:void(0);" class="share-img"><i class="feather-share-2"></i></a>
-                            <a href="javascript:void(0);" class="share-text">Share</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-8">
-                        <div class="tag-list">
-                            <ul class="tags">
-                                <li>Rims </li>
-                                <li>Speed </li>
-                                <li>Make </li>
-                                <li>Transmission </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="blogdetails-pagination">
-                <ul>
-                    <li>
-                        <a href="blog-details.html" class="prev-link"><i class="fas fa-regular fa-arrow-left"></i> Previous Post</a>
-                        <a href="blog-details.html"><h3>The Best SPA Salons For Your Relaxation</h3> </a>
-                    </li>
-                    <li>
-                        <a href="blog-details.html" class="next-link">Next Post <i class="fas fa-regular fa-arrow-right"></i> </a>
-                        <a href="blog-details.html"><h3>8 Amazing Tricks About Business</h3> </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="review-sec mb-0">
-                <div class="review-header">
-                    <h4>Reviews<span>(2)</span></h4>
-                    <div class="reviewbox-list-rating">
-                        <p>
-                            <i class="fas fa-star filled"></i>
-                            <i class="fas fa-star filled"></i>
-                            <i class="fas fa-star filled"></i>
-                            <i class="fas fa-star filled"></i>
-                            <i class="fas fa-star filled"></i>
-                            <span> (5 out of 5)</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="review-card">
-                    <div class="review-header-group">
-                        <div class="review-widget-header">
-								<span class="review-widget-img">
-									<img src="assets/img/profiles/avatar-01.jpg"  class="img-fluid" alt="Blog">
-								</span>
-                            <div class="review-design">
-                                <h6>Johnson</h6>
-                                <p>02 Jan 2023</p>
-                            </div>
-                        </div>
-                        <div class="reviewbox-list-rating">
-                            <p>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <span> (5 out of 5)</span>
-                            </p>
-                        </div>
-                    </div>
-                    <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.It was popularised in the 1960s </p>
-                </div>
-                <div class="review-card">
-                    <div class="review-header-group">
-                        <div class="review-widget-header">
-								<span class="review-widget-img">
-									<img src="assets/img/profiles/avatar-02.jpg"  class="img-fluid" alt="Blog">
-								</span>
-                            <div class="review-design">
-                                <h6>Casandra</h6>
-                                <p>02 Jan 2023</p>
-                            </div>
-                        </div>
-                        <div class="reviewbox-list-rating">
-                            <p>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <span> (5 out of 5)</span>
-                            </p>
-                        </div>
-                    </div>
-                    <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.It was popularised in the 1960s </p>
                 </div>
             </div>
 
-            <div class="review-sec mb-0">
-                <div class="review-header">
-                    <h4>Leave a Reply</h4>
-                </div>
-                <div class="card-body">
-                    <div class="review-list">
-                        <ul>
-                            <li class="review-box feedbackbox mb-0">
-                                <div class="review-details">
-                                    <form action="blog-details.html">
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <div class="input-block">
-                                                    <label>Full Name <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="input-block">
-                                                    <label>Email Address <span class="text-danger">*</span></label>
-                                                    <input type="email" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <div class="input-block">
-                                                    <label>Comments </label>
-                                                    <textarea rows="4" class="form-control"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="submit-section">
-                                            <button class="btn btn-primary submit-review" type="submit"> Submit Review</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="card-body text-center" style="padding: 40px 0;">
+                <a href="{{ route('accueil') }}#pricing" class="btn btn-primary submit-review">
+                    <i class="fa-solid fa-calendar-check"></i> Réserver maintenant
+                </a>
             </div>
         </div>
     </div>

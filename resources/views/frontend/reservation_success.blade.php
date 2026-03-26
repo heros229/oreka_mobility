@@ -1,7 +1,8 @@
 @extends('frontend.main_master')
 
-@section('title') Réservation confirmée | Oreka Mobility @endsection
-@section('description') Votre réservation a été confirmée avec succès. @endsection
+{{-- Page Succès --}}
+@section('title') Réservation Confirmée | Merci ! | Oreka Mobility @endsection
+@section('description') Votre réservation est confirmée et votre paiement a été accepté. Un email de confirmation avec votre reçu PDF vous a été envoyé. @endsection
 
 @push('links')
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -175,7 +176,7 @@
 
                 {{-- Contact rapide --}}
                 <div style="text-align:center;margin-top:28px;display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;">
-                    <a href="https://wa.me/22901000000" style="display:flex;align-items:center;gap:8px;color:var(--g2);font-weight:600;font-size:14px;text-decoration:none;">
+                    <a href="https://wa.me/2290153096850" style="display:flex;align-items:center;gap:8px;color:var(--g2);font-weight:600;font-size:14px;text-decoration:none;">
                         <i class="bx bxl-whatsapp" style="font-size:20px;color:#25D366;"></i> WhatsApp
                     </a>
                     <a href="mailto:contact@orekamobility.com" style="display:flex;align-items:center;gap:8px;color:var(--g2);font-weight:600;font-size:14px;text-decoration:none;">

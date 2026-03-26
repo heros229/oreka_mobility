@@ -1,8 +1,8 @@
 @extends('frontend.main_master')
 
-@section('title') Échec de la réservation @endsection
+@section('title') Monument aux Dévoués – Cotonou, OREKA Mobility @endsection
 
-@section('description') La réservation a échoué. Veuillez réessayer. @endsection
+@section('description') Découvrez le Monument aux Dévoués, lieu de mémoire et de recueillement au cœur de Cotonou. Réservez un vélo et rendez hommage à ce symbole de courage béninois. @endsection
 
 @push('links')
 
@@ -30,20 +30,18 @@
 @section('content')
 
     <!-- Breadscrumb Section -->
-    <div class="blogbanner">
+    <div class="blogbanner" style="background-image: url('assets/img/profiles/gg.jpeg'); background-size: cover; background-position: center;">
         <div class="blogbanner-content">
-            <span class="blog-hint">Health</span>
-            <h1>The Top 25 Bike Stores in Toronto by Neighbourhood</h1>
+            <span class="blog-hint">Destination</span>
+            <h1>Monument aux Dévoués – Un lieu de mémoire et de fierté</h1>
             <ul class="entry-meta meta-item justify-content-center">
                 <li>
                     <div class="post-author">
-                        <div class="post-author-img">
-                            <img src="assets/img/profiles/avatar-01.jpg" alt="author">
-                        </div>
-                        <a href="javascript:void(0)"><span> John Doe </span></a>
+
+                        <a href="javascript:void(0)"><span> OREKA Mobility </span></a>
                     </div>
                 </li>
-                <li class="date-icon"><i class="fa-solid fa-calendar-days"></i> October 6, 2022</li>
+                <li class="date-icon"><i class="fa-solid fa-calendar-days"></i> Mars 2026</li>
             </ul>
         </div>
     </div>
@@ -53,164 +51,34 @@
     <div class="blog-section">
         <div class="container">
             <div class="blog-description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula sapien nec nisi aliquam, vitae finibus purus sodales. Mauris at turpis nulla. Curabitur nec tellus est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum pharetra arcu ac arcu varius, non congue neque aliquet. Pellentesque at feugiat purus. Aenean faucibus vehicula eros.</p>
-                <p>varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla fermentum malesuada pulvinar. Vestibulum laoreet rutrum semper. Vivamus malesuada, nisl in consectetur semper, mauris nulla aliquam risus, nec ultricies sapien elit sed ante. Aenean luctus felis in sem consequat auctor. Nulla turpis enim, scelerisque sit amet consectetur vel, lacinia sed augue. Proin ultricies dui id ex fringilla porta. Morbi nisi justo, venenatis ac nibh at, bibendum mattis risus. Maecenas tincidunt, ligula sed congue tempus, magna augue cursus ipsum, in malesuada justo risus nec lorem. Nam augue augue, mollis nec condimentum euismod, lacinia ultricies leo.</p>
+                <p>Le Monument aux Dévoués est l'un des lieux de mémoire les plus poignants de Cotonou. Érigé en hommage aux victimes de la tragique explosion du dépôt de munitions du 23 octobre 2000, il rend hommage aux soldats, pompiers et secouristes qui ont sacrifié leur vie pour protéger la population civile lors de cette catastrophe qui endeuilla profondément le Bénin. Situé dans un espace de recueillement sobre et digne, le monument incarne la reconnaissance d'une nation envers ceux qui ont tout donné.</p>
+                <p>Visiter ce lieu à vélo, c'est s'accorder un moment de pause et de réflexion au cœur d'un trajet qui traverse la mémoire collective béninoise. Le monument se trouve dans un quartier accessible et calme, idéal pour une halte contemplative entre deux étapes d'une balade urbaine. Autour de lui, la ville continue de vivre et de se construire — un contraste qui rappelle avec force la résilience du peuple de Cotonou face à l'adversité.</p>
             </div>
             <blockquote class="blog-quotes">
-                <img src="assets/img/blogquote.svg" alt="quotes">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula sapien nec nisi aliquam, vitae finibus purus sodales. Mauris at turpis nulla. Curabitur nec tellus est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum pharetra arcu ac arcu varius, non congue neque aliquet. Pellentesque at feugiat purus. Aenean faucibus vehicula eros.</p>
-                <h6>Luis Pickford</h6>
+                <img src="{{ asset('assets/img/blogquote.svg')}}" alt="quotes">
+                <p>S'arrêter devant le Monument aux Dévoués à vélo, c'est ressentir tout le poids de l'histoire et toute la noblesse d'un peuple. Ce lieu m'a profondément touché. On ne visite pas simplement Cotonou, on la comprend, on la ressent.</p>
+                <h6>Jean-Pierre Adande – Voyageur culturel</h6>
             </blockquote>
             <div class="blog-description">
-                <p>Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla fermentum malesuada pulvinar. Vestibulum laoreet rutrum semper. Vivamus malesuada, nisl in consectetur semper, mauris nulla aliquam risus, nec ultricies sapien elit sed ante. Aenean luctus felis in sem consequat auctor. Nulla turpis enim, scelerisque sit amet consectetur vel, lacinia sed augue. Proin ultricies dui id ex fringilla porta. Morbi nisi justo, venenatis ac nibh at, bibendum mattis risus. Maecenas tincidunt, ligula sed congue tempus, magna augue cursus ipsum, in malesuada justo risus nec lorem. Nam augue augue, mollis nec condimentum euismod, lacinia ultricies leo.</p>
+                <p>Le monument s'intègre naturellement dans le circuit culturel à vélo que nous proposons depuis le centre de Cotonou. En partant de la Place de l'Étoile Rouge, vous rejoignez le monument en moins de dix minutes, avant de poursuivre vers le quartier Gbèdjromèdé ou de longer la lagune vers le port de pêche. Ce parcours d'environ 9 kilomètres mêle histoire, culture et découverte urbaine, et peut être parcouru en deux heures environ. C'est une étape incontournable pour quiconque souhaite comprendre l'âme profonde de Cotonou au-delà des clichés touristiques.</p>
             </div>
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="bloginner-img">
-                        <img src="assets/img/blog/blog-detail-01.jpg" class="img-fluid" alt="Blog">
+                        <img src="{{ asset('assets/img/profiles/obelisque.png')}}" class="img-fluid" alt="Détail du Monument aux Dévoués de Cotonou">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="bloginner-img">
-                        <img src="assets/img/blog/blog-detail-02.jpg"  class="img-fluid" alt="Blog">
+                        <img src="{{ asset('assets/img/profiles/obelisque-1.jpg')}}" class="img-fluid" alt="Circuit vélo au Monument aux Dévoués Cotonou">
                     </div>
-                </div>
-            </div>
-            <div class="share-postsection">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="sharelink d-flex align-items-center">
-                            <a href="javascript:void(0);" class="share-img"><i class="feather-share-2"></i></a>
-                            <a href="javascript:void(0);" class="share-text">Share</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-8">
-                        <div class="tag-list">
-                            <ul class="tags">
-                                <li>Rims </li>
-                                <li>Speed </li>
-                                <li>Make </li>
-                                <li>Transmission </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="blogdetails-pagination">
-                <ul>
-                    <li>
-                        <a href="blog-details.html" class="prev-link"><i class="fas fa-regular fa-arrow-left"></i> Previous Post</a>
-                        <a href="blog-details.html"><h3>The Best SPA Salons For Your Relaxation</h3> </a>
-                    </li>
-                    <li>
-                        <a href="blog-details.html" class="next-link">Next Post <i class="fas fa-regular fa-arrow-right"></i> </a>
-                        <a href="blog-details.html"><h3>8 Amazing Tricks About Business</h3> </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="review-sec mb-0">
-                <div class="review-header">
-                    <h4>Reviews<span>(2)</span></h4>
-                    <div class="reviewbox-list-rating">
-                        <p>
-                            <i class="fas fa-star filled"></i>
-                            <i class="fas fa-star filled"></i>
-                            <i class="fas fa-star filled"></i>
-                            <i class="fas fa-star filled"></i>
-                            <i class="fas fa-star filled"></i>
-                            <span> (5 out of 5)</span>
-                        </p>
-                    </div>
-                </div>
-                <div class="review-card">
-                    <div class="review-header-group">
-                        <div class="review-widget-header">
-								<span class="review-widget-img">
-									<img src="assets/img/profiles/avatar-01.jpg"  class="img-fluid" alt="Blog">
-								</span>
-                            <div class="review-design">
-                                <h6>Johnson</h6>
-                                <p>02 Jan 2023</p>
-                            </div>
-                        </div>
-                        <div class="reviewbox-list-rating">
-                            <p>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <span> (5 out of 5)</span>
-                            </p>
-                        </div>
-                    </div>
-                    <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.It was popularised in the 1960s </p>
-                </div>
-                <div class="review-card">
-                    <div class="review-header-group">
-                        <div class="review-widget-header">
-								<span class="review-widget-img">
-									<img src="assets/img/profiles/avatar-02.jpg"  class="img-fluid" alt="Blog">
-								</span>
-                            <div class="review-design">
-                                <h6>Casandra</h6>
-                                <p>02 Jan 2023</p>
-                            </div>
-                        </div>
-                        <div class="reviewbox-list-rating">
-                            <p>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <i class="fas fa-star filled"></i>
-                                <span> (5 out of 5)</span>
-                            </p>
-                        </div>
-                    </div>
-                    <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.It was popularised in the 1960s </p>
                 </div>
             </div>
 
-            <div class="review-sec mb-0">
-                <div class="review-header">
-                    <h4>Leave a Reply</h4>
-                </div>
-                <div class="card-body">
-                    <div class="review-list">
-                        <ul>
-                            <li class="review-box feedbackbox mb-0">
-                                <div class="review-details">
-                                    <form action="blog-details.html">
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <div class="input-block">
-                                                    <label>Full Name <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="input-block">
-                                                    <label>Email Address <span class="text-danger">*</span></label>
-                                                    <input type="email" class="form-control">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <div class="input-block">
-                                                    <label>Comments </label>
-                                                    <textarea rows="4" class="form-control"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="submit-section">
-                                            <button class="btn btn-primary submit-review" type="submit"> Submit Review</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="card-body text-center" style="padding: 40px 0;">
+                <a href="{{ route('accueil') }}#pricing" class="btn btn-primary submit-review">
+                    <i class="fa-solid fa-calendar-check"></i> Réserver maintenant
+                </a>
             </div>
         </div>
     </div>

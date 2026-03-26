@@ -1,7 +1,8 @@
 @extends('frontend.main_master')
 
-@section('title') Réservation | Oreka Mobility @endsection
-
+{{-- Step 1 --}}
+@section('title') Réservation — Étape 1 | Vos Informations | Oreka Mobility @endsection
+@section('description') Renseignez vos coordonnées et choisissez votre date pour réserver votre activité vélo à Cotonou. Réservation rapide et paiement sécurisé via FedaPay. @endsection
 @push('links')
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 

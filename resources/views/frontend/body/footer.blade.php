@@ -13,7 +13,7 @@
                 <div class="row align-items-center row-gap-3">
                     <div class="col-lg-4">
                         <div class="copyright-text">
-                            <p>Copyright &copy; 2025 Dreams Rent. All Rights Reserved.</p>
+                            <p>Copyright &copy; 2026 OREKA Mobility. Tous droits réservés.</p>
                         </div>
                     </div>
                     {{--<div class="col-lg-4">

@@ -1,10 +1,12 @@
 @extends('frontend.main_master')
 
-@section('title') NordKapital Beratung | Expert du Crédit Personnel en Allemagne | Solutions de Financement
+@section('title')
+    Oreka Mobility | Location de Vélos Sport & Loisirs à Cotonou
 @endsection
 
-@section('description')Découvrez des solutions de financement personnalisées pour tous vos projets. Taux attractifs, réponse en 24h et accompagnement expert. Plus de 90 000 clients nous font confiance !@endsection
-
+@section('description')
+    Réservez votre vélo en ligne à Cotonou. Location à l'heure, séances sportives encadrées, randonnées et vélo tourisme. Paiement sécurisé, confirmation instantanée. Plus de 1 000 cyclistes satisfaits !
+@endsection
 
 @push('links')
 
@@ -100,7 +102,7 @@
                                 </form>
                             </div>--}}
                             <div class="view-more-btn text-center mt-5">
-                                <a href="{{ route('reservation_step_1') }}" class="btn btn-primary">Réserver un vélo maintenant</a>
+                                <a href="{{ route('accueil') }}#pricing" class="btn btn-primary">Réserver un vélo maintenant</a>
                             </div>
                             {{--<div class="banner-user-group text-center" style="padding-top: 40px">
                                 <ul>
@@ -273,10 +275,10 @@
                     Une occasion idéale pour faire du sport, vous dépasser et partager un moment convivial.
                 </p>
                 <div class="sec-btns">
-                    <a href="{{ route('reservation_step_1') }}" class="btn btn-dark-blue">Réserver maintenant</a>
-                    <a href="{{ route('reservation_step_1') }}" class="btn btn-primary d-flex align-items-center">
+                    <a href="{{ route('accueil') }}#pricing" class="btn btn-primary d-flex align-items-center">Réserver maintenant</a>
+                    {{--<a href="{{ route('reservation_step_1') }}" class="btn btn-primary d-flex align-items-center">
                         <i class="bx bx-cycling me-2"></i>Voir les détails
-                    </a>
+                    </a>--}}
                 </div>
             </div>
         </div>

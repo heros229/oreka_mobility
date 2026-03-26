@@ -182,8 +182,8 @@
         <table class="header-table">
             <tr>
                 <td style="width: 50%; vertical-align: middle;">
-                    @if(file_exists(public_path('assets/img/logo_oreka_3.png')))
-                        <img src="{{ public_path('assets/img/logo_oreka_3.png') }}" alt="OREKA" class="logo-img">
+                    @if(file_exists(public_path('assets/img/logo_oreka.png')))
+                        <img src="{{ public_path('assets/img/logo_oreka.png') }}" alt="OREKA" class="logo-img">
                     @else
                         <span style="font-size:22px; font-weight:900; color:#FE9701;">OREKA</span>
                     @endif
@@ -191,7 +191,7 @@
                     <div class="company-details">contact@orekamobility.bj  |  Cotonou, Benin</div>
                 </td>
                 <td style="width: 50%; vertical-align: middle;">
-                    <div class="invoice-title">RECU DE RESERVATION</div>
+                    <div class="invoice-title">REÇU DE RESERVATION</div>
                     <div class="invoice-meta">
                         <div>Date : <strong>{{ date('d/m/Y') }}</strong></div>
                         @if(!empty($start_date))
@@ -246,6 +246,7 @@
         <thead>
             <tr>
                 <th style="width: 75%;">Designation du service</th>
+                <th class="text-right">Qté</th>
                 <th class="text-right">Montant</th>
             </tr>
         </thead>
@@ -253,13 +254,14 @@
             @forelse($items as $item)
                 <tr>
                     <td class="item-name">{{ $item['description'] }}</td>
+                    <td class="text-right">× {{ $item['qty'] ?? 1 }}</td>
                     <td class="text-right" style="font-weight: 700;">
-                        {{ number_format($item['amount'], 0, ',', ' ') }} FCFA
+                        {{ number_format($item['amount'] * ($item['qty'] ?? 1), 0, ',', ' ') }} FCFA
                     </td>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="2" style="text-align:center; color:#aaa; padding: 18px;">
+                    <td colspan="3" style="text-align:center; color:#aaa; padding: 18px;">
                         Aucun service enregistre
                     </td>
                 </tr>

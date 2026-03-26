@@ -9,13 +9,67 @@
 <link rel="stylesheet" href="{{ asset('assets/css/step3.css')}}">
 @endpush
 
+@push('links')
+
+    <style>
+
+        .hero-sec-main .header-two {
+            background: #0A152F;
+            box-shadow: none;
+        }
+        .hero-sec-main .header-two.header-fixed {
+            background: #0A152F;
+            position: fixed;
+            z-index: 999;
+        }
+
+        .owl-carousel .owl-nav .owl-prev,
+        .owl-carousel .owl-nav .owl-next {
+            display: none !important;
+        }
+
+        input.form-control, textarea.form-control {
+            transition: border 0.3s ease;
+        }
+
+    </style>
+
+@endpush
+
 @section('content')
 
 {{-- Confetti --}}
 <div class="confetti-wrap" id="confetti"></div>
 
+<div class="breadcrumb-bar" style="margin-bottom: 100px">
+    <div class="container">
+        <div class="row align-items-center text-center">
+            <div class="col-md-12 col-12">
+                <div class="hero-strip-inner">
+                    <div class="check-circle"><i class="bx bx-check-double"></i></div>
+                    <div class="hero-strip-text">
+                        <h1>Réservation <span>confirmée !</span></h1>
+                        <p>Merci pour votre confiance — votre activité vélo vous attend.</p>
+                    </div>
+                    <div class="tx-badge">
+                        <i class="bx bx-receipt"></i>
+                        Référence de transaction : <strong>#{{ $transaction->id }}</strong>
+                    </div>
+                    <div class="wizard-track mt-4">
+                        <div class="wizard-step done"><div class="wizard-step__dot"><i class="bx bx-check"></i></div><div class="wizard-step__label">Informations</div></div>
+                        <div class="wizard-line done"></div>
+                        <div class="wizard-step done"><div class="wizard-step__dot"><i class="bx bx-check"></i></div><div class="wizard-step__label">Formule</div></div>
+                        <div class="wizard-line done"></div>
+                        <div class="wizard-step active"><div class="wizard-step__dot"><i class="bx bx-check" style="font-size:16px;"></i></div><div class="wizard-step__label">Confirmation</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 {{-- HERO --}}
-<div class="success-hero">
+<div class="success-hero d-none">
     <div class="container">
         <div class="success-hero__inner">
             <div class="check-circle"><i class="bx bx-check-double"></i></div>

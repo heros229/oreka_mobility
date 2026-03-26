@@ -251,8 +251,8 @@
 
     {{-- HEADER --}}
     <div class="header">
-        <div class="header-fallback">OREKA</div>
-        <div class="header-subtitle">Mobility &mdash; Cotonou, Benin</div>
+        <div class="header-fallback">OREKA Mobility</div>
+        <div class="header-subtitle">Cotonou, Benin</div>
     </div>
 
     {{-- HERO --}}
@@ -310,6 +310,7 @@
             <thead>
                 <tr>
                     <th>Designation</th>
+                    <th class="right">Qté</th>
                     <th class="right">Montant</th>
                 </tr>
             </thead>
@@ -317,11 +318,12 @@
                 @forelse($items as $item)
                     <tr>
                         <td>{{ $item['description'] }}</td>
-                        <td class="right">{{ number_format($item['amount'], 0, ',', ' ') }} FCFA</td>
+                        <td class="right">× {{ $item['qty'] ?? 1 }}</td>
+                        <td class="right">{{ number_format($item['amount'] * ($item['qty'] ?? 1), 0, ',', ' ') }} FCFA</td>
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="2" style="text-align:center; color:#aaa; padding:16px;">
+                        <td colspan="3" style="text-align:center; color:#aaa; padding:16px;">
                             Aucun service enregistre
                         </td>
                     </tr>

@@ -8,13 +8,64 @@
 <link rel="stylesheet" href="{{ asset('assets/css/step2.css')}}">
 @endpush
 
+
+
+@push('links')
+
+    <style>
+
+        .hero-sec-main .header-two {
+            background: #0A152F;
+            box-shadow: none;
+        }
+        .hero-sec-main .header-two.header-fixed {
+            background: #0A152F;
+            position: fixed;
+            z-index: 999;
+        }
+
+        .owl-carousel .owl-nav .owl-prev,
+        .owl-carousel .owl-nav .owl-next {
+            display: none !important;
+        }
+
+        input.form-control, textarea.form-control {
+            transition: border 0.3s ease;
+        }
+
+    </style>
+
+@endpush
+
 @section('content')
 
-<div class="booking-hero-strip">
+    <div class="breadcrumb-bar" style="margin-bottom: 100px">
+        <div class="container">
+            <div class="row align-items-center text-center">
+                <div class="col-md-12 col-12">
+                    <div class="hero-strip-inner">
+                        <div class="hero-strip-text">
+                            <h1>Choisissez maintenant <span>la formule</span></h1>
+                            <p>Sélectionnez le nombre de places ou d'heures souhaitées</p>
+                        </div>
+                        <div class="wizard-track">
+                            <div class="wizard-step done"><div class="wizard-step__dot"><i class="bx bx-check" style="font-size:18px;"></i></div><div class="wizard-step__label">Informations</div></div>
+                            <div class="wizard-line done"></div>
+                            <div class="wizard-step active"><div class="wizard-step__dot">2</div><div class="wizard-step__label">Formule</div></div>
+                            <div class="wizard-line"></div>
+                            <div class="wizard-step"><div class="wizard-step__dot">3</div><div class="wizard-step__label">Confirmation</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{{--<div class="booking-hero-strip">
     <div class="container">
         <div class="hero-strip-inner">
             <div class="hero-strip-text">
-                <h1>Choisissez <span>votre formule</span></h1>
+                <h1>Choisissez<span>votre formule</span></h1>
                 <p>Sélectionnez le nombre de places ou d'heures souhaitées</p>
             </div>
             <div class="wizard-track">
@@ -26,7 +77,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>--}}
 
 <div class="booking-layout">
     <div class="container">
@@ -39,7 +90,7 @@
                         <h5 id="pbn-title">Chargement…</h5>
                         <p id="pbn-sub"></p>
                     </div>
-                    <a href="{{ route('accueil') }}#pricing" class="pbn-change"><i class="bx bx-transfer-alt me-1"></i>Changer</a>
+                    <a href="{{ route('accueil') }}#pricing" class="pbn-change" style="color: black"><i class="bx bx-transfer-alt me-1"></i>Changer</a>
                 </div>
 
                 <div class="offer-card">

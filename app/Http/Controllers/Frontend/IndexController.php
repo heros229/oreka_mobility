@@ -24,13 +24,13 @@ class IndexController extends Controller
 
     } // end method
 
-    
+
     public function details()
     {
 
         return view('frontend.details_pricing');
 
-    } 
+    }
 
     public function Reservation_step_1()
     {
@@ -51,8 +51,12 @@ class IndexController extends Controller
     {
         $data = $request->all();
 
+
+
         \FedaPay\FedaPay::setApiKey(env('FEDAPAY_API_KEY'));
         \FedaPay\FedaPay::setEnvironment(env('FEDAPAY_ENVIRONMENT', 'sandbox'));
+
+        //dd($data);
 
         try {
             // Sauvegarder les donnees en session pour le callback
@@ -157,8 +161,9 @@ class IndexController extends Controller
                 $services = $step2['services'] ?? [];
                 $items = array_map(function ($s) {
                     return [
-                    'description' => $s['name'] ?? 'Service',
-                    'amount' => intval($s['price'] ?? 0),
+                        'description' => $s['name'] ?? 'Service',
+                        'amount'      => intval($s['unitPrice'] ?? $s['price'] ?? 0), // ✅ prix unitaire
+                        'qty'         => intval($s['qty'] ?? 1),
                     ];
                 }, $services);
                 $total = intval($step2['totalAmount'] ?? array_sum(array_column($items, 'amount')));
@@ -245,8 +250,9 @@ class IndexController extends Controller
         $services = $step2['services'] ?? [];
         $items = array_map(function ($service) {
             return [
-            'description' => $service['name'] ?? 'Service',
-            'amount' => intval($service['price'] ?? 0),
+                'description' => $service['name'] ?? 'Service',
+                'amount'      => intval($service['unitPrice'] ?? $service['price'] ?? 0), // ✅ prix unitaire
+                'qty'         => intval($service['qty'] ?? 1), // ✅ $service et non $s
             ];
         }, $services);
 

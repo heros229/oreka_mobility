@@ -9,7 +9,7 @@
         --oreka-cream: #F9F6F0;
         --oreka-text: #2c2c2c;
         --oreka-muted: #6b7280;
-        --plan-color: #2D7A3A;
+        --plan-color: #fe9802;
     }
 
     body { font-family: 'DM Sans', sans-serif; }
@@ -17,7 +17,7 @@
     /* ===== HERO ===== */
     .plan-hero {
         position: relative;
-        height: 350px;
+        height: 250px;
         overflow: hidden;
         display: flex;
         align-items: flex-end;
@@ -54,13 +54,14 @@
     .plan-hero__meta {
         display: flex; flex-wrap: wrap; gap: 20px;
         color: rgba(255,255,255,0.85); font-size: 14px;
+        justify-content: center;
     }
     .plan-hero__meta span { display: flex; align-items: center; gap: 6px; }
 
     /* ===== STICKY BAR ===== */
     .plan-sticky-bar {
         background: #fff; border-bottom: 1px solid #e5e7eb;
-        position: sticky; top: 0px; z-index: 1000;
+        position: sticky; bottom: 0px; z-index: 1000;
         box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     }
     .plan-sticky-bar .container {
@@ -180,7 +181,7 @@
     .sidebar-booking {
         background: #fff; border-radius: 16px;
         padding: 28px; box-shadow: 0 4px 24px rgba(0,0,0,0.1);
-        position: static; 
+        position: static;
         /* top: 140px; */
     }
     .sidebar-price {
@@ -198,7 +199,7 @@
         font-weight: 700; font-size: 16px; text-decoration: none;
         transition: all .2s; margin-top: 20px; border: none; cursor: pointer;
     }
-    .btn-reserve-sidebar:hover { filter: brightness(1.1); color: #fff; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(45,122,58,0.35); }
+    .btn-reserve-sidebar:hover { filter: brightness(1.1); color: #fff; transform: translateY(-2px);  }
     .btn-enquire-sidebar {
         display: block; width: 100%; text-align: center;
         background: transparent; color: var(--plan-color);
@@ -235,14 +236,14 @@
         .info-cards { grid-template-columns: repeat(2, 1fr); }
         .avantages-grid { grid-template-columns: repeat(2, 1fr); }
         .plan-sticky-bar .container { gap: 12px; }
-        .plan-hero { height: 380px; }
+        .plan-hero { height: 230px; }
     }
 
     /* Plan color variants */
-    .plan-velo-sport { --plan-color: #2D7A3A; }
-    .plan-randonnee { --plan-color: #1a6b8a; }
-    .plan-tourisme { --plan-color: #7c3d12; }
-    .plan-apprentissage { --plan-color: #6b3fa0; }
+    .plan-velo-sport { --plan-color: #fe9802; }
+    .plan-randonnee { --plan-color: #fe9802; }
+    .plan-tourisme { --plan-color: #fe9802 ; }
+    .plan-apprentissage { --plan-color: #fe9802; }
 
     /* ── Slider principal : hauteur fluide ── */
     .detail-bigimg .product-img {

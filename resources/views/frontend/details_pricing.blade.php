@@ -7,35 +7,95 @@
 
 
 @push('links')
-	
+
 <link rel="stylesheet" href="{{ asset('assets/css/details_pricing.css')}}">
+@endpush
+
+@push('links')
+
+    <style>
+
+        .hero-sec-main .header-two {
+            background: #0A152F;
+            box-shadow: none;
+        }
+        .hero-sec-main .header-two.header-fixed {
+            background: #0A152F;
+            position: fixed;
+            z-index: 999;
+        }
+
+        .owl-carousel .owl-nav .owl-prev,
+        .owl-carousel .owl-nav .owl-next {
+            display: none !important;
+        }
+
+        input.form-control, textarea.form-control {
+            transition: border 0.3s ease;
+        }
+
+    </style>
+
 @endpush
 
 
 
 @section('content')
-		
+
     {{-- ============================
         HERO
         ============================ --}}
-    <div class="plan-hero" id="plan-hero">
-        <div class="plan-hero__bg" id="hero-bg"></div>
-        <div class="plan-hero__overlay"></div>
-        <div class="plan-hero__content">
-            <div class="plan-badge"><i class="fa-solid fa-bicycle"></i> <span id="hero-badge">OREKA Mobility</span></div>
-            <h1 id="hero-title">Titre du Plan</h1>
-            <div class="plan-hero__meta">
-                <span><i class="fa-regular fa-clock"></i> <span id="hero-duree">—</span></span>
-                <span><i class="fa-solid fa-users"></i> <span id="hero-places">—</span></span>
-                <span><i class="fa-solid fa-map-pin"></i> Cotonou, Bénin</span>
+
+   {{-- <!-- Breadscrumb Section -->
+    <div class="breadcrumb-bar">
+        <div class="container">
+            <div class="row align-items-center text-center">
+                <div class="col-md-12 col-12">
+                    <h2 id="hero-title" class="breadcrumb-title">Contactez-nous</h2>
+                    <nav aria-label="breadcrumb" class="page-breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class=""><a href="{{ route('accueil') }}">Accueil</a></li> <span style="color: white">&nbsp; /&nbsp; </span>
+                            <li class="breadcrumb-item active" aria-current="page">Contactez-nous</li>
+                        </ol>
+                    </nav>
+                </div>
             </div>
         </div>
     </div>
+    <!-- /Breadscrumb Section -->--}}
 
-    {{-- ============================
-        STICKY BAR
-        ============================ --}}
-    <div class="plan-sticky-bar">
+    <!-- Breadscrumb Section -->
+    <div class="breadcrumb-bar">
+        <div class="container">
+            <div class="row align-items-center text-center">
+                <div class="col-md-12 col-12">
+                    <div class="plan-hero" id="plan-hero">
+
+                        <div class="plan-hero__content">
+                            <div class="plan-badge"><i class="fa-solid fa-bicycle"></i> <span id="hero-badge">OREKA Mobility</span></div>
+                            <h1 id="hero-title">Titre du Plan</h1>
+                            <div class="plan-hero__meta" style="text-align: center">
+                                <span><i class="fa-regular fa-clock"></i> <span id="hero-duree">—</span></span>
+                                <span><i class="fa-solid fa-users"></i> <span id="hero-places">—</span></span>
+                                <span><i class="fa-solid fa-map-pin"></i> Cotonou, Bénin</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Breadscrumb Section -->
+
+    <div class="d-none">
+        <div class="plan-hero " id="plan-hero">
+            <div class="plan-hero__bg" id="hero-bg"></div>
+        </div>
+    </div>
+
+
+
+   {{--<div class="plan-sticky-bar">
         <div class="container">
             <div class="plan-sticky-bar__price" id="sticky-price">— <span>/ séance</span></div>
             <a href="javascript:void(0)"
@@ -44,7 +104,7 @@
                 <i class="fa-solid fa-calendar-check"></i> Réserver maintenant
             </a>
         </div>
-    </div>
+    </div>--}}
 
     {{-- ============================
         MAIN CONTENT
@@ -57,8 +117,8 @@
 
                     {{-- GALERIE --}}
                     <div class="plan-section">
-                        <h4 class="plan-section__title"><i class="fa-regular fa-images" style="color:var(--plan-color)"></i> Galerie Photos</h4>
-                        
+                        <h4 class="plan-section__title"><i class="fa-regular fa-images" ></i> Galerie Photos</h4>
+
                         <div class="detail-product">
                             {{-- <div class="gallery-skeleton" id="gallery-skeleton"></div> --}}
                             <div class="slider detail-bigimg" id="plan-slider-main"></div>
@@ -96,7 +156,7 @@
                     </div>
 
                     {{-- VIDÉO --}}
-                    <div class="plan-section">
+                    <div class="plan-section d-none">
                         <h4 class="plan-section__title"><i class="fa-solid fa-play" style="color:var(--plan-color)"></i> Vidéo</h4>
                         <div class="plan-video-wrap">
                             <img id="plan-video-thumb" src="" alt="Aperçu vidéo">
@@ -128,7 +188,7 @@
                         class="btn-reserve-sidebar">
                             <i class="fa-solid fa-calendar-check"></i> &nbsp; Réserver maintenant
                         </a>
-                        <a href="#" class="btn-enquire-sidebar" data-bs-toggle="modal" data-bs-target="#enquiry">
+                        <a href="{{ route('contact') }}" class="btn-enquire-sidebar" >
                             <i class="fa-regular fa-envelope"></i> &nbsp; Nous contacter
                         </a>
                         <p class="sidebar-guarantee">
@@ -141,7 +201,7 @@
                     <div class="plan-section" style="margin-top:24px;">
                         <h4 class="plan-section__title" style="font-size:17px;"><i class="fa-solid fa-headset" style="color:var(--plan-color)"></i> Besoin d'aide ?</h4>
                         <div style="font-size:14px;color:#444;line-height:2;">
-                            <div><i class="fa-brands fa-whatsapp" style="color:#25D366;margin-right:8px;"></i><a href="https://wa.me/22901000000" style="color:#444;">+229 01 00 00 00</a></div>
+                            <div><i class="fa-brands fa-whatsapp" style="color:#25D366;margin-right:8px;"></i><a href="https://wa.me/2290153096850" style="color:#444;">+229 015 309 6850</a></div>
                             <div><i class="fa-regular fa-envelope" style="color:var(--plan-color);margin-right:8px;"></i><a href="mailto:contact@orekamobility.com" style="color:#444;">contact@orekamobility.com</a></div>
                             <div><i class="fa-regular fa-clock" style="color:var(--plan-color);margin-right:8px;"></i>Lun–Sam : 8h–18h</div>
                         </div>
@@ -151,10 +211,10 @@
                     <div class="plan-section" style="margin-top:24px;">
                         <h4 class="plan-section__title" style="font-size:17px;"><i class="fa-solid fa-share-nodes" style="color:var(--plan-color)"></i> Partager</h4>
                         <div style="display:flex;gap:12px;">
-                            <a href="#" style="width:40px;height:40px;border-radius:50%;background:#1877f2;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="#" style="width:40px;height:40px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;"><i class="fa-brands fa-whatsapp"></i></a>
-                            <a href="#" style="width:40px;height:40px;border-radius:50%;background:#1da1f2;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;"><i class="fa-brands fa-twitter"></i></a>
-                            <a href="#" style="width:40px;height:40px;border-radius:50%;background:#e1306c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" onclick="shareOnFacebook()" style="width:40px;height:40px;border-radius:50%;background:#1877f2;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#" onclick="shareOnWhatsApp()" style="width:40px;height:40px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;"><i class="fa-brands fa-whatsapp"></i></a>
+                            <a href="#" onclick="shareOnTwitter()" style="width:40px;height:40px;border-radius:50%;background:#1da1f2;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#" onclick="shareOnInstagram()" style="width:40px;height:40px;border-radius:50%;background:#e1306c;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;"><i class="fa-brands fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -167,6 +227,23 @@
             </div>
         </div>
     </div>
+
+
+
+    {{-- ============================
+       STICKY BAR
+       ============================ --}}
+    <div class="plan-sticky-bar">
+        <div class="container">
+            <div class="plan-sticky-bar__price" id="sticky-price">— <span>/ séance</span></div>
+            <a href="javascript:void(0)"
+               onclick="goToReservation()"
+               class="btn-reserve-main">
+                <i class="fa-solid fa-calendar-check"></i> Réserver
+            </a>
+        </div>
+    </div>
+
 
 
     {{-- ENQUIRY MODAL --}}
@@ -244,7 +321,8 @@
                 places: '10 places maximum',
                 prixLabel: '3 000 F CFA',
                 prixNote: 'Abonnement mensuel : 12 000 F CFA',
-                prixSuffix: '/ séance',
+                /*prixSuffix: '/ séance',*/
+                prixSuffix: '', /*Ici c'est les infirmations qui restent au niveau u sticky je mets ici*/
                 hero: '{{ asset("assets/img/cars/velo.png") }}',
                 desc1: "Rejoignez notre séance de Vélo Sport chaque matin et transformez votre routine en véritable défi sportif. Encadrés par un coach professionnel certifié, vous travaillerez l'endurance, la cadence et la puissance dans une ambiance dynamique et motivante. Que vous soyez débutant ou sportif confirmé, chaque séance est adaptée à votre niveau.",
                 desc2: "En groupe de 10 cyclistes maximum, l'émulation collective vous pousse à vous dépasser. Vélo, casque et bouteille d'eau vous sont fournis. Un échauffement, une session intensive et un retour au calme structurent chaque heure pour maximiser les bénéfices sans risque de blessure.",
@@ -286,7 +364,8 @@
                 places: '10 places maximum',
                 prixLabel: '6 000 F CFA',
                 prixNote: 'Enfants 10–15 ans : 3 000 F CFA',
-                prixSuffix: '/ adulte',
+                /*prixSuffix: '/ adulte',*/
+                prixSuffix: '', /*Ici c'est les infirmations qui restent au niveau u sticky je mets ici*/
                 hero: '{{ asset("assets/img/cars/randonee.jpg") }}',
                 desc1: "Partez pour une aventure à deux roues sur un circuit sécurisé de 30 à 43 km à travers les paysages splendides du Bénin. En famille, en couple ou entre amis, cette randonnée guidée vous emmène hors des sentiers battus, le long de paysages côtiers, de mangroves et de villages traditionnels.",
                 desc2: "Un superviseur expérimenté vous accompagne tout au long du parcours pour assurer votre sécurité. Tout le matériel nécessaire est fourni : vélo adapté, casque, éclairage avant et arrière, antivol et pompe. Accessible dès 10 ans avec un tarif réduit enfant.",
@@ -330,7 +409,8 @@
                 places: '10 places maximum',
                 prixLabel: '30 000 F CFA',
                 prixNote: 'Repas gastronomique & guide inclus',
-                prixSuffix: '/ inscription',
+                /*prixSuffix: '/ inscription',*/
+                prixSuffix: '', /*Ici c'est les infirmations qui restent au niveau u sticky je mets ici*/
                 hero: '{{ asset("assets/img/cars/tourisme.png") }}',
                 desc1: "Offrez-vous une immersion culturelle et gastronomique unique à travers Cotonou, Ouidah et Porto-Novo à bord de votre vélo. Accompagné d'un guide touristique professionnel, vous découvrirez les sites emblématiques et l'histoire fascinante du Bénin.",
                 desc2: "Ce plan Premium inclut une pause gastronomique dans un restaurant partenaire sélectionné. Tout le matériel de qualité est fourni pour une expérience confortable et mémorable.",
@@ -369,12 +449,13 @@
             'apprentissage': {
                 colorClass: 'plan-apprentissage',
                 badge: 'Vélo École',
-                title: 'Apprentissage du Vélo',
+                title: 'Apprentissage',
                 duree: '1h30 adulte / 45min enfant',
                 places: 'Cours individuel ou petit groupe',
                 prixLabel: '10 000 F CFA',
                 prixNote: 'Adultes : 15 000 F CFA — 3 séances incluses',
-                prixSuffix: '/ enfant (3 séances)',
+                /*prixSuffix: '/ enfant (3 séances)',*/
+                prixSuffix: '', /*Ici c'est les infirmations qui restent au niveau u sticky je mets ici*/
                 hero: '{{ asset("assets/img/cars/velo-ecole.jpg") }}',
                 desc1: "Notre Vélo École OREKA vous accompagne pas à pas dans l'apprentissage du vélo, quel que soit votre âge. Pour les adultes, nos moniteurs diplômés utilisent une méthode pédagogique progressive. En 3 séances de 1h30, vous gagnez confiance et autonomie.",
                 desc2: "Pour les enfants, notre programme est adapté dès 2 ans et demi. En cours individuel ou en petit groupe, nous apprenons aux plus jeunes à pédaler en sécurité et avec enthousiasme.",
@@ -654,6 +735,35 @@
         // ============================================================
         init();
 
-    }); 
+    });
+</script>
+
+<script>
+
+
+    function shareOnFacebook() {
+        window.open("https://www.facebook.com/sharer/sharer.php?u=https://orekamobility.com", "_blank");
+    }
+
+    function shareOnTwitter() {
+        window.open("https://twitter.com/intent/tweet?url=https://orekamobility.com&text=Découvrez%20OREKAMOBILITY%20!", "_blank");
+    }
+
+    function shareOnLinkedIn() {
+        window.open("https://www.linkedin.com/sharing/share-offsite/?url=https://orekamobility.com", "_blank");
+    }
+
+    function shareOnInstagram() {
+        window.open("https://instagram.com", "_blank"); // Instagram ne prend pas en charge le partage direct via des liens URL.
+    }
+</script>
+
+<script>
+    function shareOnWhatsApp() {
+        const url = "https://orekamobility.com";
+        const text = "Découvrez OREKAMOBILITY !";
+
+        window.open(`https://wa.me/?text=${encodeURIComponent(text + " " + url)}`, "_blank");
+    }
 </script>
 @endpush

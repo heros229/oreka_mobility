@@ -583,7 +583,7 @@
                             </ul>
                             <a href="{{ route('details') }}?plan=apprentissage"
                                 onclick="localStorage.setItem('selectedPlan','apprentissage')"
-                                class="btn viewdetails-btn">S'inscrire</a>
+                                class="btn viewdetails-btn">Réserver</a>
                         </div>
                     </div>
                 </div>

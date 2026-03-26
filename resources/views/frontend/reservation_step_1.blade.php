@@ -6,11 +6,68 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="{{ asset('assets/css/step1.css')}}">
+
+
+@endpush
+
+
+
+@push('links')
+
+    <style>
+
+        .hero-sec-main .header-two {
+            background: #0A152F;
+            box-shadow: none;
+        }
+        .hero-sec-main .header-two.header-fixed {
+            background: #0A152F;
+            position: fixed;
+            z-index: 999;
+        }
+
+        .owl-carousel .owl-nav .owl-prev,
+        .owl-carousel .owl-nav .owl-next {
+            display: none !important;
+        }
+
+        input.form-control, textarea.form-control {
+            transition: border 0.3s ease;
+        }
+
+    </style>
+
 @endpush
 
 @section('content')
 
-<div class="booking-hero-strip">
+    <!-- Breadscrumb Section -->
+    <!-- Breadscrumb Section -->
+    <div class="breadcrumb-bar" style="margin-bottom: 100px">
+        <div class="container">
+            <div class="row align-items-center text-center">
+                <div class="col-md-12 col-12">
+                    <div class="hero-strip-inner">
+                        <div class="hero-strip-text">
+                            <h1>Réservez votre <span>activité vélo</span></h1>
+                            <p>Quelques informations suffisent pour démarrer votre aventure</p>
+                        </div>
+                        <div class="wizard-track">
+                            <div class="wizard-step active"><div class="wizard-step__dot">1</div><div class="wizard-step__label">Informations</div></div>
+                            <div class="wizard-line"></div>
+                            <div class="wizard-step"><div class="wizard-step__dot">2</div><div class="wizard-step__label">Formule</div></div>
+                            <div class="wizard-line"></div>
+                            <div class="wizard-step"><div class="wizard-step__dot">3</div><div class="wizard-step__label">Confirmation</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Breadscrumb Section -->
+    <!-- /Breadscrumb Section -->
+
+{{--<div class="booking-hero-strip">
     <div class="container">
         <div class="hero-strip-inner">
             <div class="hero-strip-text">
@@ -26,7 +83,8 @@
             </div>
         </div>
     </div>
-</div>
+</div>--}}
+
 
 <div class="booking-layout">
     <div class="container">
@@ -36,7 +94,7 @@
                 <div class="selected-plan-badge" id="plan-badge" style="display:none;">
                     <div class="spb-icon"><i id="badge-icon" class="bx bx-cycling"></i></div>
                     <div>
-                        <h6 id="badge-title">Plan sélectionné</h6>
+                        <h6 id="badge-title" style="color: white">Plan sélectionné</h6>
                         <p id="badge-sub">Modifiez depuis la page des tarifs</p>
                     </div>
                 </div>
@@ -112,7 +170,7 @@
             <div class="col-lg-4">
                 <div class="sidebar-info-card">
                     <div class="sic-header">
-                        <h4>Comment ça marche ?</h4>
+                        <h4 style="color: white">Comment ça marche ?</h4>
                         <p>Réservation en 3 étapes simples</p>
                     </div>
                     <div class="sic-body">

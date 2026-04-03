@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <!-- Mirrored from dreamsrent.dreamstechnologies.com/html/template/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Jan 2026 16:24:34 GMT -->
 <head>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="{{ App::getLocale() }}">
 <head>
     <meta charset="UTF-8">
-    <title>Reçu #{{ $transactionID }}</title>
+    <title>{{ App::getLocale() === 'en' ? 'Receipt' : 'Reçu' }} #{{ $transactionID }}</title>
     <style>
         @page {
             size: A5 landscape;
@@ -177,112 +177,161 @@
 </head>
 <body>
 
-    {{-- ── HEADER ── --}}
-    <div class="header">
-        <table class="header-table">
-            <tr>
-                <td style="width: 50%; vertical-align: middle;">
-                    @if(file_exists(public_path('assets/img/logo_oreka.png')))
-                        <img src="{{ public_path('assets/img/logo_oreka.png') }}" alt="OREKA" class="logo-img">
-                    @else
-                        <span style="font-size:22px; font-weight:900; color:#FE9701;">OREKA</span>
+@php
+    $locale = App::getLocale(); // 'fr' ou 'en'
+
+    $t = [
+        'fr' => [
+            'invoice_title'    => 'REÇU DE RESERVATION',
+            'date_label'       => 'Date',
+            'start_label'      => 'Début',
+            'badge_paid'       => 'PAYÉ VIA FEDAPAY',
+            'ref_label'        => 'Référence de transaction',
+            'issued_label'     => "Date d'émission",
+            'client_label'     => 'Informations Client',
+            'email_label'      => 'Email',
+            'phone_label'      => 'Téléphone',
+            'start_date_label' => 'Date de début',
+            'col_service'      => 'Désignation du service',
+            'col_qty'          => 'Qté',
+            'col_amount'       => 'Montant',
+            'no_service'       => 'Aucun service enregistré',
+            'net_paid'         => 'Net Payé',
+            'footer_text'      => "Ce reçu est généré électroniquement et fait foi de confirmation de réservation.",
+            'rights'           => 'Tous droits réservés.',
+            'company_details'  => 'contact@orekamobility.bj  |  Cotonou, Bénin',
+        ],
+        'en' => [
+            'invoice_title'    => 'BOOKING RECEIPT',
+            'date_label'       => 'Date',
+            'start_label'      => 'Start',
+            'badge_paid'       => 'PAID VIA FEDAPAY',
+            'ref_label'        => 'Transaction reference',
+            'issued_label'     => 'Issued on',
+            'client_label'     => 'Client Information',
+            'email_label'      => 'Email',
+            'phone_label'      => 'Phone',
+            'start_date_label' => 'Start date',
+            'col_service'      => 'Service description',
+            'col_qty'          => 'Qty',
+            'col_amount'       => 'Amount',
+            'no_service'       => 'No service recorded',
+            'net_paid'         => 'Net Paid',
+            'footer_text'      => 'This receipt is electronically generated and serves as booking confirmation.',
+            'rights'           => 'All rights reserved.',
+            'company_details'  => 'contact@orekamobility.bj  |  Cotonou, Benin',
+        ],
+    ];
+
+    $__ = $t[$locale] ?? $t['fr'];
+@endphp
+
+{{-- ── HEADER ── --}}
+<div class="header">
+    <table class="header-table">
+        <tr>
+            <td style="width: 50%; vertical-align: middle;">
+                @if(file_exists(public_path('assets/img/logo_oreka.png')))
+                    <img src="{{ public_path('assets/img/logo_oreka.png') }}" alt="OREKA" class="logo-img">
+                @else
+                    <span style="font-size:22px; font-weight:900; color:#FE9701;">OREKA</span>
+                @endif
+                <div class="company-name">OREKA MOBILITY</div>
+                <div class="company-details">{{ $__['company_details'] }}</div>
+            </td>
+            <td style="width: 50%; vertical-align: middle;">
+                <div class="invoice-title">{{ $__['invoice_title'] }}</div>
+                <div class="invoice-meta">
+                    <div>{{ $__['date_label'] }} : <strong>{{ date('d/m/Y') }}</strong></div>
+                    @if(!empty($start_date))
+                        <div>{{ $__['start_label'] }} : <strong>{{ $start_date }}</strong></div>
                     @endif
-                    <div class="company-name">OREKA MOBILITY</div>
-                    <div class="company-details">contact@orekamobility.bj  |  Cotonou, Benin</div>
-                </td>
-                <td style="width: 50%; vertical-align: middle;">
-                    <div class="invoice-title">REÇU DE RESERVATION</div>
-                    <div class="invoice-meta">
-                        <div>Date : <strong>{{ date('d/m/Y') }}</strong></div>
-                        @if(!empty($start_date))
-                            <div>Debut : <strong>{{ $start_date }}</strong></div>
-                        @endif
-                        <div style="margin-top: 4px;">
-                            <span class="badge-paid">PAYE VIA FEDAPAY</span>
-                        </div>
+                    <div style="margin-top: 4px;">
+                        <span class="badge-paid">{{ $__['badge_paid'] }}</span>
                     </div>
-                </td>
-            </tr>
-        </table>
-    </div>
-
-    {{-- ── REFERENCE ── --}}
-    <div class="ref-box">
-        Reference de transaction : <strong>#{{ $transactionID }}</strong>
-        &nbsp;&nbsp;&nbsp;
-        Date d'emission : {{ date('d/m/Y H:i') }}
-    </div>
-
-    {{-- ── CLIENT ── --}}
-    <div class="client-box">
-        <div class="client-label">Informations Client</div>
-        <div class="client-name">{{ $client_name }}</div>
-        <table class="client-details-table">
-            <tr>
-                @if(!empty($client_email))
-                <td>
-                    <span class="client-detail-label">Email :</span><br>
-                    {{ $client_email }}
-                </td>
-                @endif
-                @if(!empty($client_phone))
-                <td>
-                    <span class="client-detail-label">Telephone :</span><br>
-                    {{ $client_phone }}
-                </td>
-                @endif
-                @if(!empty($start_date))
-                <td>
-                    <span class="client-detail-label">Date de debut :</span><br>
-                    {{ $start_date }}
-                </td>
-                @endif
-            </tr>
-        </table>
-    </div>
-
-    {{-- ── SERVICES ── --}}
-    <table class="items-table">
-        <thead>
-            <tr>
-                <th style="width: 75%;">Designation du service</th>
-                <th class="text-right">Qté</th>
-                <th class="text-right">Montant</th>
-            </tr>
-        </thead>
-        <tbody>
-            @forelse($items as $item)
-                <tr>
-                    <td class="item-name">{{ $item['description'] }}</td>
-                    <td class="text-right">× {{ $item['qty'] ?? 1 }}</td>
-                    <td class="text-right" style="font-weight: 700;">
-                        {{ number_format($item['amount'] * ($item['qty'] ?? 1), 0, ',', ' ') }} FCFA
-                    </td>
-                </tr>
-            @empty
-                <tr>
-                    <td colspan="3" style="text-align:center; color:#aaa; padding: 18px;">
-                        Aucun service enregistre
-                    </td>
-                </tr>
-            @endforelse
-        </tbody>
-    </table>
-
-    {{-- ── TOTAL ── --}}
-    <table class="total-section" style="width: 40%; margin-left: auto;">
-        <tr class="total-row-final">
-            <td class="total-label">Net Paye</td>
-            <td class="total-amount">{{ number_format(intval($total), 0, ',', ' ') }} FCFA</td>
+                </div>
+            </td>
         </tr>
     </table>
+</div>
 
-    {{-- ── FOOTER ── --}}
-    <div class="footer">
-        Ce recu est genere electroniquement et fait foi de confirmation de reservation.
-        &nbsp;|&nbsp;
-        &copy; {{ date('Y') }} <strong>OREKA MOBILITY</strong>. Tous droits reserves.
-    </div>
+{{-- ── REFERENCE ── --}}
+<div class="ref-box">
+    {{ $__['ref_label'] }} : <strong>#{{ $transactionID }}</strong>
+    &nbsp;&nbsp;&nbsp;
+    {{ $__['issued_label'] }} : {{ date('d/m/Y H:i') }}
+</div>
+
+{{-- ── CLIENT ── --}}
+<div class="client-box">
+    <div class="client-label">{{ $__['client_label'] }}</div>
+    <div class="client-name">{{ $client_name }}</div>
+    <table class="client-details-table">
+        <tr>
+            @if(!empty($client_email))
+                <td>
+                    <span class="client-detail-label">{{ $__['email_label'] }} :</span><br>
+                    {{ $client_email }}
+                </td>
+            @endif
+            @if(!empty($client_phone))
+                <td>
+                    <span class="client-detail-label">{{ $__['phone_label'] }} :</span><br>
+                    {{ $client_phone }}
+                </td>
+            @endif
+            @if(!empty($start_date))
+                <td>
+                    <span class="client-detail-label">{{ $__['start_date_label'] }} :</span><br>
+                    {{ $start_date }}
+                </td>
+            @endif
+        </tr>
+    </table>
+</div>
+
+{{-- ── SERVICES ── --}}
+<table class="items-table">
+    <thead>
+    <tr>
+        <th style="width: 75%;">{{ $__['col_service'] }}</th>
+        <th class="text-right">{{ $__['col_qty'] }}</th>
+        <th class="text-right">{{ $__['col_amount'] }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    @forelse($items as $item)
+        <tr>
+            <td class="item-name">{{ $item['description'] }}</td>
+            <td class="text-right">× {{ $item['qty'] ?? 1 }}</td>
+            <td class="text-right" style="font-weight: 700;">
+                {{ number_format($item['amount'] * ($item['qty'] ?? 1), 0, ',', ' ') }} FCFA
+            </td>
+        </tr>
+    @empty
+        <tr>
+            <td colspan="3" style="text-align:center; color:#aaa; padding: 18px;">
+                {{ $__['no_service'] }}
+            </td>
+        </tr>
+    @endforelse
+    </tbody>
+</table>
+
+{{-- ── TOTAL ── --}}
+<table class="total-section" style="width: 40%; margin-left: auto;">
+    <tr class="total-row-final">
+        <td class="total-label">{{ $__['net_paid'] }}</td>
+        <td class="total-amount">{{ number_format(intval($total), 0, ',', ' ') }} FCFA</td>
+    </tr>
+</table>
+
+{{-- ── FOOTER ── --}}
+<div class="footer">
+    {{ $__['footer_text'] }}
+    &nbsp;|&nbsp;
+    &copy; {{ date('Y') }} <strong>OREKA MOBILITY</strong>. {{ $__['rights'] }}
+</div>
 
 </body>
 </html>

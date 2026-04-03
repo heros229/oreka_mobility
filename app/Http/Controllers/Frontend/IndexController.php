@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Jobs\SendContactEmail;
+use App\Jobs\SendContactEmail_EN;
 use App\Mail\ReservationConfirmationMail;
+use App\Mail\ReservationConfirmationMailEn;
 use App\Models\Newsletter;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
@@ -179,23 +181,47 @@ class IndexController extends Controller
                 ])->setPaper('a5', 'landscape')->output();
 
                 // Envoyer l'email avec le PDF en piece jointe
-                if (!empty($clientEmail)) {
-                    try {
-                        Mail::to($clientEmail)->send(new ReservationConfirmationMail(
-                            $clientName,
-                            $clientEmail,
-                            $clientPhone,
-                            $startDate,
-                            (string)$transactionId,
-                            $items,
-                            $total,
-                            $pdfContent
+
+                if (App::getLocale() == 'fr') {
+                    if (!empty($clientEmail)) {
+                        try {
+                            Mail::to($clientEmail)->send(new ReservationConfirmationMail(
+                                $clientName,
+                                $clientEmail,
+                                $clientPhone,
+                                $startDate,
+                                (string)$transactionId,
+                                $items,
+                                $total,
+                                $pdfContent
+                                ));
+                        }
+                        catch (\Exception $mailException) {
+                            \Log::error('Mail Error: ' . $mailException->getMessage());
+                        // On ne bloque pas la page si l'email echoue
+                        }
+                    }
+                } elseif (App::getLocale() == 'en'){
+
+                    if (!empty($clientEmail)) {
+                        try {
+                            Mail::to($clientEmail)->send(new ReservationConfirmationMailEn(
+                                $clientName,
+                                $clientEmail,
+                                $clientPhone,
+                                $startDate,
+                                (string)$transactionId,
+                                $items,
+                                $total,
+                                $pdfContent
                             ));
+                        }
+                        catch (\Exception $mailException) {
+                            \Log::error('Mail Error: ' . $mailException->getMessage());
+                            // On ne bloque pas la page si l'email echoue
+                        }
                     }
-                    catch (\Exception $mailException) {
-                        \Log::error('Mail Error: ' . $mailException->getMessage());
-                    // On ne bloque pas la page si l'email echoue
-                    }
+
                 }
 
                 return view('frontend.reservation_success', compact('transaction'));
@@ -358,17 +384,38 @@ class IndexController extends Controller
         $email_user = $email;
         $email_admin = 'contact@orekamobility.com';
 
-        SendContactEmail::dispatch($email_user, $email_admin, $data);
+        if (App::getLocale() == 'fr') {
+
+            SendContactEmail::dispatch($email_user, $email_admin, $data);
+
+        } elseif (App::getLocale() == 'en'){
+
+            SendContactEmail_EN::dispatch($email_user, $email_admin, $data);
+        }
+
 
 
         // Votre logique de traitement (envoi d'email, sauvegarde en BD, etc.)
 
-        $successMessage = "Merci d'avoir contacté OREKA Mobility ! Nous avons bien reçu votre demande et notre équipe la traitera dans les plus brefs délais. À très bientôt !";
 
-        return response()->json([
-            'contact_succs' => $successMessage,
-            'success' => true
-        ]);
+
+        $successMessageFR = "Merci d'avoir contacté OREKA Mobility ! Nous avons bien reçu votre demande et notre équipe la traitera dans les plus brefs délais. À très bientôt !";
+        $successMessageEN = "Thank you for contacting OREKA Mobility! We have received your request, and our team will process it as soon as possible. See you soon!";
+
+        if (App::getLocale() == 'fr') {
+            return response()->json([
+                'contact_succs' => $successMessageFR,
+                'success' => true
+            ]);
+
+        } elseif (App::getLocale() == 'en') {
+
+            return response()->json([
+                'contact_succs' => $successMessageEN,
+                'success' => true
+            ]);
+
+        }
 
 
     } //end method

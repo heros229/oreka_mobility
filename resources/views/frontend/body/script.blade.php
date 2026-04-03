@@ -41,5 +41,8 @@
 <script src="{{ asset('assets/plugins/ion-rangeslider/js/ion.rangeSlider.min.js')}}" type="text/javascript"></script>
 <script src="{{ asset('assets/plugins/ion-rangeslider/js/custom-rangeslider.js')}}" type="text/javascript"></script>
 
+<script src="{{ asset('assets/language/script.js')}}"></script>
+
+
 
 @stack('scripts')

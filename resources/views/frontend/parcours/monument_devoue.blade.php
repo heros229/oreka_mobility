@@ -30,7 +30,7 @@
 @section('content')
 
     <!-- Breadscrumb Section -->
-    <div class="blogbanner" style="background-image: url('assets/img/profiles/gg.jpeg'); background-size: cover; background-position: center;">
+    <div class="blogbanner" style="background-image: url('{{ asset('assets/img/profiles/gg.jpeg')}}'); background-size: cover; background-position: center;">
         <div class="blogbanner-content">
             <span class="blog-hint">Destination</span>
             <h1>Monument aux Dévoués – Un lieu de mémoire et de fierté</h1>

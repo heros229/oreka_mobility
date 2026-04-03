@@ -140,9 +140,9 @@
     <!-- Yacht Categories -->
     <section class="yacht-category-sec">
         <div class="sec-bg">
-            <img src="assets/img/bg/yacht-cat-sec-bg-01.png" class="anchor-img" alt="Img">
-            <img src="assets/img/bg/yacht-cat-sec-bg-02.png" class="vector-round" alt="Img">
-            <img src="assets/img/bg/yacht-cat-sec-bg-03.png" class="design-round" alt="Img">
+            <img src="{{ asset('assets/img/bg/yacht-cat-sec-bg-01.png')}}" class="anchor-img" alt="Img">
+            <img src="{{ asset('assets/img/bg/yacht-cat-sec-bg-02.png')}}" class="vector-round" alt="Img">
+            <img src="{{ asset('assets/img/bg/yacht-cat-sec-bg-03.png')}}" class="design-round" alt="Img">
         </div>
         <div class="sec-round-colors">
             <span class="bg-orange round-small"></span>
@@ -263,6 +263,7 @@
                     </div>
                 </div>
             </div>
+        </div>
     </section>
     <!-- /Yacht Categories -->
     <!-- Seasonal Special -->
@@ -304,7 +305,7 @@
                         <div class="services-group">
                             <div class="services-content">
                                 <div class="services-icon border-secondary">
-                                    <img class="icon-img bg-secondary" src="assets/img/icons/services-icon-01.svg" alt="Choose Locations">
+                                    <img class="icon-img bg-secondary" src="{{ asset('assets/img/icons/services-icon-01.svg')}}" alt="Choose Locations">
                                 </div>
                                 <h3>1. Choisissez votre formule</h3>
                                 <p>
@@ -320,7 +321,7 @@
                         <div class="services-group">
                             <div class="services-content">
                                 <div class="services-icon border-secondary">
-                                    <img class="icon-img bg-primary" src="assets/img/icons/services-icon-02.svg" alt="Choose Locations">
+                                    <img class="icon-img bg-primary" src="{{ asset('assets/img/icons/services-icon-02.svg')}}" alt="Choose Locations">
                                 </div>
                                 <h3>2. Renseignez vos informations</h3>
                                 <p>
@@ -336,7 +337,7 @@
                         <div class="services-group">
                             <div class="services-content">
                                 <div class="services-icon border-secondary">
-                                    <img class="icon-img bg-secondary" src="assets/img/icons/services-icon-03.svg" alt="Choose Locations">
+                                    <img class="icon-img bg-secondary" src="{{ asset('assets/img/icons/services-icon-03.svg')}}" alt="Choose Locations">
                                 </div>
                                 <h3>3. Payez et roulez</h3>
                                 <p>
@@ -357,8 +358,8 @@
     <!-- Destinations Section -->
     <section class="section destination-section">
         <div class="destination-bg">
-            <img src="assets/img/bg/destination-bg-01.png" class="img-fluid shape-01" alt="img">
-            <img src="assets/img/bg/destination-bg-02.png" class="img-fluid shape-02" alt="img">
+            <img src="{{ asset('assets/img/bg/destination-bg-01.png')}}" class="img-fluid shape-01" alt="img">
+            <img src="{{ asset('assets/img/bg/destination-bg-02.png')}}" class="img-fluid shape-02" alt="img">
         </div>
         <div class="container">
             <!-- Heading title-->
@@ -628,41 +629,3 @@
 
 
 @endsection
-
-
-@push('scripts')
-
-    <script>
-        $(document).ready(function() {
-            $('#newsletterForm').on('submit', function(e) {
-                e.preventDefault(); // Empêcher le rechargement de la page
-
-                var formData = $(this).serialize(); // Sérialiser les données du formulaire
-                $('#emailError').html(''); // Réinitialiser le message d'erreur avant la soumission
-
-                $.ajax({
-                    url: "{{ route('message.newsletter') }}", // La route vers ton contrôleur
-                    type: "POST",
-                    data: formData,
-                    success: function(response) {
-                        if (response.newsletter_success) {
-                            $('#newsletterForm').replaceWith('<div style="background-color: #55cd55; color: black; padding: 10px;">' + response.newsletter_success + '</div>');
-                        }
-                    },
-                    error: function(response) {
-                        // Récupérer et afficher les messages d'erreur
-                        if (response.status === 422) { // Code de statut pour erreur de validation
-                            var errors = response.responseJSON.errors;
-                            if (errors.email) {
-                                $('#emailError2').html(errors.email[0]); // Affiche l'erreur liée à l'e-mail
-                            }
-                        } else {
-                            alert("Une erreur s'est produite, veuillez réessayer.");
-                        }
-                    }
-                });
-            });
-        });
-    </script>
-
-@endpush

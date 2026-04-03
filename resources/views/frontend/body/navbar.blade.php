@@ -1,3 +1,20 @@
+
+@php
+    $currentLocale = session('locale', app()->getLocale());
+    $alternateLocale = $currentLocale === 'fr' ? 'en' : 'fr';
+    $currentLang = [
+        'fr' => ['name' => 'Français', 'flag' => 'country-fr.svg'],
+        'en' => ['name' => 'English', 'flag' => 'country-us.svg'],
+
+    ][$currentLocale];
+    $alternateLang = [
+        'fr' => ['name' => 'Français', 'flag' => 'country-fr.svg'],
+        'en' => ['name' => 'English', 'flag' => 'country-us.svg'],
+
+    ][$alternateLocale];
+@endphp
+
+
 <div class="container">
     <nav class="navbar navbar-expand-lg header-nav">
         <div class="navbar-header">
@@ -189,6 +206,31 @@
             <li class="nav-item">
                 <a class="nav-link header-reg" href="{{ route('accueil') }}#pricing">S’inscrire à une activité</a>
             </li>
+            <li>
+
+                <div class="select-menu1" >
+                    <div class="select-btn1">
+                        <img src="{{ asset('vendor/blade-flags/' . $currentLang['flag']) }}" width="32" height="32" alt="{{ $currentLang['name'] }}" style="margin-right: 12px"/>
+                        <span class="sBtn-text">{{ $currentLang['name'] }}</span>
+                        <i class="bx bx-chevron-down"></i>
+                    </div>
+                    <ul class="options1">
+                        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                            <li class="option2">
+                                <a rel="alternate" class="option-text1" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                    @if($localeCode == "en")
+                                        <img src="{{ asset('vendor/blade-flags/country-us.svg') }}" width="32" height="32" alt="{{ $properties['native'] }}" style="margin-right: 12px"/>
+                                    @elseif($localeCode == "fr")
+                                        <img src="{{ asset('vendor/blade-flags/country-fr.svg') }}" width="32" height="32" alt="{{ $properties['native'] }}" style="margin-right: 12px"/>
+                                    @endif
+                                    {{ $properties['native'] }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </li>
         </ul>
+
     </nav>
 </div>

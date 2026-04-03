@@ -52,4 +52,14 @@
 <!-- Rangeslider CSS -->
 <link rel="stylesheet" href="{{ asset('assets/plugins/ion-rangeslider/css/ion.rangeSlider.min.css') }}">
 
+<link rel="stylesheet" href="{{ asset('assets/language/style.css')}}">
+
+@if (App::getLocale() == 'fr')
+    <link rel="stylesheet" href="{{ asset('assets/css/details_pricing.css')}}">
+@elseif (App::getLocale() == 'en')
+    <link rel="stylesheet" href="{{ asset('assets/css/details_pricing.css')}}">
+
+@endif
+
+
 @stack('links')

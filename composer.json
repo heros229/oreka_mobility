@@ -11,7 +11,10 @@
         "fedapay/fedapay-php": "^0.4.7",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
-        "simplesoftwareio/simple-qrcode": "^4.2"
+        "mcamara/laravel-localization": "^2.4",
+        "outhebox/blade-flags": "^1.7",
+        "simplesoftwareio/simple-qrcode": "^4.2",
+        "stichoza/google-translate-php": "^5.3"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

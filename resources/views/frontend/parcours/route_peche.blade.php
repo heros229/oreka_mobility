@@ -31,7 +31,7 @@
 @section('content')
 
     <!-- Breadscrumb Section -->
-    <div class="blogbanner" style="background-image: url('assets/img/profiles/route.jpg'); background-size: cover; background-position: center;">
+    <div class="blogbanner" style="background-image: url('{{ asset('assets/img/profiles/route.jpg')}}'); background-size: cover; background-position: center;">
         <div class="blogbanner-content">
             <span class="blog-hint">Destination</span>
             <h1>Route des Pêches – Entre océan et lagune, le Bénin sauvage</h1>
@@ -56,7 +56,7 @@
                 <p>À vélo, la Route des Pêches révèle toute sa splendeur. Chaque coup de pédale vous rapproche d'un Bénin authentique et préservé, loin de l'agitation de Cotonou. On croise les filets qui sèchent au soleil, les enfants qui jouent sur la plage, les femmes qui rentrent du marché avec leur chargement en équilibre sur la tête. Les villages de pêcheurs comme Avlékété, Agatogbo ou Ouidah-Plage jalonnent le parcours et invitent à la pause, à la dégustation de poisson grillé frais sorti de l'océan, et à la conversation avec des habitants d'une générosité remarquable.</p>
             </div>
             <blockquote class="blog-quotes">
-                <img src="assets/img/blogquote.svg" alt="quotes">
+                <img src="{{ asset('assets/img/blogquote.svg')}}" alt="quotes">
                 <p>Pédaler sur la Route des Pêches au lever du soleil, avec l'Atlantique qui gronde à quelques mètres et la lagune qui miroite de l'autre côté — c'est l'une des expériences les plus pures que j'aie jamais vécues à vélo. Le Bénin m'a offert ce matin-là quelque chose d'inoubliable.</p>
                 <h6>Théodore Kpakpo – Cycliste et globe-trotteur</h6>
             </blockquote>

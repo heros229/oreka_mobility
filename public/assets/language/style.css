@@ -1,0 +1,156 @@
+.select-menu1 {
+    position: relative;
+    z-index: 9999 !important; /* Assurez-vous que c'est supérieur au z-index du header sticky */
+}
+
+.stricky-header.stricky-fixed {
+    transform: translateY(0%);
+    box-shadow: 0px 10px 60px 0px rgba(0, 0, 0, 0.05);
+}
+
+.select-menu1 .select-btn1 {
+    display: flex;
+    height: 55px;
+    justify-content: space-between;
+    background: #fff;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.select-btn1 i {
+    font-size: 25px;
+    transition: 0.3s;
+}
+
+.select-menu1.active .select-btn1 i {
+    transform: rotate(-180deg);
+}
+
+.select-menu1 .options1 {
+    position: absolute; /* Rend la liste déroulante indépendante du flux normal */
+    top:  100%; /* Assure qu'il s'affiche bien en dessous du bouton */
+    left: 0;
+    width: 100%; /* Ajuste la largeur à celle du parent */
+    padding: 10px 0; /* Réduit le padding pour éviter un décalage excessif */
+    margin-top: 10px; /* Facultatif : ajoute de l'espace entre le bouton et la liste */
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none; /* Cache par défaut */
+    z-index: 9999 !important; /* Assure que la liste apparaît au-dessus d'autres éléments */
+
+}
+
+.select-menu1.active .options1 {
+    display: block; /* Affiche la liste lorsque .select-menu1 a la classe active */
+}
+
+.options1 .option2 {
+    display: flex;
+    height: 55px;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+    transition: background-color 0.3s;
+}
+
+.options1 .option2:hover {
+    background: #F2F2F2;
+}
+
+.option2 i {
+    font-size: 25px;
+    margin-right: 12px;
+}
+
+.option2 .option-text1 {
+    font-size: 18px;
+    color: #333;
+}
+
+
+
+
+
+
+
+
+.select-menu2 {
+    position: relative; /* Nécessaire pour que .options1 utilise .select-menu1 comme référence */
+}
+
+.select-menu2 .select-btn2 {
+    display: flex;
+    height: 55px;
+    justify-content: space-between;
+    background: #fff;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.select-btn2 i {
+    font-size: 25px;
+    transition: 0.3s;
+}
+
+.select-menu2.active .select-btn2 i {
+    transform: rotate(-180deg);
+}
+
+.select-menu2 .options2 {
+    position: absolute; /* Rend la liste déroulante indépendante du flux normal */
+    top: 100%; /* Positionne la liste juste en dessous du bouton */
+    left: 0;
+    width: 100%; /* Ajuste la largeur à celle du parent */
+    padding: 10px 0; /* Réduit le padding pour éviter un décalage excessif */
+    margin-top: 10px; /* Facultatif : ajoute de l'espace entre le bouton et la liste */
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none; /* Cache par défaut */
+    z-index: 10; /* Assure que la liste apparaît au-dessus d'autres éléments */
+}
+
+.select-menu2.active .options2 {
+    display: block; /* Affiche la liste lorsque .select-menu1 a la classe active */
+}
+
+.options2 .option2 {
+    display: flex;
+    height: 55px;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background: #fff;
+    transition: background-color 0.3s;
+}
+
+.options2 .option3:hover {
+    background: #F2F2F2;
+}
+
+.option3 i {
+    font-size: 25px;
+    margin-right: 12px;
+}
+
+.option3 .option-text2 {
+    font-size: 18px;
+    color: #333;
+}
+
+
+

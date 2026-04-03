@@ -2,9 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\IndexController;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
 
 /*Route::get('/', function () {
  return view('welcome'); });*/
+
+
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function(){ //...
 
 
     Route::get('/', [IndexController::class , 'index'])->name('accueil');
@@ -38,7 +47,7 @@ use App\Http\Controllers\Frontend\IndexController;
 
 
 
-
+});
 
 
 

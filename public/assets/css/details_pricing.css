@@ -131,6 +131,12 @@
     }
     .avantage-item p { font-size: 13px; font-weight: 500; color: var(--oreka-text); margin: 0; }
 
+    .avantage-item p,
+    .sidebar-feature {
+        text-transform: none !important;
+        font-family: 'DM Sans', sans-serif !important;
+    }
+
     /* ===== INFOS PRATIQUES ===== */
     .info-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .info-card {

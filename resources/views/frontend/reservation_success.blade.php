@@ -49,7 +49,7 @@
                 <div class="hero-strip-inner">
                     <div class="check-circle"><i class="bx bx-check-double"></i></div>
                     <div class="hero-strip-text">
-                        <h1>Réservation <span>confirmée !</span></h1>
+                        <h1>Réservation&nbsp;<span>confirmée !</span></h1>
                         <p>Merci pour votre confiance — votre activité vélo vous attend.</p>
                     </div>
                     <div class="tx-badge">

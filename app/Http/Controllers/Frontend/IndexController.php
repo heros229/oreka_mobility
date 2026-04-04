@@ -50,66 +50,66 @@ class IndexController extends Controller
     // Dans IndexController.php
     public function Reservation_step_3(Request $request)
     {
-        $data = $request->all();
-
-
+        // ✅ Validation avant tout
+        $validated = $request->validate([
+            'firstName'        => 'required|string|max:100',
+            'lastName'         => 'required|string|max:100',
+            'email'            => 'required|email',
+            'phone'            => 'required|string|max:20',
+            'totalAmount'      => 'required|numeric|min:500',
+            'selectedServices' => 'required|array|min:1',
+        ], [
+            'email.required'     => 'L\'adresse email est obligatoire.',
+            'email.email'        => 'Veuillez fournir une adresse email valide.',
+            'firstName.required' => 'Le prénom est obligatoire.',
+            'totalAmount.min'    => 'Le montant minimum est de 500 F.',
+        ]);
 
         \FedaPay\FedaPay::setApiKey(env('FEDAPAY_API_KEY'));
         \FedaPay\FedaPay::setEnvironment(env('FEDAPAY_ENVIRONMENT', 'sandbox'));
-
-        //dd($data);
 
         try {
             // Sauvegarder les donnees en session pour le callback
             session([
                 'reservation_step1' => [
-                    'firstName' => $data['firstName'] ?? '',
-                    'lastName' => $data['lastName'] ?? '',
-                    'email' => $data['email'] ?? '',
-                    'phone' => $data['phone'] ?? '',
-                    'additionalInfo' => $data['additionalInfo'] ?? '',
-                    'startDate' => $data['startDate'] ?? '',
+                    'firstName'      => $validated['firstName'] ?? '',
+                    'lastName'       => $validated['lastName'] ?? '',
+                    'email'          => $validated['email'] ?? '',
+                    'phone'          => $validated['phone'] ?? '',
+                    'additionalInfo' => $request->input('additionalInfo', ''), // pas dans validated car non requis
+                    'startDate'      => $request->input('startDate', ''),
                 ],
                 'reservation_step2' => [
-                    'services' => $data['selectedServices'] ?? [],
-                    'totalAmount' => $data['totalAmount'] ?? 0,
+                    'services'    => $validated['selectedServices'] ?? [],
+                    'totalAmount' => $validated['totalAmount'] ?? 0,
                 ],
             ]);
 
-            // Formater le téléphone pour le Bénin (commence par +22901)
-            $phone = $data['phone'];
+            // Formater le téléphone pour le Bénin
+            $phone = preg_replace('/[^0-9+]/', '', $validated['phone']);
 
-            // Nettoyer le numéro (enlever espaces, tirets, parenthèses)
-            $phone = preg_replace('/[^0-9+]/', '', $phone);
-
-            // Si le numéro ne commence pas par +229, on l'ajoute
             if (!str_starts_with($phone, '+229')) {
-                // Si commence par 01, ajouter +229
                 if (str_starts_with($phone, '01')) {
                     $phone = '+229' . $phone;
-                }
-                // Si commence par 229, ajouter juste le +
-                elseif (str_starts_with($phone, '229')) {
+                } elseif (str_starts_with($phone, '229')) {
                     $phone = '+' . $phone;
-                }
-                // Sinon, ajouter +229 directement
-                else {
+                } else {
                     $phone = '+229' . $phone;
                 }
             }
 
-            // Créer la transaction avec les infos client
+            // Créer la transaction FedaPay
             $transaction = \FedaPay\Transaction::create([
-                'description' => 'Réservation vélo - ' . count($data['selectedServices']) . ' service(s)',
-                'amount' => $data['totalAmount'],
-                'currency' => ['iso' => 'XOF'],
+                'description'  => 'Réservation vélo - ' . count($validated['selectedServices']) . ' service(s)',
+                'amount'       => $validated['totalAmount'],
+                'currency'     => ['iso' => 'XOF'],
                 'callback_url' => route('reservation_callback'),
-                'customer' => [
-                    'firstname' => $data['firstName'],
-                    'lastname' => $data['lastName'],
-                    'email' => $data['email'],
+                'customer'     => [
+                    'firstname'    => $validated['firstName'],
+                    'lastname'     => $validated['lastName'],
+                    'email'        => $validated['email'],
                     'phone_number' => [
-                        'number' => $phone,
+                        'number'  => $phone,
                         'country' => 'bj'
                     ]
                 ]
@@ -118,13 +118,12 @@ class IndexController extends Controller
             $token = $transaction->generateToken();
 
             return response()->json([
-                'success' => true,
-                'checkout_url' => $token->url,
+                'success'        => true,
+                'checkout_url'   => $token->url,
                 'transaction_id' => $transaction->id
             ]);
 
-        }
-        catch (\Exception $e) {
+        } catch (\Exception $e) {
             Log::error('FedaPay Error: ' . $e->getMessage());
 
             return response()->json([

@@ -45,6 +45,8 @@
             transition: border 0.3s ease;
         }
     </style>
+
+    <link rel="stylesheet" href="{{ asset('assets/css/details_pricing.css')}}">
 @endpush
 
 
@@ -265,29 +267,27 @@
             // ============================================================
             const GALLERY_DATA = {
                 'velo-sport': [
-                    '{{ asset("assets/img/cars/velo2.jpg") }}',
-                    '{{ asset("assets/img/cars/velo.png") }}',
-                    'https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=1200&q=85',
-                    '{{ asset("assets/img/cars/velo-sport.webp") }}',
+                    '{{ asset("assets/img/cars/12.jpg") }}',
+                    '{{ asset("assets/img/cars/13.jpg") }}',
+                    '{{ asset("assets/img/cars/14.jpg") }}',
                     '{{ asset("assets/img/cars/velo1.jpg") }}',
                 ],
                 'randonnee': [
                     '{{ asset("assets/img/cars/randonee1.jpg") }}',
                     '{{ asset("assets/img/cars/randonee.jpg") }}',
-                    '{{ asset("assets/img/cars/4.jpg") }}',
                     '{{ asset("assets/img/cars/randonee3.jpg") }}',
                     '{{ asset("assets/img/cars/randonee4.jpg") }}',
                 ],
                 'tourisme': [
                     '{{ asset("assets/img/cars/11.png") }}',
                     '{{ asset("assets/img/cars/tourisme.png") }}',
-                    '{{ asset("assets/img/cars/tourisme1.jpg") }}',
+                    '{{ asset("assets/img/cars/15.jpg") }}',
+                    '{{ asset("assets/img/cars/16.jpg") }}',
                     '{{ asset("assets/img/cars/2.webp") }}',
                 ],
                 'apprentissage': [
                     '{{ asset("assets/img/cars/apprentissage.jpg") }}',
-                    '{{ asset("assets/img/cars/velo-ecole.jpg") }}',
-                    '{{ asset("assets/img/cars/4.jpg") }}',
+                    '{{ asset("assets/img/cars/17.png") }}',
                     'https://images.unsplash.com/photo-1541625602330-2277a4c46182?w=1200&q=85',
                     '{{ asset("assets/img/cars/12.png") }}',
                 ],

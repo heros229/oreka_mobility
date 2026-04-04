@@ -232,7 +232,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6" data-aos="fade-down">
+                    <div class="col-lg-6" data-aos="fade-down" id="about-us">
                         <div class="about-content">
                             <h6>À PROPOS DE NOUS</h6>
                             <h2>Votre partenaire pour le sport et le loisir à vélo</h2>
@@ -356,7 +356,7 @@
     <!-- /services -->
 
     <!-- Destinations Section -->
-    <section class="section destination-section">
+    <section class="section destination-section" id="parcours">
         <div class="destination-bg">
             <img src="{{ asset('assets/img/bg/destination-bg-01.png')}}" class="img-fluid shape-01" alt="img">
             <img src="{{ asset('assets/img/bg/destination-bg-02.png')}}" class="img-fluid shape-02" alt="img">

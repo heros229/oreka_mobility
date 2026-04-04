@@ -104,7 +104,7 @@
                                     <div class="field-group">
                                         <label>Email <span>*</span></label>
                                         <input type="email" class="field-input" id="f-email"
-                                               placeholder="{{ __('step1.ph_email') }}">
+                                               placeholder="{{ __('step1.ph_email') }}" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -269,7 +269,7 @@
                 const fields = [
                     { el: document.getElementById('f-prenom'), check: v => v.trim() },
                     { el: document.getElementById('f-nom'),    check: v => v.trim() },
-                    { el: document.getElementById('f-email'),  check: v => v.trim() },
+                    { el: document.getElementById('f-email'),  check: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) }, // ← remplace v.trim()
                     { el: phone,                               check: v => v.length >= 10 },
                     { el: document.getElementById('f-date'),   check: v => v.trim() },
                 ];

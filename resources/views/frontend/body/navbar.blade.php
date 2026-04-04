@@ -18,13 +18,13 @@
 <div class="container">
     <nav class="navbar navbar-expand-lg header-nav">
         <div class="navbar-header">
-            {{--<a id="mobile_btn" href="javascript:void(0);">
+            <a id="mobile_btn" href="javascript:void(0);">
 								<span class="bar-icon">
 									<span></span>
 									<span></span>
 									<span></span>
 								</span>
-            </a>--}}
+            </a>
             <a href="{{ route('accueil') }}" class="navbar-brand logo">
                 <img src="{{ asset('assets/img/logo_oreka_3.png')}}" class="img-fluid" width="140"  alt="Logo">
             </a>
@@ -32,172 +32,79 @@
                 <img src="{{ asset('assets/img/logo_oreka_3.png')}}" class="img-fluid" width="100"   alt="Logo" >
             </a>
         </div>
-       {{-- <div class="main-menu-wrapper">
+        <div class="main-menu-wrapper d-block d-md-none">
             <div class="menu-header">
-                <a href="index-2.html" class="menu-logo">
-                    <img src="assets/img/logo.svg" class="img-fluid" alt="Logo">
+                <a href="{{ route('accueil') }}" class="menu-logo">
+                    <img src="{{ asset('assets/img/logo_oreka.png')}}" class="img-fluid" alt="Logo">
                 </a>
                 <a id="menu_close" class="menu-close" href="javascript:void(0);"> <i class="fas fa-times"></i></a>
             </div>
             <ul class="main-nav">
-                <li class="has-submenu megamenu active">
-                    <a href="index-2.html">Home <i class="fas fa-chevron-down"></i></a>
-                    <ul class="submenu mega-submenu">
-                        <li>
-                            <div class="megamenu-wrapper">
-                                <div class="row">
-                                    <div class="col-lg-3">
-                                        <div class="single-demo">
-                                            <div class="demo-img">
-                                                <a href="index-2.html">
-                                                    <img src="assets/img/menu/home-01.svg" class="img-fluid " alt="img">
-                                                </a>
-                                            </div>
-                                            <div class="demo-info">
-                                                <a href="index-2.html">Car Rental<span class="new">New</span> </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="single-demo">
-                                            <div class="demo-img">
-                                                <a href="index-3.html">
-                                                    <img src="assets/img/menu/home-02.svg" class="img-fluid " alt="img">
-                                                </a>
-                                            </div>
-                                            <div class="demo-info">
-                                                <a href="index-3.html">Car Rental 1<span class="hot">Hot</span> </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="single-demo">
-                                            <div class="demo-img">
-                                                <a href="index-4.html">
-                                                    <img src="assets/img/menu/home-03.svg" class="img-fluid " alt="img">
-                                                </a>
-                                            </div>
-                                            <div class="demo-info">
-                                                <a href="index-4.html">Bike Rental<span class="new">New</span> </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <div class="single-demo">
-                                            <div class="demo-img">
-                                                <a href="index-5.html">
-                                                    <img src="assets/img/menu/home-04.svg" class="img-fluid " alt="img">
-                                                </a>
-                                            </div>
-                                            <div class="demo-info">
-                                                <a href="index-5.html">Yacht Rental<span class="new">New</span> </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+                <li class="active">
+                    @if (App::getLocale() == 'fr')
+                        <a href="{{ route('accueil') }}" style="font-size: 20px; padding: 20px; font-weight: bold">Accueil </a>
+                    @elseif (App::getLocale() == 'en')
+                        <a href="{{ route('accueil') }}" style="font-size: 20px; padding: 20px; font-weight: bold">Home </a>
+                    @endif
+
+
+                </li>
+                <li class="">
+                    <a href="{{ route('accueil') }}#about-us" style="font-size: 20px; padding: 20px; font-weight: bold">A propos de nous </a>
+                </li>
+                <li class="has-submenu">
+                    <a href="{{ route('accueil') }}#parcours" style="font-size: 20px; padding: 20px; font-weight: bold">Nos Parcours <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu">
+                        <li><a href="{{ route('amazone') }}" style="font-size: 17px; padding: 20px; font-weight: bold">Place de l'amazone</a></li>
+                        <li><a href="{{ route('devoue') }}" style="font-size: 17px; padding: 20px; font-weight: bold">Monument aux dévoués</a></li>
+                        <li><a href="{{ route('patrimoine') }}" style="font-size: 17px; padding: 20px; font-weight: bold">Mur du patrimoine</a></li>
+                        <li><a href="{{ route('guerra') }}" style="font-size: 17px; padding: 20px; font-weight: bold">Place Bio Guerra</a></li>
+                        <li><a href="{{ route('peche') }}" style="font-size: 17px; padding: 20px; font-weight: bold">Route des pèches</a></li>
+                        <li><a href="{{ route('sofitel') }}" style="font-size: 17px; padding: 20px; font-weight: bold">Sofitel</a></li>
                     </ul>
                 </li>
                 <li class="has-submenu">
-                    <a href="#">Listings <i class="fas fa-chevron-down"></i></a>
+                    <a href="{{ route('accueil') }}#pricing" style="font-size: 20px; padding: 20px; font-weight: bold">Réservations <i class="fas fa-chevron-down"></i></a>
                     <ul class="submenu">
-                        <li><a href="listing-grid.html">Listing Grid</a></li>
-                        <li><a href="listing-list.html">Listing List</a></li>
-                        <li><a href="listing-map.html">Listing With Map</a></li>
-                        <li><a href="listing-details.html">Listing Details</a></li>
+                        <li><a href="{{ route('details') }}?plan=velo-sport"
+                               onclick="localStorage.setItem('selectedPlan','velo-sport')" style="font-size: 17px; padding: 20px; font-weight: bold">Vélo Sport</a></li>
+                        <li><a href="{{ route('details') }}?plan=randonnee"
+                               onclick="localStorage.setItem('selectedPlan','randonnee')" style="font-size: 17px; padding: 20px; font-weight: bold">Randonner à Vélo</a></li>
+                        <li><a href="{{ route('details') }}?plan=tourisme"
+                               onclick="localStorage.setItem('selectedPlan','tourisme')" style="font-size: 17px; padding: 20px; font-weight: bold">Vélo Tourisme</a></li>
+                        <li><a href="{{ route('details') }}?plan=apprentissage"
+                               onclick="localStorage.setItem('selectedPlan','apprentissage')" style="font-size: 17px; padding: 20px; font-weight: bold">Apprentissage</a></li>
                     </ul>
                 </li>
-                <li class="has-submenu">
-                    <a href="#">Pages <i class="fas fa-chevron-down"></i></a>
-                    <ul class="submenu">
-                        <li ><a href="about-us.html">About Us</a></li>
-                        <li><a href="contact-us.html">Contact</a></li>
-                        <li class="has-submenu">
-                            <a href="javascript:void(0);">Authentication</a>
-                            <ul class="submenu">
-                                <li><a href="register.html">Sign Up</a></li>
-                                <li><a href="login.html">Sign In</a></li>
-                                <li><a href="forgot-password.html">Forgot Password</a></li>
-                                <li><a href="reset-password.html">Reset Password</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-submenu">
-                            <a href="javascript:void(0);">Booking</a>
-                            <ul class="submenu">
-                                <li><a href="booking-checkout.html">Booking Checkout</a></li>
-                                <li><a href="booking.html">Booking</a></li>
-                                <li><a href="invoice-details.html">Invoice Details</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-submenu">
-                            <a href="javascript:void(0);">Error Page</a>
-                            <ul class="submenu">
-                                <li><a href="error-404.html">404 Error</a></li>
-                                <li><a href="error-500.html">500 Error</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="pricing.html">Pricing</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="our-team.html">Our Team</a></li>
-                        <li><a href="testimonial.html">Testimonials</a></li>
-                        <li><a href="terms-condition.html">Terms & Conditions</a></li>
-                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="maintenance.html">Maintenance</a></li>
-                        <li><a href="coming-soon.html">Coming Soon</a></li>
-                    </ul>
+                <li class="">
+                    <a href="{{ route('contact') }}" style="font-size: 20px; padding: 20px; font-weight: bold">Contact </a>
+
                 </li>
-                <li class="has-submenu">
-                    <a href="#">Blog <i class="fas fa-chevron-down"></i></a>
-                    <ul class="submenu">
-                        <li><a href="blog-list.html">Blog List</a></li>
-                        <li><a href="blog-grid.html">Blog Grid</a></li>
-                        <li><a href="blog-details.html">Blog Details</a></li>
-                    </ul>
-                </li>
-                <li class="has-submenu">
-                    <a href="#">Dashboard <i class="fas fa-chevron-down"></i></a>
-                    <ul class="submenu">
-                        <li class="has-submenu">
-                            <a href="javascript:void(0);">User Dashboard</a>
-                            <ul class="submenu">
-                                <li><a href="user-dashboard.html">Dashboard</a></li>
-                                <li><a href="user-bookings.html">My Bookings</a></li>
-                                <li><a href="user-reviews.html">Reviews</a></li>
-                                <li><a href="user-wishlist.html">Wishlist</a></li>
-                                <li><a href="user-messages.html">Messages</a></li>
-                                <li><a href="user-wallet.html">My Wallet</a></li>
-                                <li><a href="user-payment.html">Payments</a></li>
-                                <li><a href="user-settings.html">Settings</a></li>
-                            </ul>
-                        </li>
-                        <li class="has-submenu">
-                            <a href="javascript:void(0);">Admin Dashboard</a>
-                            <ul class="submenu">
-                                <li><a href="admin/index.html">Dashboard</a></li>
-                                <li><a href="admin/reservations.html">Bookings</a></li>
-                                <li><a href="admin/customers.html">Manage</a></li>
-                                <li><a href="admin/cars.html">Rentals</a></li>
-                                <li><a href="admin/invoices.html">Finance & Accounts</a></li>
-                                <li><a href="admin/coupons.html">Others</a></li>
-                                <li><a href="admin/pages.html">CMS</a></li>
-                                <li><a href="admin/contact-messages.html">Support</a></li>
-                                <li><a href="admin/users.html">User Management</a></li>
-                                <li><a href="admin/earnings-report.html">Reports</a></li>
-                                <li><a href="admin/profile-setting.html">Settings & Configuration</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li class="login-link">
-                    <a href="register.html">Sign Up</a>
-                </li>
-                <li class="login-link">
-                    <a href="login.html">Sign In</a>
+                <li class="mt-4">
+                    <div class="select-menu1" style="width: 200px;" >
+                        <div class="select-btn1">
+                            <img src="{{ asset('vendor/blade-flags/' . $currentLang['flag']) }}" width="32" height="32" alt="{{ $currentLang['name'] }}" style="margin-right: 12px"/>
+                            <span class="sBtn-text">{{ $currentLang['name'] }}</span>
+                            <i class="bx bx-chevron-down"></i>
+                        </div>
+                        <ul class="options1">
+                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                <li class="option2" >
+                                    <a rel="alternate" class="option-text1" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}" style="color: black">
+                                        @if($localeCode == "en")
+                                            <img src="{{ asset('vendor/blade-flags/country-us.svg') }}" width="32" height="32" alt="{{ $properties['native'] }}" style="margin-right: 12px"/>
+                                        @elseif($localeCode == "fr")
+                                            <img src="{{ asset('vendor/blade-flags/country-fr.svg') }}" width="32" height="32" alt="{{ $properties['native'] }}" style="margin-right: 12px"/>
+                                        @endif
+                                        {{ $properties['native'] }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </li>
             </ul>
-        </div>--}}
+        </div>
         <ul class="nav header-navbar-rht">
             {{--<li class="nav-item">
                 <a class="nav-link login-link" href="login.html"><span><i class="bx bx-user me-2"></i></span>Sign In / </a>
@@ -234,3 +141,5 @@
 
     </nav>
 </div>
+
+

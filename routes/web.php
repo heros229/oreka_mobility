@@ -24,6 +24,14 @@ Route::group(
     Route::get('/reservation/callback', [IndexController::class , 'reservationCallback'])->name('reservation_callback');
     Route::post('/news/store', [IndexController::class , 'Newsletter'])->name('message.newsletter');
 
+
+    // Location uniquement
+    Route::get('/resevertation/location/step_1', [IndexController::class , 'Location_Reservation_step_1'])->name('location_reservation_step_1');
+    Route::get('/resevertation/location/step_2', [IndexController::class , 'Location_Reservation_step_2'])->name('location_reservation_step_2');
+    Route::post('/reservation/location/step_3', [IndexController::class , 'Location_Reservation_step_3'])->name('location_reservation_step_3');
+    Route::get('/reservation/location/callback', [IndexController::class , 'Location_reservationCallback'])->name('location_reservation_callback');
+    //Route::post('/news/store', [IndexController::class , 'Newsletter'])->name('message.newsletter');
+
     Route::post('/download-reservation', [IndexController::class , 'downloadReservation'])->name('download_reservation');
 
     Route::prefix('contact')->group(function (){

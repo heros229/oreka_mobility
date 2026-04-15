@@ -102,7 +102,7 @@
                                 </form>
                             </div>--}}
                             <div class="view-more-btn text-center mt-5">
-                                <a href="{{ route('accueil') }}#pricing" class="btn btn-primary">Réserver un vélo maintenant</a>
+                                <a href="{{ route('location_reservation_step_1') }}" class="btn btn-primary">Réserver un vélo maintenant</a>
                             </div>
                             {{--<div class="banner-user-group text-center" style="padding-top: 40px">
                                 <ul>
@@ -270,13 +270,13 @@
     <section class="seasonal-special-sec">
         <div class="container">
             <div class="sec-title">
-                <h2>Offre Spéciale Sportif du Weekend</h2>
+                <h2>Location Individuelle</h2>
                 <p>
-                    Profitez de nos tarifs préférentiels pour pratiquer le vélo en toute liberté.
-                    Une occasion idéale pour faire du sport, vous dépasser et partager un moment convivial.
+                    Louez un vélo à l'heure, à votre rythme et selon votre disponibilité.
+                    Idéal pour une balade solo, un entraînement personnel ou une sortie détente en toute liberté.
                 </p>
                 <div class="sec-btns">
-                    <a href="{{ route('accueil') }}#pricing" class="btn btn-primary d-flex align-items-center">Réserver maintenant</a>
+                    <a href="{{ route('location_reservation_step_1') }}" class="btn btn-primary d-flex align-items-center">Réserver maintenant</a>
                     {{--<a href="{{ route('reservation_step_1') }}" class="btn btn-primary d-flex align-items-center">
                         <i class="bx bx-cycling me-2"></i>Voir les détails
                     </a>--}}
@@ -444,7 +444,7 @@
                             <img src="{{ asset('assets/img/destination/destination-06.png')}}" alt="image" class="img-fluid">
                         </div>
                         <div class="destination-content">
-                            <h5>Route des pèches</h5>
+                            <h5>Route des pêches</h5>
 
                             <a href="{{ route('peche') }}" class="btn btn-primary">Voir plus<i class="bx bx-right-arrow-alt"></i></a>
                         </div>
@@ -602,12 +602,12 @@
                 <div class="row align-items-end">
                     <div class="col-md-6">
                         <div class="subscribe-content">
-                            <h2>Restez informé de nos <span>Offres & Activités</span></h2>
+                            <h2>Une question ? <span>Contactez-nous</span></h2>
                             <p>
-                                Recevez en exclusivité nos offres spéciales weekend,
-                                nos nouvelles sorties en groupe et nos événements sportifs.
+                                Vous avez besoin d'informations sur nos formules, nos horaires ou nos parcours ?
+                                Notre équipe est disponible pour vous répondre.
                             </p>
-                            <div class="view-more-btn  mt-5">
+                            <div class="view-more-btn mt-5">
                                 <a href="{{ route('contact') }}" class="btn btn-primary">Contactez-nous</a>
                             </div>
                         </div>
@@ -629,3 +629,5 @@
 
 
 @endsection
+
+

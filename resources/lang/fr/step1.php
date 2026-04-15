@@ -44,7 +44,7 @@ return [
     'how_step1_title' => 'Vos informations',
     'how_step1_desc'  => 'Renseignez vos coordonnées et choisissez une date.',
     'how_step2_title' => 'Choisissez votre formule',
-    'how_step2_desc'  => 'Sélectionnez le nombre de places ou d\'heures.',
+    'how_step2_desc'  => 'Sélectionnez le nombre de places',
     'how_step3_title' => 'Paiement & confirmation',
     'how_step3_desc'  => 'Payez via FedaPay. Confirmation instantanée par email.',
     'secure_label'    => 'Paiement 100% sécurisé · Données protégées',

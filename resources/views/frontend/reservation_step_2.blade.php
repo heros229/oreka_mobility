@@ -82,7 +82,7 @@
                     </div>
 
                     {{-- Carte location quotidienne --}}
-                    <div class="offer-card">
+                    <div class="offer-card d-none">
                         <div class="offer-card__header">
                             <div class="icon-wrap"><i class="bx bx-time-five"></i></div>
                             <div>

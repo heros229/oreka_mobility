@@ -9,7 +9,7 @@ return [
     // ── Hero / Wizard ─────────────────────────────────────────────
     'hero_title'        => 'Choisissez maintenant',
     'hero_title_span'   => 'la formule',
-    'hero_subtitle'     => 'Sélectionnez le nombre de places ou d\'heures souhaitées',
+    'hero_subtitle'     => 'Sélectionnez le nombre de places souhaitées',
     'step1_label'       => 'Informations',
     'step2_label'       => 'Formule',
     'step3_label'       => 'Confirmation',

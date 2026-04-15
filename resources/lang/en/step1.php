@@ -44,7 +44,7 @@ return [
     'how_step1_title' => 'Your information',
     'how_step1_desc'  => 'Enter your details and choose a date.',
     'how_step2_title' => 'Choose your plan',
-    'how_step2_desc'  => 'Select the number of spots or hours.',
+    'how_step2_desc'  => 'Select the number of spots',
     'how_step3_title' => 'Payment & confirmation',
     'how_step3_desc'  => 'Pay via FedaPay. Instant confirmation by email.',
     'secure_label'    => '100% secure payment · Data protected',

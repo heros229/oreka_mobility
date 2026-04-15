@@ -420,4 +420,213 @@ class IndexController extends Controller
     } //end method
 
 
+
+    public function Location_Reservation_step_1()
+    {
+
+        return view('frontend.location.reservation_step_1');
+
+    } // end method
+
+    public function Location_Reservation_step_2()
+    {
+
+        return view('frontend.location.reservation_step_2');
+
+    } //end method
+
+
+    // Dans IndexController.php
+    public function Location_Reservation_step_3(Request $request)
+    {
+        // ✅ Validation avant tout
+        $validated = $request->validate([
+            'firstName'        => 'required|string|max:100',
+            'lastName'         => 'required|string|max:100',
+            'email'            => 'required|email',
+            'phone'            => 'required|string|max:20',
+            'totalAmount'      => 'required|numeric|min:500',
+            'selectedServices' => 'required|array|min:1',
+        ], [
+            'email.required'     => 'L\'adresse email est obligatoire.',
+            'email.email'        => 'Veuillez fournir une adresse email valide.',
+            'firstName.required' => 'Le prénom est obligatoire.',
+            'totalAmount.min'    => 'Le montant minimum est de 500 F.',
+        ]);
+
+        \FedaPay\FedaPay::setApiKey(env('FEDAPAY_API_KEY'));
+        \FedaPay\FedaPay::setEnvironment(env('FEDAPAY_ENVIRONMENT', 'sandbox'));
+
+        try {
+            // Sauvegarder les donnees en session pour le callback
+            session([
+                'reservation_step1' => [
+                    'firstName'      => $validated['firstName'] ?? '',
+                    'lastName'       => $validated['lastName'] ?? '',
+                    'email'          => $validated['email'] ?? '',
+                    'phone'          => $validated['phone'] ?? '',
+                    'additionalInfo' => $request->input('additionalInfo', ''), // pas dans validated car non requis
+                    'startDate'      => $request->input('startDate', ''),
+                ],
+                'reservation_step2' => [
+                    'services'    => $validated['selectedServices'] ?? [],
+                    'totalAmount' => $validated['totalAmount'] ?? 0,
+                ],
+            ]);
+
+            // Formater le téléphone pour le Bénin
+            $phone = preg_replace('/[^0-9+]/', '', $validated['phone']);
+
+            if (!str_starts_with($phone, '+229')) {
+                if (str_starts_with($phone, '01')) {
+                    $phone = '+229' . $phone;
+                } elseif (str_starts_with($phone, '229')) {
+                    $phone = '+' . $phone;
+                } else {
+                    $phone = '+229' . $phone;
+                }
+            }
+
+            // Créer la transaction FedaPay
+            $transaction = \FedaPay\Transaction::create([
+                'description'  => 'Réservation vélo - ' . count($validated['selectedServices']) . ' service(s)',
+                'amount'       => $validated['totalAmount'],
+                'currency'     => ['iso' => 'XOF'],
+                'callback_url' => route('location_reservation_callback'),
+                'customer'     => [
+                    'firstname'    => $validated['firstName'],
+                    'lastname'     => $validated['lastName'],
+                    'email'        => $validated['email'],
+                    'phone_number' => [
+                        'number'  => $phone,
+                        'country' => 'bj'
+                    ]
+                ]
+            ]);
+
+            $token = $transaction->generateToken();
+
+            return response()->json([
+                'success'        => true,
+                'checkout_url'   => $token->url,
+                'transaction_id' => $transaction->id
+            ]);
+
+        } catch (\Exception $e) {
+            Log::error('FedaPay Error: ' . $e->getMessage());
+
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    public function Location_reservationCallback(Request $request)
+    {
+        \FedaPay\FedaPay::setApiKey(env('FEDAPAY_API_KEY'));
+        \FedaPay\FedaPay::setEnvironment(env('FEDAPAY_ENVIRONMENT', 'sandbox'));
+
+        $transactionId = $request->id;
+
+        try {
+            $transaction = \FedaPay\Transaction::retrieve($transactionId);
+
+            if ($transaction->status === 'approved') {
+
+                // Recuperer les donnees de session sauvegardees a l'etape 3
+                $step1 = session('reservation_step1', []);
+                $step2 = session('reservation_step2', []);
+
+                // Construire les donnees client
+                $firstName = $step1['firstName'] ?? '';
+                $lastName = $step1['lastName'] ?? '';
+                $clientName = trim("$firstName $lastName") ?: ($transaction->customer->firstname . ' ' . $transaction->customer->lastname);
+                $clientEmail = $step1['email'] ?? ($transaction->customer->email ?? '');
+                $clientPhone = $step1['phone'] ?? '';
+                $startDate = $step1['startDate'] ?? '';
+
+                // Construire les items
+                $services = $step2['services'] ?? [];
+                $items = array_map(function ($s) {
+                    return [
+                        'description' => $s['name'] ?? 'Service',
+                        'amount'      => intval($s['unitPrice'] ?? $s['price'] ?? 0), // ✅ prix unitaire
+                        'qty'         => intval($s['qty'] ?? 1),
+                    ];
+                }, $services);
+                $total = intval($step2['totalAmount'] ?? array_sum(array_column($items, 'amount')));
+
+                // Generer le PDF en memoire
+                $pdfContent = \Barryvdh\DomPDF\Facade\Pdf::loadView('frontend.pdfs.invoice', [
+                    'transactionID' => $transactionId,
+                    'client_name' => $clientName,
+                    'client_email' => $clientEmail,
+                    'client_phone' => $clientPhone,
+                    'start_date' => $startDate,
+                    'items' => $items,
+                    'total' => $total,
+                ])->setPaper('a5', 'landscape')->output();
+
+                // Envoyer l'email avec le PDF en piece jointe
+
+                if (App::getLocale() == 'fr') {
+                    if (!empty($clientEmail)) {
+                        try {
+                            Mail::to($clientEmail)->send(new ReservationConfirmationMail(
+                                $clientName,
+                                $clientEmail,
+                                $clientPhone,
+                                $startDate,
+                                (string)$transactionId,
+                                $items,
+                                $total,
+                                $pdfContent
+                            ));
+                        }
+                        catch (\Exception $mailException) {
+                            \Log::error('Mail Error: ' . $mailException->getMessage());
+                            // On ne bloque pas la page si l'email echoue
+                        }
+                    }
+                } elseif (App::getLocale() == 'en'){
+
+                    if (!empty($clientEmail)) {
+                        try {
+                            Mail::to($clientEmail)->send(new ReservationConfirmationMailEn(
+                                $clientName,
+                                $clientEmail,
+                                $clientPhone,
+                                $startDate,
+                                (string)$transactionId,
+                                $items,
+                                $total,
+                                $pdfContent
+                            ));
+                        }
+                        catch (\Exception $mailException) {
+                            \Log::error('Mail Error: ' . $mailException->getMessage());
+                            // On ne bloque pas la page si l'email echoue
+                        }
+                    }
+
+                }
+
+                return view('frontend.location.reservation_success', compact('transaction'));
+            }
+            else {
+                return view('frontend.location.reservation_failed', compact('transaction'));
+            }
+
+        }
+        catch (\Exception $e) {
+            return redirect()->route('accueil')->with('error', 'Erreur de verification');
+        }
+    } // end method
+
+
+
+
+
+
 }

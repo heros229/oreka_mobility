@@ -50,7 +50,7 @@
 
                 </li>
                 <li class="">
-                    <a href="{{ route('accueil') }}#about-us" style="font-size: 20px; padding: 20px; font-weight: bold">A propos de nous </a>
+                    <a href="{{ route('accueil') }}#about-us" style="font-size: 20px; padding: 20px; font-weight: bold">À propos de nous </a>
                 </li>
                 <li class="has-submenu">
                     <a href="{{ route('accueil') }}#parcours" style="font-size: 20px; padding: 20px; font-weight: bold">Nos Parcours <i class="fas fa-chevron-down"></i></a>
@@ -64,7 +64,7 @@
                     </ul>
                 </li>
                 <li class="has-submenu">
-                    <a href="{{ route('accueil') }}#pricing" style="font-size: 20px; padding: 20px; font-weight: bold">Réservations <i class="fas fa-chevron-down"></i></a>
+                    <a href="{{ route('accueil') }}#pricing" style="font-size: 20px; padding: 20px; font-weight: bold">Offres Spéciales <i class="fas fa-chevron-down"></i></a>
                     <ul class="submenu">
                         <li><a href="{{ route('details') }}?plan=velo-sport"
                                onclick="localStorage.setItem('selectedPlan','velo-sport')" style="font-size: 17px; padding: 20px; font-weight: bold">Vélo Sport</a></li>
@@ -79,6 +79,9 @@
                 <li class="">
                     <a href="{{ route('contact') }}" style="font-size: 20px; padding: 20px; font-weight: bold">Contact </a>
 
+                </li>
+                <li class="active">
+                    <a href="{{ route('location_reservation_step_1') }}" style="font-size: 20px; padding: 20px; font-weight: bold">Location Individuelle</a>
                 </li>
                 <li class="mt-4">
                     <div class="select-menu1" style="width: 200px;" >

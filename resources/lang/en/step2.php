@@ -9,7 +9,7 @@ return [
     // ── Hero / Wizard ─────────────────────────────────────────────
     'hero_title'        => 'Now choose &nbsp;',
     'hero_title_span'   => 'your plan',
-    'hero_subtitle'     => 'Select the number of spots or hours you need',
+    'hero_subtitle'     => 'Select the number of spots you need',
     'step1_label'       => 'Information',
     'step2_label'       => 'Plan',
     'step3_label'       => 'Confirmation',

@@ -457,80 +457,96 @@
     <!-- /Destinations Section -->
 
 
-    <!-- Facts By The Numbers -->
-    <section class="section facts-number">
-        <div class="facts-left">
-            <img src="assets/img/bg/facts-left.png" class="img-fluid" alt="facts left">
-        </div>
-        <div class="facts-right">
-            <img src="assets/img/bg/facts-right.png" class="img-fluid" alt="facts right">
-        </div>
+    <!-- Price Section -->
+    <section class="pricing-section-four" style="background-color: #201f1d">
         <div class="container">
-            <!-- Heading title-->
-            <div class="section-heading" data-aos="fade-down">
-                <h2 class="title text-white">Facts By The Numbers</h2>
-                <p class="description">Here are some dreamsrent interesting facts presented by the numbers</p>
+            <div class="section-heading heading-four" data-aos="fade-down">
+                <h2 style="color: white">Nos Formules de Location Individuelle</h2>
+                <p style="color: white">Louez un vélo à votre rythme, selon vos envies et votre disponibilité</p>
             </div>
-            <!-- /Heading title -->
-            <div class="counter-group">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-12 d-flex" data-aos="fade-down">
-                        <div class="count-group flex-fill">
-                            <div class="customer-count d-flex align-items-center">
-                                <div class="count-img">
-                                    <img src="assets/img/icons/bx-heart.svg" alt="Icon">
-                                </div>
-                                <div class="count-content">
-                                    <h4><span class="counterUp">16</span>K+</h4>
-                                    <p>Happy Customers</p>
+
+            <div class="row justify-content-center">
+
+                <!-- 1h -->
+                <div class="col-lg-3 col-md-6 d-flex">
+                    <div class="price-item price-item-two flex-fill">
+                        <div class="price-head">
+                            <h6>Formule 1 heure</h6>
+                            <div class="price-level">
+                                <div>
+                                    <h3>1 000F</h3>
+                                    <p>Pour 1 heure</p>
                                 </div>
                             </div>
+                        </div>
+                        <div class="price-details">
+                            <ul>
+                                <li>Durée : 1 heure</li>
+                                <li>Vélo + casque inclus</li>
+                                <li>Idéal pour une courte balade</li>
+                            </ul>
+                            <a href="{{ route('location_reservation_step_1') }}" class="w-100 btn btn-primary">Réserver <i class="bx bx-right-arrow-alt ms-1"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-12 d-flex" data-aos="fade-down">
-                        <div class="count-group flex-fill">
-                            <div class="customer-count d-flex align-items-center">
-                                <div class="count-img">
-                                    <img src="assets/img/icons/bx-car.svg" alt="Icon">
-                                </div>
-                                <div class="count-content">
-                                    <h4><span class="counterUp">2547</span>+</h4>
-                                    <p>Count of Cars</p>
+                </div>
+
+                <!-- 2h -->
+                <div class="col-lg-3 col-md-6 d-flex">
+                    <div class="price-item price-item-two flex-fill">
+                        <div class="price-head">
+                            <h6>Formule 2 heures</h6>
+                            <div class="price-level">
+                                <div>
+                                    <h3>2 500F</h3>
+                                    <p>Pour 2 heures</p>
                                 </div>
                             </div>
+                        </div>
+                        <div class="price-details">
+                            <ul>
+                                <li>Durée : 2 heures</li>
+                                <li>Vélo + casque inclus</li>
+                                <li>Parfait pour une sortie détente</li>
+                            </ul>
+                            <a href="{{ route('location_reservation_step_1') }}" class="w-100 btn btn-primary">Réserver <i class="bx bx-right-arrow-alt ms-1"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-12 d-flex" data-aos="fade-down">
-                        <div class="count-group flex-fill">
-                            <div class="customer-count d-flex align-items-center">
-                                <div class="count-img">
-                                    <img src="assets/img/icons/bx-headphone.svg" alt="Icon">
-                                </div>
-                                <div class="count-content">
-                                    <h4><span class="counterUp">625</span>+</h4>
-                                    <p>Car Center Solutions</p>
+                </div>
+
+                <!-- 3h -->
+                <div class="col-lg-3 col-md-6 d-flex">
+                    <div class="price-item price-item-two recommend flex-fill">
+                        <span class="recommend-tag"><i class="bx bxs-star me-1"></i>Recommandé</span>
+                        <div class="price-head">
+                            <h6>Formule 3 heures</h6>
+                            <div class="price-level">
+                                <div>
+                                    <h3>3 500F</h3>
+                                    <p>Pour 3 heures</p>
                                 </div>
                             </div>
+                        </div>
+                        <div class="price-details">
+                            <ul>
+                                <li>Durée : 3 heures</li>
+                                <li>Vélo + casque + antivol inclus</li>
+                                <li>Liberté totale d'itinéraire</li>
+                            </ul>
+                            <a href="{{ route('location_reservation_step_1') }}" class="w-100 btn btn-primary">Réserver <i class="bx bx-right-arrow-alt ms-1"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-12 d-flex" data-aos="fade-down">
-                        <div class="count-group flex-fill">
-                            <div class="customer-count d-flex align-items-center">
-                                <div class="count-img">
-                                    <img src="assets/img/icons/bx-history.svg" alt="Icon">
-                                </div>
-                                <div class="count-content">
-                                    <h4><span class="counterUp">15000</span>+</h4>
-                                    <p>Total Kilometer</p>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mx-auto">
+                    <div class="view-all-btn text-center aos" data-aos="fade-down">
+                        <p style="color: white">Profitez de la liberté de rouler à votre rythme, seul ou en famille, avec nos vélos de qualité disponibles à tout moment.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- /Facts By The Numbers -->
 
 
 
@@ -540,7 +556,7 @@
         <div class="container">
             <!-- Heading title-->
             <div class="section-heading" data-aos="fade-down">
-                <h2>Nos Tarifs de Location</h2>
+                <h2>Nos Offres Spéciales</h2>
                 <p>Choisissez l'offre qui vous convient</p>
             </div>
             <!-- /Heading title -->

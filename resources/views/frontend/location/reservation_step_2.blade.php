@@ -294,12 +294,12 @@
             // ── Offres de location à la durée — bilingue ────────────────
             const DUREE = {
                 fr: [
-                    { id:'d-1h', name:'Location 1 heure',  price:1500, unit:'+ 15 min offertes', desc:'Temps bonus inclus', avantages:[], max:10 },
+                    { id:'d-1h', name:'Location 1 heure',  price:1000, unit:'+ 15 min offertes', desc:'Temps bonus inclus', avantages:[], max:10 },
                     { id:'d-2h', name:'Location 2 heures', price:2500, unit:'+ 30 min offertes', desc:'Temps bonus inclus', avantages:[], max:10 },
                     { id:'d-3h', name:'Location 3 heures', price:3500, unit:'+ 30 min offertes', desc:'Temps bonus inclus', avantages:[], max:10 },
                 ],
                 en: [
-                    { id:'d-1h', name:'1-hour rental', price:1500, unit:'+ 15 min free', desc:'Bonus time included', avantages:[], max:10 },
+                    { id:'d-1h', name:'1-hour rental', price:1000, unit:'+ 15 min free', desc:'Bonus time included', avantages:[], max:10 },
                     { id:'d-2h', name:'2-hour rental', price:2500, unit:'+ 30 min free', desc:'Bonus time included', avantages:[], max:10 },
                     { id:'d-3h', name:'3-hour rental', price:3500, unit:'+ 30 min free', desc:'Bonus time included', avantages:[], max:10 },
                 ],

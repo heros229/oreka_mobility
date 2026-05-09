@@ -232,9 +232,42 @@
                         icon: 'bx bx-landmark', title: 'Vélo Tourisme',
                         sub: 'Visite guidée Cotonou · Ouidah · Porto-Novo',
                         sectionTitle: 'Offres Vélo Tourisme',
-                        sectionSub:   '30 000 F / inscription · Repas local inclus',
+                        sectionSub:   'Formule Prestige 14 000 F · Formule VIP 30 000 F',
                         offres: [
-                            { id:'tour-inscription', name:"Vélo Tourisme — Inscription", price:30000, unit:'/ personne', desc:'4h · Sites historiques + repas · 10 places', avantages:["Vélo","Casque","Eau","Guide pro","Éclairage","Antivol","Pompe","Repas"], max:10 },
+                            {
+                                id:'tour-prestige',
+                                name:"Vélo Tourisme — Formule Prestige",
+                                price:14000,
+                                unit:'/ personne',
+                                desc:'10 places · Visite sites payants Ouidah (sauf musées)',
+                                avantages:[
+                                    "Vélo",
+                                    "Casque",
+                                    "Bouteille d'eau",
+                                    "Visite & photos tous sites payants Ouidah (sauf musées)",
+                                    "Guide touristique professionnel",
+                                    "Nécessaire à grignoter"
+                                ],
+                                max:10
+                            },
+                            {
+                                id:'tour-vip',
+                                name:"Vélo Tourisme — Formule VIP",
+                                price:30000,
+                                unit:'/ personne',
+                                desc:'10 places · Repas complet + guide & traducteur inclus',
+                                avantages:[
+                                    "Vélo",
+                                    "Casque",
+                                    "Bouteille d'eau",
+                                    "Guide pro + traducteur (FR, EN, Mandarin, Espagnol)",
+                                    "Visite & photos tous sites payants Ouidah (sauf musées)",
+                                    "Brochure de parcours",
+                                    "Nécessaire à grignoter",
+                                    "Déjeuner complet en restaurant partenaire"
+                                ],
+                                max:10
+                            },
                         ],
                     },
                     'apprentissage': {
@@ -273,9 +306,42 @@
                         icon: 'bx bx-landmark', title: 'Cycling Tourism',
                         sub: 'Guided tour Cotonou · Ouidah · Porto-Novo',
                         sectionTitle: 'Cycling Tourism Offers',
-                        sectionSub:   '30,000 F / registration · Local meal included',
+                        sectionSub:   'Prestige Formula 14,000 F · VIP Formula 30,000 F',
                         offres: [
-                            { id:'tour-inscription', name:"Cycling Tourism - Registration", price:30000, unit:'/ person', desc:'4h · Historic sites + meal · 10 spots', avantages:['Bike','Helmet','Water','Pro guide','Lighting','Lock','Pump','Meal'], max:10 },
+                            {
+                                id:'tour-prestige',
+                                name:"Cycling Tourism — Prestige Formula",
+                                price:14000,
+                                unit:'/ person',
+                                desc:'10 spots · Visit paid sites in Ouidah (except museums)',
+                                avantages:[
+                                    "Bike",
+                                    "Helmet",
+                                    "Water bottle",
+                                    "Visit & photos at all paid sites in Ouidah (except museums)",
+                                    "Professional tour guide",
+                                    "Snack pack for the tour"
+                                ],
+                                max:10
+                            },
+                            {
+                                id:'tour-vip',
+                                name:"Cycling Tourism — VIP Formula",
+                                price:30000,
+                                unit:'/ person',
+                                desc:'10 spots · Full lunch + guide & translator included',
+                                avantages:[
+                                    "Bike",
+                                    "Helmet",
+                                    "Water bottle",
+                                    "Pro guide + translator (FR, EN, Mandarin, Spanish)",
+                                    "Visit & photos at all paid sites in Ouidah (except museums)",
+                                    "Tour route brochure",
+                                    "Snack pack for the tour",
+                                    "Full lunch at a partner restaurant"
+                                ],
+                                max:10
+                            },
                         ],
                     },
                     'apprentissage': {

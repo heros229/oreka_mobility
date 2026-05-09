@@ -162,11 +162,31 @@
 
                 {{-- ── SIDEBAR ── --}}
                 <div class="col-lg-4">
-                    <div class="sidebar-booking">
+                    {{-- SIDEBAR BOOKING BLOC 1 (toujours visible) --}}
+                    <div class="sidebar-booking" id="sidebar-booking-main">
                         <div class="sidebar-price" id="sidebar-price">— <span>{{ __('plans.per_session') }}</span></div>
                         <div style="font-size:13px;color:var(--oreka-muted);margin-top:2px;" id="sidebar-price-note"></div>
                         <hr class="sidebar-divider">
                         <div id="sidebar-features"></div>
+                        <hr class="sidebar-divider">
+                        <a href="javascript:void(0)" onclick="goToReservation()" class="btn-reserve-sidebar">
+                            <i class="fa-solid fa-calendar-check"></i> &nbsp; {{ __('plans.btn_reserve_now') }}
+                        </a>
+                        <a href="{{ route('contact') }}" class="btn-enquire-sidebar">
+                            <i class="fa-regular fa-envelope"></i> &nbsp; {{ __('plans.btn_contact') }}
+                        </a>
+                        <p class="sidebar-guarantee">
+                            <i class="fa-solid fa-shield-halved" style="color:var(--plan-color)"></i>
+                            {{ __('plans.sidebar_guarantee') }}
+                        </p>
+                    </div>
+
+                    {{-- SIDEBAR BOOKING BLOC 2 (visible uniquement pour le tourisme) --}}
+                    <div class="sidebar-booking d-none" id="sidebar-booking-secondary" style="margin-top:20px;">
+                        <div class="sidebar-price" id="sidebar-price-2">— <span></span></div>
+                        <div style="font-size:13px;color:var(--oreka-muted);margin-top:2px;" id="sidebar-price-note-2"></div>
+                        <hr class="sidebar-divider">
+                        <div id="sidebar-features-2"></div>
                         <hr class="sidebar-divider">
                         <a href="javascript:void(0)" onclick="goToReservation()" class="btn-reserve-sidebar">
                             <i class="fa-solid fa-calendar-check"></i> &nbsp; {{ __('plans.btn_reserve_now') }}
@@ -346,10 +366,40 @@
                         places:     '10 places maximum',
                         prixLabel:  '30 000 F CFA',
                         prixNote:   'Repas gastronomique & guide inclus',
+                        formules: [
+                            {
+                                label:    'Formule Prestige',
+                                prix:     '14 000 F CFA',
+                                note:     '10 places disponibles',
+                                avantages: [
+                                    {icon:'fa-bicycle',          label:'Un vélo'},
+                                    {icon:'fa-hard-hat',         label:'Un casque'},
+                                    {icon:'fa-bottle-water',     label:"Une bouteille d'eau"},
+                                    {icon:'fa-camera',           label:'Visite & photos sur tous les sites payants de Ouidah (sauf musées)'},
+                                    {icon:'fa-map-location-dot', label:'Guide touristique professionnel'},
+                                    {icon:'fa-cookie-bite',      label:'Un nécessaire à grignoter'},
+                                ],
+                            },
+                            {
+                                label:    'Formule VIP',
+                                prix:     '30 000 F CFA',
+                                note:     '10 places disponibles',
+                                avantages: [
+                                    {icon:'fa-bicycle',          label:'Un vélo'},
+                                    {icon:'fa-hard-hat',         label:'Un casque'},
+                                    {icon:'fa-bottle-water',     label:"Une bouteille d'eau"},
+                                    {icon:'fa-language',         label:'Guide pro + traducteur (FR, EN, Mandarin, Espagnol)'},
+                                    {icon:'fa-map-location-dot', label:'Visite & photos sur tous les sites payants de Ouidah (sauf musées)'},
+                                    {icon:'fa-book-open',        label:'Brochure de parcours'},
+                                    {icon:'fa-cookie-bite',      label:'Un nécessaire à grignoter'},
+                                    {icon:'fa-utensils',         label:'Déjeuner complet en restaurant partenaire'},
+                                ],
+                            },
+                        ],
                         prixSuffix: '',
                         hero:       '{{ asset("assets/img/cars/tourisme.png") }}',
-                        desc1:      "Offrez-vous une immersion culturelle et gastronomique unique dans la ville de votre choix (Cotonou, Ouidah, Porto-Novo) avec votre vélo OREKA. Accompagné d'un guide touristique professionnel, vous découvrirez les sites emblématiques et l'histoire fascinante du Bénin.",
-                        desc2:      "Ce plan Premium inclut une pause gastronomique dans un restaurant partenaire sélectionné. Tout le matériel de qualité est fourni pour une expérience confortable et mémorable.",
+                        desc1:      "Visiter les principaux sites touristiques et lieux emblématiques de la ville de Ouidah à vélo, avec un passage dans l’un des restaurants les plus réputés de la ville en goûtant au plat local, le tout accompagné d’un guide touristique professionnel pour une meilleure immersion dans l’histoire et la culture du pays.",
+                        //desc2:      "Ce plan Premium inclut une pause gastronomique dans un restaurant partenaire sélectionné. Tout le matériel de qualité est fourni pour une expérience confortable et mémorable.",
                         avantages:  [{icon:'fa-bicycle',label:'Vélo premium'},{icon:'fa-hard-hat',label:'Casque'},{icon:'fa-bottle-water',label:"Bouteille d'eau"},{icon:'fa-map-location-dot',label:'Guide touristique pro'},{icon:'fa-lightbulb',label:'Éclairage complet'},{icon:'fa-lock',label:'Antivol'},{icon:'fa-circle-dot',label:'Pompe incluse'},{icon:'fa-utensils',label:'Repas gastronomique'}],
                         infos:      [{val:'4h',lbl:'Durée'},{val:'3 villes',lbl:'Destinations'},{val:'10',lbl:'Places dispo'}],
                         videoThumb: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=900&q=80',
@@ -429,10 +479,40 @@
                         places:     '10 spots maximum',
                         prixLabel:  '30,000 F CFA',
                         prixNote:   'Gourmet meal & guide included',
+                        formules: [
+                            {
+                                label:    'Prestige Formula',
+                                prix:     '14,000 F CFA',
+                                note:     '10 spots available',
+                                avantages: [
+                                    {icon:'fa-bicycle',          label:'One bike'},
+                                    {icon:'fa-hard-hat',         label:'One helmet'},
+                                    {icon:'fa-bottle-water',     label:'One water bottle'},
+                                    {icon:'fa-camera',           label:'Visit & photos at all paid tourist sites in Ouidah (except museums)'},
+                                    {icon:'fa-map-location-dot', label:'Professional tour guide'},
+                                    {icon:'fa-cookie-bite',      label:'Snack pack for the tour'},
+                                ],
+                            },
+                            {
+                                label:    'VIP Formula',
+                                prix:     '30,000 F CFA',
+                                note:     '10 spots available',
+                                avantages: [
+                                    {icon:'fa-bicycle',          label:'One bike'},
+                                    {icon:'fa-hard-hat',         label:'One helmet'},
+                                    {icon:'fa-bottle-water',     label:'One water bottle'},
+                                    {icon:'fa-language',         label:'Pro guide + translator (FR, EN, Mandarin, Spanish)'},
+                                    {icon:'fa-map-location-dot', label:'Visit & photos at all paid tourist sites in Ouidah (except museums)'},
+                                    {icon:'fa-book-open',        label:'Tour route brochure'},
+                                    {icon:'fa-cookie-bite',      label:'Snack pack for the tour'},
+                                    {icon:'fa-utensils',         label:'Full lunch at a partner restaurant'},
+                                ],
+                            },
+                        ],
                         prixSuffix: '',
                         hero:       '{{ asset("assets/img/cars/tourisme.png") }}',
-                        desc1:      "Treat yourself to a unique cultural and gastronomic immersion in the city of your choice (Cotonou, Ouidah, Porto-Novo) with your OREKA bike. Accompanied by a professional tour guide, you will discover the iconic landmarks and fascinating history of Benin.",
-                        desc2:      "This Premium plan includes a gourmet stop at a selected partner restaurant. High-quality equipment is provided for a comfortable and memorable experience.",
+                        desc1:      "Explore Ouidah’s main tourist attractions and iconic landmarks by bike, including a stop at one of the city’s most renowned restaurants to sample a local dish, all accompanied by a professional tour guide to help you immerse yourself in the country’s history and culture.",
+                        //desc2:      "This Premium plan includes a gourmet stop at a selected partner restaurant. High-quality equipment is provided for a comfortable and memorable experience.",
                         avantages:  [{icon:'fa-bicycle',label:'Premium bike'},{icon:'fa-hard-hat',label:'Helmet'},{icon:'fa-bottle-water',label:'Water bottle'},{icon:'fa-map-location-dot',label:'Professional tour guide'},{icon:'fa-lightbulb',label:'Full lighting'},{icon:'fa-lock',label:'Lock'},{icon:'fa-circle-dot',label:'Pump included'},{icon:'fa-utensils',label:'Gourmet meal'}],
                         infos:      [{val:'4h',lbl:'Duration'},{val:'3 cities',lbl:'Destinations'},{val:'10',lbl:'Available spots'}],
                         videoThumb: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=900&q=80',
@@ -581,10 +661,17 @@
 
                 // Sticky bar
                 document.getElementById('sticky-price').innerHTML           = `${d.prixLabel} <span>${d.prixSuffix}</span>`;
+                // Sticky bar — caché pour le tourisme
+                const $stickyBar = $('.plan-sticky-bar');
+                if (key === 'tourisme') {
+                    $stickyBar.addClass('d-none');
+                } else {
+                    $stickyBar.removeClass('d-none');
+                }
 
                 // Descriptions
-                document.getElementById('plan-desc-1').textContent          = d.desc1;
-                document.getElementById('plan-desc-2').textContent          = d.desc2;
+                document.getElementById('plan-desc-1').innerHTML          = d.desc1;
+                document.getElementById('plan-desc-2').innerHTML          = d.desc2;
 
                 // Avantages
                 const $av = $('#plan-avantages');
@@ -641,6 +728,48 @@
                         )
                     );
                 });
+
+                // ── FORMULES TOURISME (double sidebar) ──
+                const $sb2    = $('#sidebar-booking-secondary');
+                const hasForm = d.formules && d.formules.length === 2;
+
+                if (hasForm) {
+                    const f1 = d.formules[0];
+                    const f2 = d.formules[1];
+
+                    // Bloc 1 — Prestige (remplace le sidebar principal)
+                    $('#sidebar-price').html(`${f1.prix} <span></span>`);
+                    $('#sidebar-price-note').html(`<strong>${f1.label}</strong> · ${f1.note}`);
+                    const $sf1 = $('#sidebar-features');
+                    $sf1.empty();
+                    f1.avantages.forEach(a => {
+                        $sf1.append(
+                            $('<div>').addClass('sidebar-feature').append(
+                                $('<i>').addClass('fa-solid fa-circle-check'),
+                                $('<span>').text(a.label)
+                            )
+                        );
+                    });
+
+                    // Bloc 2 — VIP (affiche le secondary)
+                    $sb2.removeClass('d-none');
+                    $('#sidebar-price-2').html(`${f2.prix} <span></span>`);
+                    $('#sidebar-price-note-2').html(`<strong>${f2.label}</strong> · ${f2.note}`);
+                    const $sf2 = $('#sidebar-features-2');
+                    $sf2.empty();
+                    f2.avantages.forEach(a => {
+                        $sf2.append(
+                            $('<div>').addClass('sidebar-feature').append(
+                                $('<i>').addClass('fa-solid fa-circle-check'),
+                                $('<span>').text(a.label)
+                            )
+                        );
+                    });
+
+                } else {
+                    // Plans normaux — le bloc 2 reste caché
+                    $sb2.addClass('d-none');
+                }
 
                 // Plans similaires
                 const row = document.getElementById('similar-plans-row');

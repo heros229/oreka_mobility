@@ -27,6 +27,22 @@
             display: none !important;
         }
 
+
+
+        .prix-bel {
+            color: black;
+        }
+        .prix-bel:hover {
+            color: white;
+        }
+
+        .prix-bel2 {
+            color: black;
+        }
+        .prix-bel2:hover {
+            color: white;
+        }
+
     </style>
 
 @endpush
@@ -139,17 +155,17 @@
 
     <!-- Yacht Categories -->
     <section class="yacht-category-sec">
-        <div class="sec-bg">
+       {{-- <div class="sec-bg">
             <img src="{{ asset('assets/img/bg/yacht-cat-sec-bg-01.png')}}" class="anchor-img" alt="Img">
             <img src="{{ asset('assets/img/bg/yacht-cat-sec-bg-02.png')}}" class="vector-round" alt="Img">
             <img src="{{ asset('assets/img/bg/yacht-cat-sec-bg-03.png')}}" class="design-round" alt="Img">
-        </div>
-        <div class="sec-round-colors">
+        </div>--}}
+        {{--<div class="sec-round-colors">
             <span class="bg-orange round-small"></span>
             <span class="bg-orange round-small"></span>
             <span class="bg-dark-blue round-small"></span>
             <span class="bg-dark-blue round-small"></span>
-        </div>
+        </div>--}}
         <div class="container">
             <div class="banner-yacht-type-slider owl-carousel">
                 <div class="slider-card">
@@ -638,8 +654,23 @@
                                 <h6>Vélo Tourisme</h6>
                                 <p>Expérience guidée</p>
                             </div>
-                            <h4>30 000F</h4>
-                            <span>Par inscription</span>
+
+                            <!-- Deux formules côte à côte -->
+                            <div class="price-check" style="display:flex; justify-content:center; margin-top:8px;">
+
+                                <div style="flex:1; text-align:center; border:1px solid rgb(0,0,0); border-radius:10px; padding:10px 6px;">
+                                    <span class="prix-bel" style="font-size:11px; font-weight:600; text-transform:uppercase; margin-bottom:4px;">Prestige</span>
+                                    <span class="prix-bel"  style="font-size:22px; font-weight:800; line-height:1.2; margin:0; ">14 000F</span>
+                                    <span class="prix-bel" style="font-size:12px; ">Par inscription</span>
+                                </div>
+
+                                <div style="flex:1; text-align:center; border:1px solid rgb(0,0,0); border-radius:10px; padding:10px 6px;">
+                                    <span class="prix-bel" style="font-size:11px; font-weight:600; text-transform:uppercase; margin-bottom:4px;">VIP</span>
+                                    <span class="prix-bel2" style="font-size:22px; font-weight:800; line-height:1.2; margin:0;">30 000F</span>
+                                    <span class="prix-bel" style="font-size:12px; ">Par inscription</span>
+                                </div>
+
+                            </div>
                         </div>
                         <div class="price-details">
                             <ul>

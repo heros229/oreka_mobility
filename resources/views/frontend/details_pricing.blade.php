@@ -191,8 +191,8 @@
                         <a href="javascript:void(0)" onclick="goToReservation()" class="btn-reserve-sidebar">
                             <i class="fa-solid fa-calendar-check"></i> &nbsp; {{ __('plans.btn_reserve_now') }}
                         </a>
-                        <a href="{{ route('contact') }}" class="btn-enquire-sidebar">
-                            <i class="fa-regular fa-envelope"></i> &nbsp; {{ __('plans.btn_contact') }}
+                        <a href="javascript:void(0)" onclick="goToReservation('vip')" class="btn-reserve-sidebar">
+                            <i class="fa-solid fa-calendar-check"></i> &nbsp; {{ __('plans.btn_reserve_now') }}
                         </a>
                         <p class="sidebar-guarantee">
                             <i class="fa-solid fa-shield-halved" style="color:var(--plan-color)"></i>
@@ -392,7 +392,7 @@
                                     {icon:'fa-map-location-dot', label:'Visite & photos sur tous les sites payants de Ouidah (sauf musées)'},
                                     {icon:'fa-book-open',        label:'Brochure de parcours'},
                                     {icon:'fa-cookie-bite',      label:'Un nécessaire à grignoter'},
-                                    {icon:'fa-utensils',         label:'Déjeuner complet en restaurant partenaire'},
+                                    {icon:'fa-utensils',         label:'Déjeuner complet au restaurant partenaire'},
                                 ],
                             },
                         ],
@@ -400,12 +400,12 @@
                         hero:       '{{ asset("assets/img/cars/tourisme.png") }}',
                         desc1:      "Visiter les principaux sites touristiques et lieux emblématiques de la ville de Ouidah à vélo, avec un passage dans l’un des restaurants les plus réputés de la ville en goûtant au plat local, le tout accompagné d’un guide touristique professionnel pour une meilleure immersion dans l’histoire et la culture du pays.",
                         //desc2:      "Ce plan Premium inclut une pause gastronomique dans un restaurant partenaire sélectionné. Tout le matériel de qualité est fourni pour une expérience confortable et mémorable.",
-                        avantages:  [{icon:'fa-bicycle',label:'Vélo premium'},{icon:'fa-hard-hat',label:'Casque'},{icon:'fa-bottle-water',label:"Bouteille d'eau"},{icon:'fa-map-location-dot',label:'Guide touristique pro'},{icon:'fa-lightbulb',label:'Éclairage complet'},{icon:'fa-lock',label:'Antivol'},{icon:'fa-circle-dot',label:'Pompe incluse'},{icon:'fa-utensils',label:'Repas gastronomique'}],
-                        infos:      [{val:'4h',lbl:'Durée'},{val:'3 villes',lbl:'Destinations'},{val:'10',lbl:'Places dispo'}],
+                        avantages:  [{icon:'fa-bicycle',label:'Vélo premium'},{icon:'fa-hard-hat',label:'Casque'},{icon:'fa-bottle-water',label:"Bouteille d'eau"},{icon:'fa-map-location-dot',label:'Guide touristique pro'}/*,{icon:'fa-lightbulb',label:'Éclairage complet'}*//*,{icon:'fa-lock',label:'Antivol'}*//*,{icon:'fa-circle-dot',label:'Pompe incluse'}*/,{icon:'fa-utensils',label:'Repas gastronomique'}],
+                        infos:      [{val:'4h',lbl:'Durée'},/*{val:'3 villes',lbl:'Destinations'},*/{val:'10',lbl:'Places dispo'}],
                         videoThumb: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=900&q=80',
                         videoUrl:   'https://www.youtube.com/watch?v=XVkkuTwaXgY',
                         videoCaption:'Visite à vélo des sites historiques de Ouidah et Porto-Novo avec OREKA',
-                        faq:        [{q:"Quelles villes sont visitées ?",a:"Cotonou, Ouidah (temples vaudou, route des esclaves) et Porto-Novo (palais royal, marchés)."},{q:"Le repas est-il vraiment inclus ?",a:"Oui, dans un restaurant partenaire sélectionné. La boisson peut être à la charge du participant."},{q:"Est-ce adapté aux touristes étrangers ?",a:"Absolument ! Nos guides parlent français et anglais."},{q:"Comment se déroule la réservation ?",a:"Réservez en ligne et payez via FedaPay. Confirmation par email avec tous les détails."}],
+                        faq:        [{q:"Quelle ville est visitée ?",a:"Cotonou, Ouidah (temples Vaudou, route des esclaves)."},{q:"Le repas est-il vraiment inclus ?",a:"Oui, dans un restaurant partenaire sélectionné. La boisson peut être à la charge du participant."},{q:"Est-ce adapté aux touristes étrangers ?",a:"Absolument ! Nos guides parlent français et anglais."},{q:"Comment se déroule la réservation ?",a:"Réservez en ligne et payez via FedaPay. Confirmation par email avec tous les détails."}],
                         similar:    ['velo-sport','randonnee','apprentissage'],
                     },
                     'apprentissage': {
@@ -513,12 +513,12 @@
                         hero:       '{{ asset("assets/img/cars/tourisme.png") }}',
                         desc1:      "Explore Ouidah’s main tourist attractions and iconic landmarks by bike, including a stop at one of the city’s most renowned restaurants to sample a local dish, all accompanied by a professional tour guide to help you immerse yourself in the country’s history and culture.",
                         //desc2:      "This Premium plan includes a gourmet stop at a selected partner restaurant. High-quality equipment is provided for a comfortable and memorable experience.",
-                        avantages:  [{icon:'fa-bicycle',label:'Premium bike'},{icon:'fa-hard-hat',label:'Helmet'},{icon:'fa-bottle-water',label:'Water bottle'},{icon:'fa-map-location-dot',label:'Professional tour guide'},{icon:'fa-lightbulb',label:'Full lighting'},{icon:'fa-lock',label:'Lock'},{icon:'fa-circle-dot',label:'Pump included'},{icon:'fa-utensils',label:'Gourmet meal'}],
-                        infos:      [{val:'4h',lbl:'Duration'},{val:'3 cities',lbl:'Destinations'},{val:'10',lbl:'Available spots'}],
+                        avantages:  [{icon:'fa-bicycle',label:'Premium bike'},{icon:'fa-hard-hat',label:'Helmet'},{icon:'fa-bottle-water',label:'Water bottle'},{icon:'fa-map-location-dot',label:'Professional tour guide'}/*,{icon:'fa-lightbulb',label:'Full lighting'},{icon:'fa-lock',label:'Lock'},*//*{icon:'fa-circle-dot',label:'Pump included'}*/,{icon:'fa-utensils',label:'Gourmet meal'}],
+                        infos:      [{val:'4h',lbl:'Duration'}/*,{val:'3 cities',lbl:'Destinations'}*/,{val:'10',lbl:'Available spots'}],
                         videoThumb: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=900&q=80',
                         videoUrl:   'https://www.youtube.com/watch?v=XVkkuTwaXgY',
                         videoCaption:'Cycling tour of the historic sites of Ouidah and Porto-Novo with OREKA',
-                        faq:        [{q:"Which cities are visited?",a:"Cotonou, Ouidah (voodoo temples, slave route) and Porto-Novo (royal palace, markets)."},{q:"Is the meal really included?",a:"Yes, at a selected partner restaurant. Drinks may be at the participant's own expense."},{q:"Is it suitable for foreign tourists?",a:"Absolutely! Our guides speak French and English."},{q:"How does the booking process work?",a:"Book online and pay via FedaPay. Confirmation by email with all the details."}],
+                        faq:        [{q:"Which city is being visited??",a:"Cotonou, Ouidah (Vodoun temples, slave route)."},{q:"Is the meal really included?",a:"Yes, at a selected partner restaurant. Drinks may be at the participant's own expense."},{q:"Is it suitable for foreign tourists?",a:"Absolutely! Our guides speak French and English."},{q:"How does the booking process work?",a:"Book online and pay via FedaPay. Confirmation by email with all the details."}],
                         similar:    ['velo-sport','randonnee','apprentissage'],
                     },
                     'apprentissage': {
@@ -766,9 +766,23 @@
                         );
                     });
 
+                    // Changer les onclick dynamiquement
+                    document.querySelector('#sidebar-booking-main .btn-reserve-sidebar')
+                        .setAttribute('onclick', "goToReservation('prestige')");
+
+                    document.querySelector('#sidebar-booking-secondary .btn-reserve-sidebar')
+                        .setAttribute('onclick', "goToReservation('vip')");
+
                 } else {
+
+                    // Plans normaux — remettre sans formule
+                    document.querySelector('#sidebar-booking-main .btn-reserve-sidebar')
+                        .setAttribute('onclick', "goToReservation()");
+
                     // Plans normaux — le bloc 2 reste caché
                     $sb2.addClass('d-none');
+
+
                 }
 
                 // Plans similaires
@@ -801,10 +815,11 @@
                 }
             };
 
-            window.goToReservation = function() {
+            window.goToReservation = function(formule) {
                 const key = getParam();
                 localStorage.setItem('selectedPlan', key);
-                window.location.href = "{{ route('reservation_step_1') }}?plan=" + key;
+                if (formule) localStorage.setItem('selectedFormule', formule);
+                window.location.href = "{{ route('reservation_step_1') }}?plan=" + key + (formule ? '&formule=' + formule : '');
             };
 
             // ============================================================

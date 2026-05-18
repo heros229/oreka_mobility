@@ -343,6 +343,10 @@ class IndexController extends Controller
         return view('frontend.parcours.sofitel');
     }
 
+    public function ouidah() {
+        return view('frontend.parcours.ouidah');
+    }
+
 
     public function ContactMessage(Request $request){
 

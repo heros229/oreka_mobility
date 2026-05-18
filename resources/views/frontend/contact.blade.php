@@ -65,7 +65,7 @@
                         <div class="single-contact-info flex-fill">
                             <span><i class="feather-phone-call"></i></span>
                             <h3>Numéro de téléphone</h3>
-                            <a href="tel:+2290153096850">+229 015 309 6850</a>
+                            <a href="tel:+2290153096850">+229 01 57 17 44 14</a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-12 d-flex" data-aos="fade-down" data-aos-duration="1200" data-aos-delay="0.2">

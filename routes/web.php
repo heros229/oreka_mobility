@@ -52,7 +52,7 @@ Route::group(
     Route::get('/place-bio-guerra', [IndexController::class, 'placebioguerra'])->name('guerra');
     Route::get('/route-peche', [IndexController::class, 'routepeche'])->name('peche');
     Route::get('/sofitel', [IndexController::class, 'sofitel'])->name('sofitel');
-
+    Route::get('/ouidah', [IndexController::class, 'ouidah'])->name('ouidah');
 
 
 });

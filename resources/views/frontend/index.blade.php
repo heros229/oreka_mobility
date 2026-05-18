@@ -406,10 +406,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 col-sm-6 order-lg-2 order-sm-5">
+                <div class="col-lg-3 col-sm-6 order-lg-2 order-sm-5">
                     <div class="destination-wrap" data-aos="fade-down">
                         <div class="destination-img">
-                            <img src="{{ asset('assets/img/destination/destination-02.png')}}" alt="image" class="img-fluid">
+                            <img src="{{ asset('assets/img/destination/destination-10.png')}}" alt="image" class="img-fluid">
                         </div>
                         <div class="destination-content">
                             <h5>Sofitel</h5>
@@ -418,10 +418,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6 order-lg-3 order-sm-3">
+                <div class="col-lg-3 col-sm-6 order-lg-2 order-sm-5">
                     <div class="destination-wrap" data-aos="fade-down">
                         <div class="destination-img">
-                            <img src="{{ asset('assets/img/destination/destination-03.png')}}" alt="image" class="img-fluid">
+                            <img src="{{ asset('assets/img/destination/destination-09.png')}}" alt="image" class="img-fluid">
+                        </div>
+                        <div class="destination-content">
+                            <h5>Ouidah</h5>
+
+                            <a href="{{ route('ouidah') }}" class="btn btn-primary">Voir plus<i class="bx bx-right-arrow-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 order-lg-3 order-sm-3">
+                    <div class="destination-wrap" data-aos="fade-down">
+                        <div class="destination-img">
+                            <img src="{{ asset('assets/img/destination/destination-11.png')}}" alt="image" class="img-fluid">
                         </div>
                         <div class="destination-content">
                             <h5>Monument aux dévoués</h5>
@@ -679,7 +691,7 @@
                                 <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Repas dans un restaurant réputé</li>
                                 <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Vélo + casque + bouteille d'eau</li>
                                 <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Guide touristique professionnel</li>
-                                <li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Éclairage + antivol + pompe</li>
+                                {{--<li class="price-check"><span><i class="fa-regular fa-circle-check"></i></span>Éclairage + antivol + pompe</li>--}}
                             </ul>
                             <a href="{{ route('details') }}?plan=tourisme"
                                 onclick="localStorage.setItem('selectedPlan','tourisme')"

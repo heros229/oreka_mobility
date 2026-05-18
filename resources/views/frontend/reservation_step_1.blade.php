@@ -210,32 +210,55 @@
             // ── Labels des plans selon la langue ───────────────────────
             const PLAN_LABELS = {
                 fr: {
-                    'velo-sport':    { icon: 'bx bx-run',       title: 'Vélo Sport',            sub: 'Séance de sport · 3 000 F / séance'       },
-                    'randonnee':     { icon: 'bx bx-map',        title: 'Randonner à Vélo',      sub: 'Circuit 30–43 km · 6 000 F adulte'         },
-                    'tourisme':      { icon: 'bx bx-landmark',   title: 'Vélo Tourisme',         sub: 'Visite guidée · 30 000 F / inscription'    },
-                    'apprentissage': { icon: 'bx bx-chalkboard', title: 'Apprentissage du Vélo', sub: 'Vélo École Adulte & Kids'                  },
+                    'velo-sport':         { icon: 'bx bx-run',       title: 'Vélo Sport',            sub: 'Séance de sport · 3 000 F / séance'    },
+                    'randonnee':          { icon: 'bx bx-map',        title: 'Randonner à Vélo',      sub: 'Circuit 30–43 km · 6 000 F adulte'     },
+                    'tourisme':           { icon: 'bx bx-landmark',   title: 'Vélo Tourisme',         sub: 'Visite guidée · 30 000 F / inscription' },
+                    'tourisme-prestige':  { icon: 'bx bx-landmark',   title: 'Vélo Tourisme — Formule Prestige', sub: 'Visite guidée · 14 000 F / inscription' },
+                    'tourisme-vip':       { icon: 'bx bx-landmark',   title: 'Vélo Tourisme — Formule VIP',      sub: 'Visite guidée · 30 000 F / inscription' },
+                    'apprentissage':      { icon: 'bx bx-chalkboard', title: 'Apprentissage du Vélo', sub: 'Vélo École Adulte & Kids'              },
                 },
                 en: {
-                    'velo-sport':    { icon: 'bx bx-run',       title: 'Sport Cycling',   sub: 'Sport session · 3,000 F / session'         },
-                    'randonnee':     { icon: 'bx bx-map',        title: 'Cycling Trail',   sub: '30–43 km circuit · 6,000 F adult'          },
-                    'tourisme':      { icon: 'bx bx-landmark',   title: 'Cycling Tourism', sub: 'Guided tour · 30,000 F / registration'     },
-                    'apprentissage': { icon: 'bx bx-chalkboard', title: 'Learn to Cycle',  sub: 'Cycling School Adults & Kids'              },
+                    'velo-sport':         { icon: 'bx bx-run',       title: 'Sport Cycling',   sub: 'Sport session · 3,000 F / session'      },
+                    'randonnee':          { icon: 'bx bx-map',        title: 'Cycling Trail',   sub: '30–43 km circuit · 6,000 F adult'       },
+                    'tourisme':           { icon: 'bx bx-landmark',   title: 'Cycling Tourism', sub: 'Guided tour · 30,000 F / registration'  },
+                    'tourisme-prestige':  { icon: 'bx bx-landmark',   title: 'Cycling Tourism — Prestige Formula', sub: 'Guided tour · 14,000 F / registration' },
+                    'tourisme-vip':       { icon: 'bx bx-landmark',   title: 'Cycling Tourism — VIP Formula',      sub: 'Guided tour · 30,000 F / registration' },
+                    'apprentissage':      { icon: 'bx bx-chalkboard', title: 'Learn to Cycle',  sub: 'Cycling School Adults & Kids'           },
                 },
             };
 
             // ── Détection du plan ───────────────────────────────────────
-            const urlPlan = new URLSearchParams(window.location.search).get('plan');
+            const urlPlan    = new URLSearchParams(window.location.search).get('plan');
+            const urlFormule = new URLSearchParams(window.location.search).get('formule');
+
             if (urlPlan) localStorage.setItem('selectedPlan', urlPlan);
-            const planKey = urlPlan || localStorage.getItem('selectedPlan');
+            if (urlFormule) localStorage.setItem('selectedFormule', urlFormule);
+
+            const planKey    = urlPlan    || localStorage.getItem('selectedPlan');
+            const formuleKey = urlFormule || localStorage.getItem('selectedFormule');
+
+            // Clé composite pour le tourisme
+            const badgeKey = (planKey === 'tourisme' && formuleKey)
+                ? `tourisme-${formuleKey}`
+                : planKey;
 
             // ── Affichage du badge plan ─────────────────────────────────
-            if (planKey && PLAN_LABELS[LOCALE][planKey]) {
+            if (badgeKey && PLAN_LABELS[LOCALE][badgeKey]) {
+                const pl = PLAN_LABELS[LOCALE][badgeKey];
+                document.getElementById('plan-badge').style.display = 'flex';
+                document.getElementById('badge-icon').className     = pl.icon;
+                document.getElementById('badge-title').innerHTML    = pl.title;
+                document.getElementById('badge-sub').innerHTML      = pl.sub;
+            }
+
+
+            /*if (planKey && PLAN_LABELS[LOCALE][planKey]) {
                 const pl = PLAN_LABELS[LOCALE][planKey];
                 document.getElementById('plan-badge').style.display  = 'flex';
                 document.getElementById('badge-icon').className      = pl.icon;
                 document.getElementById('badge-title').textContent   = pl.title;
                 document.getElementById('badge-sub').textContent     = pl.sub;
-            }
+            }*/
 
             // ── Gestion du champ téléphone ──────────────────────────────
             const phone = document.getElementById('f-phone');
